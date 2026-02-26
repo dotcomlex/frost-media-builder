@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Space Grotesk"', "sans-serif"],
+        heading: ['"Inter"', "sans-serif"],
         body: ['"Inter"', "sans-serif"],
-        mono: ['"Space Mono"', "monospace"],
+        mono: ['"JetBrains Mono"', "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,14 +52,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        frost: {
-          navy: "hsl(var(--frost-navy))",
-          surface: "hsl(var(--frost-surface))",
-          elevated: "hsl(var(--frost-elevated))",
-          green: "hsl(var(--frost-green))",
-          emerald: "hsl(var(--frost-emerald))",
-          glow: "hsl(var(--frost-green-glow))",
+        coral: {
+          DEFAULT: "hsl(var(--coral))",
+          light: "hsl(var(--coral-light))",
         },
+        amber: {
+          DEFAULT: "hsl(var(--amber))",
+          light: "hsl(var(--amber-light))",
+        },
+        "surface-warm": "hsl(var(--surface-warm))",
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -85,20 +88,19 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "bounce-slow": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(8px)" },
+        "pulse-dot": {
+          "0%, 100%": { transform: "scale(1)", opacity: "1" },
+          "50%": { transform: "scale(1.8)", opacity: "0" },
         },
-        "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 30px hsl(var(--frost-green) / 0.3)" },
-          "50%": { boxShadow: "0 0 50px hsl(var(--frost-green) / 0.5)" },
+        "flow-dash": {
+          to: { strokeDashoffset: "-20" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "bounce-slow": "bounce-slow 2s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "pulse-dot": "pulse-dot 2s ease-in-out infinite",
+        "flow-dash": "flow-dash 1s linear infinite",
       },
     },
   },
