@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Inter"', "sans-serif"],
+        heading: ['"Space Grotesk"', "sans-serif"],
         body: ['"Inter"', "sans-serif"],
         mono: ['"JetBrains Mono"', "monospace"],
       },
@@ -52,6 +52,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "frost-blue": {
+          DEFAULT: "hsl(var(--frost-blue))",
+          deep: "hsl(var(--frost-blue-deep))",
+        },
+        "frost-dark": "hsl(var(--frost-dark))",
+        "frost-surface": "hsl(var(--frost-surface))",
         coral: {
           DEFAULT: "hsl(var(--coral))",
           light: "hsl(var(--coral-light))",
@@ -95,12 +101,17 @@ export default {
         "flow-dash": {
           to: { strokeDashoffset: "-20" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
         "flow-dash": "flow-dash 1s linear infinite",
+        float: "float 6s ease-in-out infinite",
       },
     },
   },

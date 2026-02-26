@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import TrustBar from "@/components/TrustBar";
+import WhyFailSection from "@/components/WhyFailSection";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
 import SystemDiagramSection from "@/components/SystemDiagramSection";
 import ResultsSection from "@/components/ResultsSection";
@@ -9,9 +11,11 @@ import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen overflow-x-hidden">
     <Navigation />
     <HeroSection />
+    <TrustBar />
+    <WhyFailSection />
     <CapabilitiesSection />
     <SystemDiagramSection />
     <ResultsSection />

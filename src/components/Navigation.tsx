@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
 const navLinks = [
-  { label: "Capabilities", href: "#capabilities" },
+  { label: "Services", href: "#capabilities" },
   { label: "Systems", href: "#systems" },
   { label: "Results", href: "#results" },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navigation = () => {
@@ -16,7 +17,7 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setVisible(window.scrollY > 80);
+    const handleScroll = () => setVisible(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,12 +30,12 @@ const Navigation = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-card/80 border-b border-border"
+          className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0A0E1A]/80 border-b border-white/10"
         >
           <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between h-16">
             <a href="#" className="font-heading font-bold text-2xl">
-              <span className="text-foreground">FROST</span>
-              <span className="text-primary"> MEDIA</span>
+              <span className="text-white">FROST</span>
+              <span className="text-frost-blue"> MEDIA</span>
             </a>
 
             <div className="hidden md:flex items-center gap-8">
@@ -42,7 +43,7 @@ const Navigation = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors"
                 >
                   {link.label}
                 </a>
@@ -50,18 +51,18 @@ const Navigation = () => {
             </div>
 
             <div className="hidden md:block">
-              <Button className="glow-coral rounded-xl px-6 font-semibold shadow-lg shadow-primary/20">
-                Let's Talk
+              <Button className="bg-frost-blue hover:bg-frost-blue-deep text-white rounded-xl px-6 font-semibold shadow-lg shadow-frost-blue/20">
+                Start Your Project
               </Button>
             </div>
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild className="md:hidden">
-                <button className="text-foreground p-2">
+                <button className="text-white p-2">
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-card/95 backdrop-blur-xl border-border">
+              <SheetContent side="right" className="bg-[#0A0E1A]/95 backdrop-blur-xl border-white/10">
                 <SheetTitle className="sr-only">Navigation</SheetTitle>
                 <div className="flex flex-col gap-6 mt-12">
                   {navLinks.map((link) => (
@@ -69,13 +70,13 @@ const Navigation = () => {
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-lg font-medium text-white/70 hover:text-white transition-colors"
                     >
                       {link.label}
                     </a>
                   ))}
-                  <Button className="glow-coral rounded-xl px-6 font-semibold mt-4 w-full">
-                    Let's Talk
+                  <Button className="bg-frost-blue hover:bg-frost-blue-deep text-white rounded-xl px-6 font-semibold mt-4 w-full">
+                    Start Your Project
                   </Button>
                 </div>
               </SheetContent>
