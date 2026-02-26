@@ -8,34 +8,34 @@ import {
 
 const faqs = [
   {
-    q: "How does the 15% commission work exactly?",
-    a: "Simple. I generate leads through my marketing system. When one of those leads turns into a closed job, I earn 15% of the job total. If a homeowner books a $10,000 driveway through my ads, that's $1,500 for me. If they pay you in installments, my commission splits the same way — you pay me when they pay you. If a lead doesn't close, you owe me nothing on that lead.",
+    q: "How are your leads different from Angi or HomeAdvisor?",
+    a: "Every lead we generate is 100% exclusive to you. We never share leads with competitors. Our AI responds in under 60 seconds and qualifies them before they reach you, so you only talk to people ready to buy.",
   },
   {
-    q: "What does the monthly fee cover?",
-    a: "The $2,000 monthly management fee covers everything I build and manage: ad campaign strategy, creative production, ad copywriting, AI chatbot systems, automated follow-up sequences, landing pages, lead management platform access, a dedicated business phone number, and daily campaign optimization. The ad budget ($1,500/month to start) goes directly to Meta — not to me.",
-  },
-  {
-    q: "How are your leads different from HomeAdvisor or Angi?",
-    a: "Every lead I generate is 100% exclusive to you. HomeAdvisor and Angi sell the same lead to 3-5 contractors, creating a race to see who calls first. With me, the lead is yours and only yours. Plus, my AI system responds instantly, so by the time your competitors would've even seen the notification, the lead is already booked on your calendar.",
-  },
-  {
-    q: "What if I'm already running Facebook ads?",
-    a: "If your current ads are working, great — keep them. But if you're boosting posts or running ads without a system behind them (landing pages, AI follow-up, automated booking), you're leaving money on the table. I build complete systems, not just ads.",
+    q: "What if I'm already running ads?",
+    a: "If your ads are working, great. But if you're running ads without complete systems behind them, like AI follow-up, automated booking, and full CRM tracking, you're leaving 60-70% of potential revenue on the table. We build complete infrastructure, not just ads.",
   },
   {
     q: "How fast will I see results?",
-    a: "Most clients start getting leads within the first 1-2 weeks of launching campaigns. The first month is about testing — finding the best audiences, offers, and creative angles. By month 2-3, we're scaling what works and your pipeline should be consistently filling up.",
+    a: "Most clients start getting qualified leads within 1-2 weeks. The first month is testing and optimization. By month 2-3, your pipeline should be consistently full.",
   },
   {
-    q: "Do I need to be tech-savvy?",
-    a: "Not at all. I handle everything — the ads, the AI, the automations, the tech. You get a simple app on your phone where you can see all your leads and conversations in real time. All you need to do is show up to the appointments and close.",
+    q: "Do you work with my industry?",
+    a: "We specialize in home services and beauty businesses, but we've built systems for insurance, e-commerce, and more. If you have an established business ready to scale, we can probably help.",
+  },
+  {
+    q: "What makes your AI different?",
+    a: "Our AI is custom-trained on real sales conversations in your industry. It knows how to qualify leads, handle objections naturally, and book appointments without sounding robotic. It's not a generic chatbot. It's a trained system.",
+  },
+  {
+    q: "Do you work with everyone?",
+    a: "No. We're selective. We want businesses that are already established, have proper operations in place, and are ready to invest in growth. We're not a rescue service. We help good businesses become dominant.",
   },
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-20 md:py-28 bg-card">
-    <div className="max-w-3xl mx-auto px-6">
+  <section id="faq" className="py-16 md:py-24 lg:py-32 bg-muted">
+    <div className="max-w-3xl mx-auto px-6 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,9 +43,9 @@ const FAQSection = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <p className="font-mono text-primary text-sm tracking-widest uppercase mb-4">FAQ</p>
+        <p className="font-mono-tech text-xs tracking-widest uppercase text-frost-blue mb-4">FAQ</p>
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-          Questions You're Probably Thinking
+          Questions You're Probably Asking
         </h2>
       </motion.div>
 
@@ -60,9 +60,9 @@ const FAQSection = () => (
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="border border-border rounded-xl px-6 bg-background/50 data-[state=open]:border-primary/30"
+              className="border border-border rounded-xl px-6 bg-card data-[state=open]:border-frost-blue/30"
             >
-              <AccordionTrigger className="text-foreground hover:text-primary hover:no-underline text-left py-5 font-medium">
+              <AccordionTrigger className="text-foreground hover:text-frost-blue hover:no-underline text-left py-5 font-medium">
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
