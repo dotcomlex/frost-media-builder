@@ -1,10 +1,8 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import ProblemSection from "@/components/ProblemSection";
-import ServicesSection from "@/components/ServicesSection";
-import DifferentiatorSection from "@/components/DifferentiatorSection";
+import CapabilitiesSection from "@/components/CapabilitiesSection";
+import SystemDiagramSection from "@/components/SystemDiagramSection";
 import ResultsSection from "@/components/ResultsSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
 import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -14,11 +12,9 @@ const Index = () => (
   <div className="min-h-screen bg-background">
     <Navigation />
     <HeroSection />
-    <ProblemSection />
-    <ServicesSection />
-    <DifferentiatorSection />
+    <CapabilitiesSection />
+    <SystemDiagramSection />
     <ResultsSection />
-    <HowItWorksSection />
     <AboutSection />
     <FAQSection />
     <FinalCTASection />
