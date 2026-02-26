@@ -1,105 +1,111 @@
 
 
-# Frost Media — Warm Light Theme Redesign
+# Frost Media — Dark/Light Contrast Redesign
 
 ## Overview
-Complete visual and content overhaul: dark AI agency theme → warm light theme with coral/amber accents, bento grid layouts, interactive system diagram, "we" voice, and no pricing/commission mentions.
+Major redesign: alternating dark (`#0A0E1A`) and light (`#FAFAF9`) sections, frost blue (`#60A5FA`) + coral (`#FF6B58`) accents, mountain/frost Colorado branding, Space Grotesk headings, broader services, "we" voice, no pricing, "Christian Alejandro" not "Alex Luna", interactive AI chat demo, scrolling trust bar.
 
 ## Implementation Steps
 
-### 1. Redesign system foundations
-- Replace CSS variables in `src/index.css`: dark navy backgrounds → warm off-white (`#FAFAF9`), green accents → coral (`#FF6B58`) / amber (`#FFB84D`), dark text (`#1E293B`)
-- Add JetBrains Mono font import alongside Inter (drop Space Grotesk for headings, use Inter bold instead)
-- Update `tailwind.config.ts`: new color tokens (coral, amber, slate), remove frost-green/frost-navy references, update font families
-- Update `index.html` meta tags with new description (no pricing mentions)
+### 1. Update design system foundations
+- **`src/index.css`**: Replace CSS variables with dual dark/light palette. Dark: `#0A0E1A` bg, `#151B2E` surface, frost blue `#60A5FA` primary. Light sections use `#FAFAF9`. Add Space Grotesk font import back alongside Inter + JetBrains Mono. Add `overflow-x: hidden` on html/body. Add frost-glow utilities.
+- **`tailwind.config.ts`**: Add `frost-blue`, `frost-dark`, `frost-surface` color tokens. Update font-heading to Space Grotesk. Keep coral/amber tokens. Add mountain gradient utilities.
+- **`index.html`**: Update meta title to "AI-Powered Growth Systems for Colorado Businesses", update description removing pricing/contractor-only language.
 
-### 2. Rebuild Navigation
-- Light theme: `backdrop-blur-xl bg-white/80 border-b border-slate-200`
-- Logo: "FROST" black + "MEDIA" coral
-- Links: "Capabilities" | "Systems" | "Results" | "About" (rename from current)
-- CTA: "Let's Talk" in coral
-- Same scroll-reveal behavior
+### 2. Rebuild Navigation (`Navigation.tsx`)
+- Glassmorphism style: `backdrop-blur-xl bg-white/5 border-b border-white/10` (dark default since hero is dark)
+- Logo: "FROST" white + "MEDIA" frost blue
+- Links: "Services" | "Systems" | "Results" | "About" | "Contact"
+- CTA: "Start Your Project" in frost blue
+- Appears after 50px scroll
 
-### 3. Rebuild Hero as bento grid
-- Background: `bg-gradient-to-br from-orange-50 via-white to-amber-50`
-- CSS Grid layout: large left block (hero text) + 3 small right cards (stat counter 1900+, exclusive leads badge, AI pulse indicator)
-- New copy using "We" voice, no pricing
-- Headline: "We Build Lead Generation Systems / That Work While You Sleep" with coral-to-amber gradient text
-- Badge: "AI-Powered Lead Generation for Home Service Contractors"
-- CTAs: "Book Strategy Call" (coral) + "See How It Works ↓"
+### 3. Rebuild Hero (`HeroSection.tsx`) — DARK section
+- Dark gradient bg: `from-[#0A0E1A] via-[#1E3A8A] to-[#0F172A]`
+- SVG mountain silhouettes at bottom with layered opacity
+- Animated particle/star dots (CSS keyframes, small glowing circles)
+- Badge: "AI-Powered Growth Systems for Colorado Businesses"
+- Headline: "We Build Systems That / Generate, Close & Manage / Leads on Autopilot" (last line gradient frost-blue to coral)
+- Sub: mentions AI + media buying + Denver, no pricing
+- CTAs: "See Our Systems" (frost blue glow) + "Case Studies ↓"
+- Bouncing chevron scroll indicator
 
-### 4. Rebuild Capabilities section (replaces Services + Problem)
-- Remove ProblemSection entirely — fold messaging into capabilities
-- Asymmetric bento grid with 6 cards of varying sizes (col-span/row-span)
-- Card 1 (large, coral gradient bg): "Direct-Response Meta Campaigns"
-- Card 2 (tall): "AI-Powered Follow-Up"
-- Card 3 (wide, amber bg): "Appointment Scheduling on Autopilot"
-- Cards 4-6 (small): "Custom Landing Pages", "24/7 Lead Screening", "Real-Time Reporting"
-- All copy rewritten to "we" voice, no pricing
+### 4. Create Trust Bar section (new `TrustBar.tsx`) — LIGHT section
+- `bg-white` with infinite CSS scroll animation
+- Items: "Meta Business Partner", "AI-Powered Systems", "Custom Automation", "Advanced Analytics", "Conversion Optimization", "Mobile-First Design", "Bilingual Marketing (EN/ES)"
+- Duplicated row for seamless loop
+- `@keyframes scroll` CSS animation
 
-### 5. Build Interactive System Diagram (replaces HowItWorks)
-- New component `SystemDiagramSection.tsx`
-- Animated flow: Facebook Ad → Landing Page → Lead Capture → AI Chatbot → Qualification → Calendar Booking → Reminders → Contractor Shows Up
-- SVG nodes as white cards with coral accents, animated dashed connecting lines (stroke-dashoffset animation)
-- Sequential reveal on scroll using Framer Motion
-- Mobile: vertical stack layout
+### 5. Create "Why Businesses Fail" section (new `WhyFailSection.tsx`) — DARK section
+- `bg-[#0A0E1A]` with subtle grid overlay
+- Headline: "Most Businesses Fail Because They're Running Blind"
+- 3 cards: "Winging It Every Day", "Stuck in 2015", "Trading Time for Money"
+- Cards: `bg-white/5 backdrop-blur-sm border border-white/10`
+- Stagger fade-in animations
 
-### 6. Remove DifferentiatorSection
-- Delete entirely — it's all about pricing/commission which we no longer show
+### 6. Rebuild Capabilities → Services bento (`CapabilitiesSection.tsx`) — LIGHT section
+- `bg-slate-50`
+- Label: "WHAT WE BUILD" / Headline: "The Complete Growth Infrastructure"
+- Expanded services: Performance Media Buying (large, frost-blue gradient), AI Lead Systems (tall), Custom Websites & Funnels (wide, coral bg), CRM Infrastructure, Branding & Design, Conversion Copywriting
+- Remove "GoHighLevel" from tags
+- Add TikTok to media buying, add Web Design/Branding/Copywriting services
+- Broader copy — not contractor-specific
 
-### 7. Rebuild Results section
-- Light background, coral/amber gradient stat numbers instead of green
-- Remove "15%" and "Commission" stat — replace with "100%" + "Exclusive Leads"
-- Rewrite testimonial quotes to remove pricing references (remove "15%" mention from 14er quote)
-- Coral accent styling on testimonial cards
+### 7. Rebuild System Diagram → AI Chat Demo (`SystemDiagramSection.tsx`) — DARK section
+- `bg-[#0A0E1A]` with animated grid
+- Replace flow diagram with interactive AI chat demo
+- Auto-playing conversation: lead asks about kitchen remodel, AI qualifies and books
+- Typing indicator animation, message-by-message reveal on scroll
+- "BOOKED" notification at end
+- Stats row below: "<60 sec", "24/7", "100%", "Zero manual work"
 
-### 8. Rebuild About section
-- Warm gradient background: `from-orange-50 to-amber-50`
-- Rewrite copy to "We" voice throughout
-- Coral accent styling on labels and badges
-- Keep same two-column layout structure
+### 8. Rebuild Results section (`ResultsSection.tsx`) — LIGHT section
+- `bg-white`
+- Remove "15% Commission" stat → replace with "100% Exclusive"
+- Gradient numbers: frost-blue to coral
+- Fix testimonials: "Alex's system" → "The system", use "Juan Rodriguez" not "J. Rodriguez", "Maria" for Divas Beauty
+- Remove pricing references from quotes
+- Coral/blue accent styling
 
-### 9. Rebuild FAQ section
-- Remove pricing questions (Q1 about 15% commission, Q2 about monthly fee)
-- Add new questions: "What services do you specialize in?" and "What makes your AI different?"
-- Rewrite remaining answers to "we" voice
-- Light theme accordion styling with coral active state
+### 9. Rebuild About section (`AboutSection.tsx`) — DARK section
+- Dark gradient: `from-[#0A0E1A] to-[#1E3A8A]`
+- "Christian Alejandro" not "Alex Luna"
+- Headline: "Built by Marketers Who Saw the Gaps"
+- Updated copy: "we" voice, small expert team, selective positioning, no pricing mentions, broader than contractors
+- Add "Selective Clientele" badge
+- Add "We Don't Work with Everyone" callout block
+- Light text on dark bg
 
-### 10. Rebuild Final CTA
-- Coral-to-amber gradient background instead of dark green
-- White text, white CTA button with coral text
-- New copy: "Ready to Build Your Lead Machine?" — no pricing mentions
+### 10. Rebuild FAQ (`FAQSection.tsx`) — LIGHT section
+- `bg-slate-50`
+- Remove Q1 (15% commission) and Q2 (monthly fee)
+- New questions: "Do you work with my industry?", "What makes your AI different?", "Do you work with everyone?" (selective positioning)
+- All answers in "we" voice, no pricing, no "I"
+- Frost blue accent on active accordion item
 
-### 11. Rebuild Footer
-- Dark slate background (`bg-slate-900`)
-- Coral accent on MEDIA text
-- Updated nav links: "Capabilities" | "Systems" | "Results" | "About" | "FAQ"
-- "Built with precision in Denver" tagline
+### 11. Rebuild Final CTA (`FinalCTASection.tsx`) — DARK section
+- Gradient: `from-[#0A0E1A] via-[#1E3A8A] to-frost-blue-600`
+- Headline: "Ready to Build Your Growth Infrastructure?"
+- White CTA button with frost blue text
+- Updated sub copy, no pricing
 
-### 12. Update Index page
-- Remove ProblemSection and DifferentiatorSection imports
-- Add SystemDiagramSection between Capabilities and Results
-- Update section order: Nav → Hero → Capabilities → SystemDiagram → Results → About → FAQ → FinalCTA → Footer
+### 12. Rebuild Footer (`Footer.tsx`) — DARK section
+- `bg-[#0A0E1A]`
+- Logo: FROST white, MEDIA frost blue
+- Tagline: "Cutting-edge AI systems for Colorado businesses"
+- Links: Services | Systems | Results | About | Contact
+- Email: hello@frostmedia.co
+- "Built with precision in Denver, Colorado"
+
+### 13. Update Index page (`Index.tsx`)
+- Section order: Navigation → Hero → TrustBar → WhyFailSection → Capabilities → SystemDiagram → Results → About → FAQ → FinalCTA → Footer
+- Import new components, remove old deleted ones
 
 ### Files to create
-- `src/components/SystemDiagramSection.tsx`
+- `src/components/TrustBar.tsx`
+- `src/components/WhyFailSection.tsx`
 
-### Files to heavily rewrite
-- `src/index.css` (full color system change)
-- `tailwind.config.ts` (new tokens)
-- `src/components/Navigation.tsx`
-- `src/components/HeroSection.tsx`
-- `src/components/ServicesSection.tsx` (becomes Capabilities bento)
-- `src/components/ResultsSection.tsx`
-- `src/components/HowItWorksSection.tsx` (may be replaced by SystemDiagram)
-- `src/components/AboutSection.tsx`
-- `src/components/FAQSection.tsx`
-- `src/components/FinalCTASection.tsx`
-- `src/components/Footer.tsx`
+### Files to rewrite
+- `src/index.css`, `tailwind.config.ts`, `index.html`
+- All component files listed above
 - `src/pages/Index.tsx`
-- `index.html`
-
-### Files to delete
-- `src/components/ProblemSection.tsx`
-- `src/components/DifferentiatorSection.tsx`
 
