@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 const HeroSection = () => (
-  <section className="relative bg-alpine-dark bg-frost-pattern min-h-[80vh] md:min-h-[85vh] flex items-center">
+  <section className="relative bg-alpine-dark min-h-[80vh] md:min-h-[85vh] flex items-center">
+    <div className="absolute inset-0 z-0 overflow-hidden">
+      <DottedSurface className="h-full w-full" />
+    </div>
     <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24 w-full">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
