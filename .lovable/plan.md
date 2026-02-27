@@ -1,122 +1,51 @@
 
 
-# Full Site Overhaul Plan
+# Fix Color Consistency, Services, Testimonials & Logos
 
-## Current Section Background Flow (the blending problem)
-```text
-Hero:          bg-alpine-dark  (dark)
-LogoMarquee:   bg-frost-light  (light)
-Services:      bg-frost-light  (light) ← blends with marquee
-Process:       bg-alpine-dark  (dark)
-Testimonials:  bg-alpine-dark  (dark) ← blends with process
-About:         frost-light gradient (light)
-FAQ:           bg-frost-light  (light) ← blends with about
-CTA:           bg-alpine-dark  (dark)
-Footer:        bg-alpine-dark  (dark) ← blends with CTA
-```
+## Problem
+The `alpine-navy` (#0B1D33 dark blue) creates a jarring color break between sections. User wants one consistent dark color throughout, not alternating between near-black and dark-blue.
 
-## New Background Rhythm (alternating dark/light with clear separation)
-```text
-Hero:          bg-black (pure black so particle dots pop)
-LogoMarquee:   bg-alpine-dark (dark, subtle divider)
-Services:      bg-alpine-navy (distinct dark blue, 2x2 grid)
-Process:       bg-frost-light (LIGHT - breaks the dark run)
-Testimonials:  bg-alpine-dark (dark, cards glow)
-About:         bg-alpine-navy + subtle gradient overlay
-FAQ:           bg-alpine-dark (dark accordion)
-CTA:           bg-black + frost-pattern (punchy contrast)
-Footer:        bg-alpine-dark
-```
+## Color Fix
+Remove `alpine-navy` from all section backgrounds. Use only two backgrounds:
+- **Dark sections**: `bg-alpine-dark` (near-black `220 20% 6%`)
+- **Light section**: `bg-frost-light` (Process only — keeps the visual break)
+- **Hero/CTA**: `bg-alpine-black` (pure black)
 
----
+Sections will use subtle dividers (thin `border-white/5` lines or slight gradient overlays) instead of different background colors to differentiate.
 
-## Changes by File
+## Files & Changes
 
-### 1. `src/index.css` - Color Variables
-- Change `--alpine-dark` to a true near-black: `220 20% 6%`
-- Add `--alpine-black: 0 0% 4%` for hero/CTA
-- Keep `--secondary` (amber) but limit usage to CTAs only
-- Change star ratings from amber to ice-blue
+### 1. `CapabilitiesSection.tsx` — Services Compact Grid
+- Change `bg-alpine-navy` → `bg-alpine-dark`
+- Remove Google Ads mention; add Copywriting as a service
+- Rewrite service cards: Paid Media (Meta only), Lead Generation, AI Systems, Copywriting & Creative
+- Add small icon illustrations per card instead of just lucide icons — use subtle gradient bg panels
+- Keep compact 2x2 grid, benefit-first copy
+- Add subtle top border divider to separate from marquee
 
-### 2. `src/components/Navigation.tsx` - Transparent to Frosted
-- Default state: `bg-transparent` with no border
-- Scrolled state: `bg-alpine-dark/90 backdrop-blur-xl border-b border-white/10`
-- Change CTA button from `bg-secondary` to `bg-ice-blue text-white hover:bg-deep-ice`
-- Keep "Let's Talk" amber CTA (only amber element in nav)
+### 2. `AboutSection.tsx` — Remove Stats, Fix Background
+- Change `bg-alpine-navy` → `bg-alpine-dark`
+- Remove the stats row (7+ Years, 150+ Clients, $10M+ Revenue) entirely
+- Keep the story copy and section header
 
-### 3. `src/components/HeroSection.tsx` - Black Background
-- Change `bg-alpine-dark` to `bg-[hsl(var(--alpine-black))]` so dots stand out
-- Change CTA from amber to ice-blue with glow: `bg-ice-blue shadow-ice-blue/30`
-- Keep amber ONLY on the primary "Book a Free Strategy Call" CTA
+### 3. `SystemDiagramSection.tsx` — Fix Testimonials
+- Slow down marquee/scroll speed if auto-scrolling
+- Generate proper avatar images using AI image generation API (8 realistic headshots)
+- Add more testimonials (expand from 8 to ~10-12)
+- Fix any clipping at the end of the scroll container
+- Ensure all cards are fully visible and scrollable on mobile
 
-### 4. `src/components/LogoMarquee.tsx` - Add Uploaded Logos
-- Copy uploaded SVGs (Partners_WB-04.svg = TikTok, Partners_WB-08.svg = Shopify, Client-05.svg = AMADOR, Client-04.svg = cursive brand, Client-09.svg = geometric brand) to `src/assets/`
-- Add them alongside existing PCA, CPIA, Meta logos
-- Change background to `bg-alpine-dark` with `border-white/5` dividers
-- Make logos white/light colored on dark background
+### 4. `LogoMarquee.tsx` — Fix Logo Visibility
+- Slow down the marquee animation (`20s` → `40s`)
+- Ensure all logos render properly with correct sizing
+- Check that `brightness-0 invert` filter works for all logo formats (PNG vs SVG)
 
-### 5. `src/components/CapabilitiesSection.tsx` - Compact 2x2 Grid
-- Replace the 4 massive stacked cards with a tight 2x2 grid (`grid-cols-1 sm:grid-cols-2`)
-- Each card: icon + title + 2-line benefit statement + small "Learn more" link
-- Remove the "Outcome:" label entirely; rewrite as benefit-first copy
-- Remove long deliverable bullet lists; replace with 3 short benefit phrases per card
-- Remove `border-secondary` accents; use `border-ice-blue/20` uniformly
-- Background: `bg-alpine-navy` (distinct from hero and process)
-- Compact padding: `p-5 md:p-6` instead of `p-8 md:p-10`
-- Rewrite copy to sell results, not technical details:
-  - "Paid Media" -> "More customers, lower cost per lead"
-  - "Lead Gen" -> "Your calendar, fully booked every month"
-  - "AI Systems" -> "Instant responses, zero missed leads"
-  - "Web & Funnels" -> "Pages that convert visitors into revenue"
+### 5. `tailwind.config.ts` — Slow marquee
+- Change marquee duration from `20s` to `40s`
 
-### 6. `src/components/ProcessSection.tsx` - Light Background
-- Change to `bg-frost-light` to break the dark section run
-- Update text colors to `text-foreground` and `text-muted-foreground`
-- Icons: `bg-ice-blue/10 border-ice-blue/30` with `text-ice-blue` icons
-- Line connector: `bg-ice-blue/30`
+### 6. `testimonial-cards.tsx` — Better avatars
+- Use AI-generated avatar images instead of pravatar.cc
 
-### 7. `src/components/SystemDiagramSection.tsx` - Fix Testimonial Carousel
-- Keep `bg-alpine-dark` (now visually distinct because Process above is light)
-- Fix card widths: `w-[280px] md:w-[340px]` (smaller, more visible at once)
-- Add padding-right on last card so it doesn't clip: add a spacer div at the end
-- Ensure snap points work: `snap-start` instead of `snap-center`
-- Add subtle gradient fade on left/right edges of the scroll container
-
-### 8. `src/components/ui/testimonial-cards.tsx` - Restyle
-- Stars: change from `fill-amber text-amber` to `fill-ice-blue text-ice-blue`
-- Better card styling: `bg-white/[0.03] border-white/[0.08]` for subtler glass
-- Larger avatar: `h-16 w-16` with ice-blue border ring
-- Quote text slightly larger on mobile for readability
-
-### 9. `src/components/AboutSection.tsx` - Dark Background + Expanded Content
-- Change to `bg-alpine-navy` with text-on-dark colors
-- Add a stats row: "7+ Years", "150+ Clients", "$10M+ Revenue Generated"
-- Add more depth to the story copy
-
-### 10. `src/components/FAQSection.tsx` - Dark Theme + More FAQs
-- Change to `bg-alpine-dark`
-- Restyle accordion items: `bg-white/5 border-white/10` dark glass cards
-- Text: `text-text-on-dark`, triggers: `hover:text-ice-blue`
-- Add 3 more FAQs:
-  - "How much do your services cost?"
-  - "What's your onboarding process like?"
-  - "Can you guarantee results?"
-
-### 11. `src/components/FinalCTASection.tsx` - Pure Black
-- Change to `bg-[hsl(var(--alpine-black))]`
-- Keep amber CTA button (this is where amber shines)
-
-### 12. `src/components/Footer.tsx` - No changes needed
-
----
-
-## Assets to Copy
-- `user-uploads://Partners_WB-04.svg` -> `src/assets/logo-tiktok.svg`
-- `user-uploads://Partners_WB-08.svg` -> `src/assets/logo-shopify.svg`
-- `user-uploads://Client-05.svg` -> `src/assets/logo-client-amador.svg`
-- `user-uploads://Client-04.svg` -> `src/assets/logo-client-script.svg`
-- `user-uploads://Client-09.svg` -> `src/assets/logo-client-geo.svg`
-
-## Files Modified
-`src/index.css`, `Navigation.tsx`, `HeroSection.tsx`, `LogoMarquee.tsx`, `CapabilitiesSection.tsx`, `ProcessSection.tsx`, `SystemDiagramSection.tsx`, `testimonial-cards.tsx`, `AboutSection.tsx`, `FAQSection.tsx`, `FinalCTASection.tsx`
+### Files Modified
+`CapabilitiesSection.tsx`, `AboutSection.tsx`, `SystemDiagramSection.tsx`, `LogoMarquee.tsx`, `testimonial-cards.tsx`, `tailwind.config.ts`
 
