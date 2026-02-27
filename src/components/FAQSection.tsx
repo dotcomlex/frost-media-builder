@@ -27,10 +27,22 @@ const faqs = [
     q: "Do you work with startups?",
     a: "We're selective — we work with established businesses that have proven product-market fit and are ready to scale. We help good businesses become dominant.",
   },
+  {
+    q: "How much do your services cost?",
+    a: "Our pricing is based on scope and scale. We don't do cookie-cutter packages — every engagement is custom-built around your goals. Book a strategy call and we'll give you a transparent breakdown.",
+  },
+  {
+    q: "What's your onboarding process like?",
+    a: "Simple: strategy call → custom game plan → we build everything in 1-2 weeks → launch. You'll have a dedicated point of contact and full visibility into every step.",
+  },
+  {
+    q: "Can you guarantee results?",
+    a: "We don't make empty promises. What we can guarantee is a battle-tested system, weekly optimization, and full transparency. Our track record speaks for itself — 150+ clients and counting.",
+  },
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-16 md:py-24 bg-frost-light">
+  <section id="faq" className="py-16 md:py-24 bg-alpine-dark">
     <div className="max-w-3xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -39,7 +51,8 @@ const FAQSection = () => (
         transition={{ duration: 0.5 }}
         className="mb-10"
       >
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+        <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">FAQ</p>
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark">
           Common Questions
         </h2>
       </motion.div>
@@ -49,12 +62,12 @@ const FAQSection = () => (
           <AccordionItem
             key={i}
             value={`item-${i}`}
-            className="border border-border rounded-xl px-6 bg-card data-[state=open]:border-primary/30"
+            className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:border-ice-blue/30"
           >
-            <AccordionTrigger className="text-foreground hover:text-primary hover:no-underline text-left py-5 font-semibold">
+            <AccordionTrigger className="text-text-on-dark hover:text-ice-blue hover:no-underline text-left py-5 font-semibold">
               {faq.q}
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+            <AccordionContent className="text-text-on-dark/60 leading-relaxed pb-5">
               {faq.a}
             </AccordionContent>
           </AccordionItem>

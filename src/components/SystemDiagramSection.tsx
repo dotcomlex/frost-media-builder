@@ -19,14 +19,13 @@ const SystemDiagramSection = () => {
 
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
-    const amount = dir === "left" ? -400 : 400;
+    const amount = dir === "left" ? -340 : 340;
     scrollRef.current.scrollBy({ left: amount, behavior: "smooth" });
   };
 
   return (
     <section id="work" className="py-16 md:py-24 bg-alpine-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +33,7 @@ const SystemDiagramSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-xs tracking-widest uppercase text-ice-blue mb-3">Social Proof</p>
+          <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">Social Proof</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark tracking-tight">
             What Our Clients Say
           </h2>
@@ -43,7 +42,6 @@ const SystemDiagramSection = () => {
           </p>
         </motion.div>
 
-        {/* Scroll arrows (desktop) */}
         <div className="hidden md:flex justify-end gap-2 mb-4">
           <button
             onClick={() => scroll("left")}
@@ -61,22 +59,28 @@ const SystemDiagramSection = () => {
           </button>
         </div>
 
-        {/* Scrolling row */}
-        <div
-          ref={scrollRef}
-          className="flex gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0"
-        >
-          {reviews.map((r) => (
-            <TestimonialCard
-              key={r.name}
-              avatarUrl={`https://i.pravatar.cc/128?img=${r.avatarId}`}
-              name={r.name}
-              role={r.role}
-              location={r.location}
-              tag={r.tag}
-              quote={r.quote}
-            />
-          ))}
+        {/* Scroll container with edge fades */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-alpine-dark to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-alpine-dark to-transparent z-10 pointer-events-none" />
+          <div
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0"
+          >
+            {reviews.map((r) => (
+              <TestimonialCard
+                key={r.name}
+                avatarUrl={`https://i.pravatar.cc/128?img=${r.avatarId}`}
+                name={r.name}
+                role={r.role}
+                location={r.location}
+                tag={r.tag}
+                quote={r.quote}
+              />
+            ))}
+            {/* Spacer to prevent last card clipping */}
+            <div className="w-4 shrink-0" />
+          </div>
         </div>
       </div>
     </section>

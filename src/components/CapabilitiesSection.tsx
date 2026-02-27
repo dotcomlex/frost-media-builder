@@ -1,128 +1,77 @@
 import { motion } from "framer-motion";
-import { Target, Bot, Globe, Megaphone, ArrowRight } from "lucide-react";
+import { Target, Bot, Globe, Megaphone } from "lucide-react";
 
 const services = [
   {
     icon: Megaphone,
-    title: "Paid Media & Advertising",
-    tagline: "Your ads, engineered to print money.",
-    deliverables: [
-      "Meta, Instagram & Google campaigns",
-      "Scroll-stopping creative production",
-      "Rigorous A/B testing frameworks",
-      "Deep audience research & targeting",
-      "Retargeting funnels that convert",
-      "Scaling strategies that actually work",
-    ],
-    outcome: "Stop guessing. Start scaling.",
-    accent: "border-ice-blue",
-    accentBg: "bg-ice-blue/10",
-    accentText: "text-ice-blue",
+    title: "Paid Media",
+    benefit: "More customers, lower cost per lead.",
+    points: ["Meta & Google campaigns that scale", "Scroll-stopping creative that converts", "A/B tested for maximum ROI"],
   },
   {
     icon: Target,
     title: "Lead Generation",
-    tagline: "Your pipeline, full. Every single month.",
-    deliverables: [
-      "Custom campaigns for any industry",
-      "Geo-targeted ad delivery",
-      "Full-funnel architecture",
-      "CRM integration & lead routing",
-      "Home services, beauty, insurance, real estate & more",
-    ],
-    outcome: "From empty calendar to fully booked.",
-    accent: "border-secondary",
-    accentBg: "bg-secondary/10",
-    accentText: "text-secondary",
+    benefit: "Your calendar, fully booked every month.",
+    points: ["Geo-targeted campaigns for any industry", "Full-funnel lead capture & routing", "Home services, beauty, insurance & more"],
   },
   {
     icon: Bot,
-    title: "AI-Powered Systems",
-    tagline: "Your best closer — working 24/7.",
-    deliverables: [
-      "Custom AI agent & chatbot",
-      "Instant lead response (<30 seconds)",
-      "FAQ & objection handling",
-      "Automated appointment booking",
-      "Follow-up sequences that never forget",
-      "Full CRM integration",
-    ],
-    outcome: "Every lead gets a response in seconds, not hours.",
-    accent: "border-ice-blue",
-    accentBg: "bg-ice-blue/10",
-    accentText: "text-ice-blue",
+    title: "AI Systems",
+    benefit: "Instant responses, zero missed leads.",
+    points: ["Custom AI chatbot responds in <30s", "Automated booking & follow-ups", "Works 24/7 so you don't have to"],
   },
   {
     icon: Globe,
-    title: "Web Design & Funnels",
-    tagline: "Websites that sell. Not just sit there.",
-    deliverables: [
-      "High-converting landing pages",
-      "Multi-step sales funnels",
-      "Full website builds & redesigns",
-      "Brand identity & visual systems",
-      "Mobile-first, SEO-optimized",
-    ],
-    outcome: "Your digital presence becomes your best salesperson.",
-    accent: "border-secondary",
-    accentBg: "bg-secondary/10",
-    accentText: "text-secondary",
+    title: "Web & Funnels",
+    benefit: "Pages that convert visitors into revenue.",
+    points: ["High-converting landing pages & funnels", "Brand identity & visual systems", "Mobile-first, SEO-optimized builds"],
   },
 ];
 
 const CapabilitiesSection = () => (
-  <section id="services" className="py-16 md:py-28 bg-frost-light">
+  <section id="services" className="py-14 md:py-20 bg-alpine-navy">
     <div className="max-w-5xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5 }}
-        className="mb-14"
+        className="mb-10"
       >
-        <p className="font-mono-tech text-xs tracking-widest uppercase text-primary mb-3">What We Build</p>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+        <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">What We Build</p>
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-on-dark tracking-tight">
           Complete Marketing Infrastructure
         </h2>
-        <p className="text-muted-foreground text-lg mt-4 max-w-2xl">
-          Everything your business needs to attract, convert, and close — built as one integrated system.
+        <p className="text-text-on-dark/50 text-base mt-3 max-w-xl">
+          Everything your business needs to attract, convert, and close.
         </p>
       </motion.div>
 
-      <div className="flex flex-col gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className={`bg-card rounded-2xl border border-border border-l-4 ${s.accent} p-8 md:p-10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+            transition={{ duration: 0.4, delay: i * 0.08 }}
+            className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6 hover:bg-white/[0.06] transition-all duration-300"
           >
-            <div className="flex flex-col md:flex-row md:items-start gap-6">
-              <div className={`w-14 h-14 rounded-xl ${s.accentBg} flex items-center justify-center shrink-0`}>
-                <s.icon className={`h-7 w-7 ${s.accentText}`} />
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-ice-blue/10 flex items-center justify-center shrink-0">
+                <s.icon className="h-5 w-5 text-ice-blue" />
               </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-foreground font-heading">{s.title}</h3>
-                <p className={`text-lg font-medium ${s.accentText} mt-1 italic`}>"{s.tagline}"</p>
-
-                <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-                  {s.deliverables.map((d) => (
-                    <li key={d} className="flex items-start gap-2 text-muted-foreground text-sm">
-                      <ArrowRight className={`h-4 w-4 ${s.accentText} mt-0.5 shrink-0`} />
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 pt-5 border-t border-border">
-                  <p className="font-heading font-bold text-foreground text-base">
-                    Outcome: <span className={s.accentText}>{s.outcome}</span>
-                  </p>
-                </div>
-              </div>
+              <h3 className="text-lg font-bold text-text-on-dark font-heading">{s.title}</h3>
             </div>
+            <p className="text-ice-blue font-medium text-sm mb-3">{s.benefit}</p>
+            <ul className="space-y-1.5">
+              {s.points.map((p) => (
+                <li key={p} className="text-text-on-dark/50 text-sm flex items-start gap-2">
+                  <span className="text-ice-blue mt-1 text-xs">▸</span>
+                  {p}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         ))}
       </div>

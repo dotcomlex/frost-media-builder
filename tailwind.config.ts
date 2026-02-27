@@ -54,6 +54,7 @@ export default {
         },
         "alpine-dark": "hsl(var(--alpine-dark))",
         "alpine-navy": "hsl(var(--alpine-navy))",
+        "alpine-black": "hsl(var(--alpine-black))",
         "ice-blue": "hsl(var(--ice-blue))",
         "deep-ice": "hsl(var(--deep-ice))",
         "frost-light": "hsl(var(--frost-light))",
