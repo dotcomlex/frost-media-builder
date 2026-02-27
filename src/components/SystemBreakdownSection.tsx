@@ -75,21 +75,6 @@ const SystemBreakdownSection = () => (
         ))}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-center mt-10"
-      >
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 bg-ice-blue text-white font-heading font-semibold px-6 py-3 rounded-lg hover:bg-deep-ice transition-colors"
-        >
-          See It In Action
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </motion.div>
     </div>
   </section>
 );
