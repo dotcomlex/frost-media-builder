@@ -1,111 +1,68 @@
 
 
-# Frost Media — Streamlined Redesign with Real Color & Contrast
+# Frost Media — Content & Design Overhaul
 
-## Problems Identified
-1. **No color contrast** — everything is white/light gray/pale blue. Text blends into background. Metrics number (amber on white) barely visible.
-2. **Too much content** — 11 sections is excessive. Trust bar, bilingual spotlight, and results section repeat info already in hero/case studies.
-3. **Colors don't feel "Frost"** — pale washed-out blue doesn't evoke frost, ice, mountains, or Colorado. Needs deeper, richer blues and actual contrast.
-4. **Not mobile-optimized** — hero takes up too much space, text is small, sections are long.
-5. **Generic template vibe** — same centered layout every section.
+## Changes Overview
 
-## Color Overhaul — "Alpine Frost" Palette
-Shift from washed-out pastels to **bold, high-contrast frost colors** that actually feel cold, sharp, and premium:
+### 1. HeroSection.tsx — Clean up copy & CTA
+- Remove "bilingual" from subheadline
+- Remove the "1,900+" stat block entirely
+- Replace "See Our Results" with a proper CTA: "Book a Free Strategy Call →" linking to #contact
+- Keep the dark bg, left-aligned headline, frost pattern — those are working well
 
-- **Primary dark**: `#0B1D33` (deep midnight navy — hero bg, dark sections)
-- **Primary blue**: `#1E88E5` (vivid ice blue — accents, links)  
-- **Frost light**: `#E8F0FE` (cool blue-white — light section bg)
-- **Pure white**: `#FFFFFF` (card backgrounds)
-- **CTA amber**: `#E8922A` (bright warm amber — high contrast on both dark and light)
-- **Text on dark**: `#F0F4F8` (soft white)
-- **Text on light**: `#0B1D33` (the dark navy)
+### 2. CapabilitiesSection.tsx — Expand to 4 services with richer descriptions
+Split into 4 cards with expanded copy and decorative gradient/icon treatments per card:
+- **Paid Media & Advertising** — Meta, Instagram, Google ads, creative production, A/B testing, audience targeting, scaling for e-commerce and local businesses
+- **Lead Generation** — Full-funnel lead gen for home services, beauty, insurance, real estate, e-commerce — custom campaigns, not templates
+- **AI-Powered Systems** — Custom AI agent/chatbot handling inbound leads, follow-ups, FAQ responses, objection handling, appointment booking, 24/7 automated
+- **Web Design & Funnels** — Landing pages, funnels, full website builds, brand identity — designed to convert and stand out
 
-This gives strong contrast on both dark and light backgrounds. The deep navy + vivid blue actually feels like frost/ice/alpine.
+Each card gets a subtle gradient accent or illustration-style SVG icon to make it more visually engaging. Grid: 2x2 on desktop, stacked on mobile with proper spacing.
 
-## Content Reduction — Cut from 11 to 7 sections
-Remove redundant sections. Keep only what drives trust and conversion:
+### 3. SystemDiagramSection.tsx — Expanded case studies, more industries, no bilingual mentions
+Expand from 3 to 6 case studies across diverse industries and states. Remove all bilingual/Spanish references. Remove specific metrics (1,900+, 78%, $120K) — replace with narrative-focused cards that describe the problem solved and outcome without hard numbers. Separate testimonial quotes from case study descriptions (no mixing).
 
-**Keep:**
-1. Navigation (simplified)
-2. Hero (tighter, bolder, dark background with frost feel)
-3. Services (3 cards max, not 5)
-4. Case Studies (keep but simplify to 3 cards, no tabs)
-5. About (shorter)
-6. FAQ (keep 5 questions max)
-7. Final CTA + Footer combined
+Industries to include:
+- HVAC company (Phoenix, AZ)
+- Concrete contractor (Dallas, TX)
+- Painting company (Denver, CO)
+- Beauty studio (Denver, CO)
+- E-commerce brand (Los Angeles, CA)
+- Roofing company (Tampa, FL)
 
-**Remove entirely:**
-- TrustBar (trust pills already in hero)
-- BilingualSpotlight (info already in services and about)
-- ResultsSection/testimonials (quotes already in case studies)
-- MobileCTABar (nav CTA is enough)
+Layout: 2-column grid on desktop (3 rows), single column on mobile. Each card has industry tag, company description, what we did, and the result — written as a short narrative paragraph.
 
-## Section-by-Section Changes
+### 4. AboutSection.tsx — Remove contact info, add background
+- Remove phone, email, address completely
+- Remove "bilingual" and "English and Spanish" references
+- Add a subtle frost-light gradient or alpine-dark background instead of plain white
+- Keep "Denver, Colorado" mention naturally in the copy
+- Tighten to 2 clean paragraphs
 
-### 1. Navigation — keep but darken
-- Dark nav: `bg-[#0B1D33]` with white text
-- Remove EN/ES toggle (not functional), keep phone + "Let's Talk"
-- Simpler: logo left, 3 links center (Work, About, Contact), CTA right
+### 5. FAQSection.tsx — Remove bilingual references
+- Update FAQ answers to remove all "bilingual", "English/Spanish" mentions
+- Update industries FAQ to include the expanded list (home services, e-commerce, beauty, insurance, real estate, contractors)
 
-### 2. Hero — dark background, bold contrast, less content
-- **Dark bg**: `bg-[#0B1D33]` with subtle frost SVG pattern in light blue at 8% opacity
-- Left-aligned headline (not centered), bigger on mobile
-- Remove rotating metrics carousel — replace with ONE bold stat: "1,900+ Leads in 30 Days" always visible
-- Remove trust pills (redundant)
-- Remove scroll indicator
-- Just: headline + one stat + one CTA button (amber)
-- Subheadline: one sentence max
+### 6. Navigation.tsx — Remove phone number
+- Remove phone number from nav and mobile menu
+- Keep "Let's Talk" CTA button
 
-### 3. Services — 3 cards, light bg with contrast
-- `bg-[#E8F0FE]` background (actually visible frost-blue)
-- Only 3 services: Lead Generation, AI Systems, Web & Branding
-- Cards with `bg-white` and visible border/shadow
-- Remove "Learn More →" links, remove section CTA
+### 7. Footer.tsx — Remove address, phone, email
+- Remove the "Denver Office" column with address/phone/email
+- Replace with a simpler 2-column layout: brand + social links, quick links
+- Keep "Denver, Colorado" only in the copyright line
 
-### 4. Case Studies — dark section, 3 cards, no tabs
-- `bg-[#0B1D33]` dark section  
-- Remove tab system entirely — show 3 best case studies as cards
-- Each card: metric + one sentence + one quote line
-- Brighter card backgrounds: `bg-white/10` with stronger border
-
-### 5. About — shorter, one column
-- Light bg, left-aligned
-- Cut to 2 paragraphs max
-- Keep photo placeholder + contact info
-- Remove credentials pills (already conveyed elsewhere)
-
-### 6. FAQ — 5 questions max
-- Remove 3 least important questions
-- Keep on frost-light bg
-
-### 7. Final CTA + Footer merged
-- Dark section with CTA headline + one button
-- Footer columns directly below, same dark bg
-- Remove duplicate "Book Strategy Session" — just one clear CTA
-
-## Mobile Priorities
-- Hero headline: `text-3xl` minimum, high contrast white on dark
-- All touch targets 48px+
-- Single-column everything
-- Remove MobileCTABar (sticky bottom bar) — simplify
-- Shorter sections with less padding on mobile
+### 8. FinalCTASection.tsx — Update CTA to "Book a Call"
+- Change button text to "Book a Call →"
+- Keep "Denver, Colorado" as location context subtly
 
 ## Files Modified
-- `src/index.css` — new color vars, remove unused utilities
-- `tailwind.config.ts` — update color tokens
-- `src/components/HeroSection.tsx` — dark bg, simplified content
-- `src/components/Navigation.tsx` — dark nav, fewer links
-- `src/components/CapabilitiesSection.tsx` — 3 services, frost-blue bg
-- `src/components/SystemDiagramSection.tsx` — remove tabs, 3 flat cards
-- `src/components/AboutSection.tsx` — shorter copy
-- `src/components/FAQSection.tsx` — 5 questions
-- `src/components/FinalCTASection.tsx` — merge with footer
-- `src/components/Footer.tsx` — simplified, merged with CTA
-- `src/pages/Index.tsx` — remove TrustBar, BilingualSpotlight, ResultsSection, MobileCTABar
-
-## Files to Delete
-- `src/components/TrustBar.tsx`
-- `src/components/BilingualSpotlight.tsx`
-- `src/components/ResultsSection.tsx`
-- `src/components/MobileCTABar.tsx`
+- `src/components/HeroSection.tsx`
+- `src/components/CapabilitiesSection.tsx`
+- `src/components/SystemDiagramSection.tsx`
+- `src/components/AboutSection.tsx`
+- `src/components/FAQSection.tsx`
+- `src/components/Navigation.tsx`
+- `src/components/Footer.tsx`
+- `src/components/FinalCTASection.tsx`
 
