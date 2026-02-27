@@ -7,36 +7,48 @@ const services = [
     title: "Paid Media",
     benefit: "More customers, lower cost per lead.",
     points: ["Meta campaigns that scale profitably", "Scroll-stopping creative that converts", "A/B tested for maximum ROI"],
+    gradient: "from-blue-500/20 to-cyan-400/10",
+    accentColor: "bg-blue-500",
   },
   {
     icon: Target,
     title: "Lead Generation",
     benefit: "Your calendar, fully booked every month.",
     points: ["Geo-targeted campaigns for any industry", "Full-funnel lead capture & routing", "Home services, beauty, insurance & more"],
+    gradient: "from-emerald-500/20 to-teal-400/10",
+    accentColor: "bg-emerald-500",
   },
   {
     icon: Bot,
     title: "AI Systems",
     benefit: "Instant responses, zero missed leads.",
     points: ["Custom AI chatbot responds in <30s", "Automated booking & follow-ups", "Works 24/7 so you don't have to"],
+    gradient: "from-violet-500/20 to-purple-400/10",
+    accentColor: "bg-violet-500",
   },
   {
     icon: PenTool,
     title: "Copywriting & Creative",
     benefit: "Words and visuals that sell.",
     points: ["Direct-response ad copy that converts", "Branded creative & video production", "Landing page copy & email sequences"],
+    gradient: "from-amber-500/20 to-orange-400/10",
+    accentColor: "bg-amber-500",
   },
   {
     icon: Globe,
     title: "Web Design & Funnels",
     benefit: "High-converting sites built to close.",
     points: ["Custom websites & landing pages", "Conversion-optimized funnels", "Mobile-first, fast-loading design"],
+    gradient: "from-rose-500/20 to-pink-400/10",
+    accentColor: "bg-rose-500",
   },
   {
     icon: Settings,
     title: "CRM & Automation",
     benefit: "Never lose a lead again.",
     points: ["Pipeline management & lead routing", "Automated follow-up sequences", "Full visibility into every deal"],
+    gradient: "from-sky-500/20 to-indigo-400/10",
+    accentColor: "bg-sky-500",
   },
 ];
 
@@ -67,23 +79,27 @@ const CapabilitiesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6 hover:bg-white/[0.06] transition-all duration-300"
+            className="rounded-xl border border-white/[0.08] bg-white/[0.03] overflow-hidden hover:bg-white/[0.06] transition-all duration-300 group"
           >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-lg bg-ice-blue/10 flex items-center justify-center shrink-0">
-                <s.icon className="h-5 w-5 text-ice-blue" />
+            {/* Gradient accent bar */}
+            <div className={`h-1.5 w-full bg-gradient-to-r ${s.gradient}`} />
+            <div className="p-5 md:p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${s.gradient} flex items-center justify-center shrink-0`}>
+                  <s.icon className="h-5 w-5 text-ice-blue" />
+                </div>
+                <h3 className="text-lg font-bold text-text-on-dark font-heading">{s.title}</h3>
               </div>
-              <h3 className="text-lg font-bold text-text-on-dark font-heading">{s.title}</h3>
+              <p className="text-ice-blue font-medium text-sm mb-3">{s.benefit}</p>
+              <ul className="space-y-1.5">
+                {s.points.map((p) => (
+                  <li key={p} className="text-text-on-dark/50 text-sm flex items-start gap-2">
+                    <span className="text-ice-blue mt-1 text-xs">▸</span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <p className="text-ice-blue font-medium text-sm mb-3">{s.benefit}</p>
-            <ul className="space-y-1.5">
-              {s.points.map((p) => (
-                <li key={p} className="text-text-on-dark/50 text-sm flex items-start gap-2">
-                  <span className="text-ice-blue mt-1 text-xs">▸</span>
-                  {p}
-                </li>
-              ))}
-            </ul>
           </motion.div>
         ))}
       </div>

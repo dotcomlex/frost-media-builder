@@ -1,18 +1,21 @@
 import { motion } from "framer-motion";
-import { Megaphone, Bot, Layers } from "lucide-react";
+import { Megaphone, Bot, Layers, ArrowRight } from "lucide-react";
 
-const pillars = [
+const steps = [
   {
+    num: "01",
     icon: Megaphone,
     title: "Custom Ad Campaigns",
     desc: "We build and manage Meta ad campaigns tailored to your market, audience, and goals. Every dollar is tracked, tested, and optimized weekly for maximum ROI.",
   },
   {
+    num: "02",
     icon: Bot,
     title: "AI-Powered Response System",
     desc: "Custom AI chatbot, voice, and SMS agent that responds to every inbound lead in under 60 seconds — 24/7. No missed calls, no slow follow-ups, no lost revenue.",
   },
   {
+    num: "03",
     icon: Layers,
     title: "Revenue Infrastructure",
     desc: "Funnels, landing pages, CRM setup, and automated follow-ups that turn raw leads into closed deals. Everything connected, everything measured.",
@@ -38,24 +41,55 @@ const SystemBreakdownSection = () => (
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {pillars.map((p, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        {/* Connecting line on desktop */}
+        <div className="hidden md:block absolute top-[3.5rem] left-[16.67%] right-[16.67%] h-px bg-ice-blue/30 z-0" />
+
+        {steps.map((step, i) => (
           <motion.div
-            key={p.title}
+            key={step.title}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: i * 0.12 }}
-            className="bg-white rounded-2xl border border-border p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow"
+            className="relative z-10"
           >
-            <div className="w-12 h-12 rounded-xl bg-ice-blue/10 flex items-center justify-center mb-5">
-              <p.icon className="h-6 w-6 text-ice-blue" />
+            {/* Step number badge */}
+            <div className="flex items-center justify-center mb-5">
+              <div className="w-14 h-14 rounded-full bg-white border-2 border-ice-blue/30 flex items-center justify-center shadow-sm">
+                <span className="font-mono-tech text-lg font-bold text-ice-blue">{step.num}</span>
+              </div>
+              {i < steps.length - 1 && (
+                <ArrowRight className="hidden md:block absolute -right-3 top-[1.75rem] h-5 w-5 text-ice-blue/40" />
+              )}
             </div>
-            <h3 className="font-heading text-xl font-bold text-foreground mb-3">{p.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+
+            <div className="bg-white rounded-2xl border border-border p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow text-center">
+              <div className="w-12 h-12 rounded-xl bg-ice-blue/10 flex items-center justify-center mx-auto mb-5">
+                <step.icon className="h-6 w-6 text-ice-blue" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-foreground mb-3">{step.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+            </div>
           </motion.div>
         ))}
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="text-center mt-10"
+      >
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 bg-ice-blue text-white font-heading font-semibold px-6 py-3 rounded-lg hover:bg-deep-ice transition-colors"
+        >
+          See It In Action
+          <ArrowRight className="h-4 w-4" />
+        </a>
+      </motion.div>
     </div>
   </section>
 );
