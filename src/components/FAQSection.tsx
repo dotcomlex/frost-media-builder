@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     q: "What makes you different from other agencies?",
-    a: "We build complete systems, not just campaigns. Everything is custom — no templates, no recycled strategies. We're bilingual (English/Spanish) and AI-powered from the ground up.",
+    a: "We build complete systems, not just campaigns. Everything is custom — no templates, no recycled strategies. We combine paid media expertise with AI automation to create marketing infrastructure that runs 24/7.",
   },
   {
     q: "How long does it take to see results?",
@@ -17,11 +17,11 @@ const faqs = [
   },
   {
     q: "What industries do you work with?",
-    a: "We specialize in home services and beauty businesses, but we've built systems for e-commerce and professional services too. If you're established and ready to scale, we can help.",
+    a: "We work with home services (HVAC, roofing, painting, concrete), beauty studios, e-commerce brands, insurance, real estate, and more. If you're established and ready to scale, we can help.",
   },
   {
     q: "What's included in your services?",
-    a: "Everything: media buying, AI systems, web design, CRM, copywriting, branding. Complete revenue-generating infrastructure in English and Spanish.",
+    a: "Everything: paid media buying, AI lead systems, web design, funnels, CRM setup, copywriting, and branding. Complete revenue-generating infrastructure built from scratch.",
   },
   {
     q: "Do you work with startups?",

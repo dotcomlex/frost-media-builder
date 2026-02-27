@@ -13,11 +13,12 @@ const FinalCTASection = () => (
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark tracking-tight leading-tight">
           Ready to Build a System That Actually Works?
         </h2>
+        <p className="text-text-on-dark/50 text-sm mt-4">📍 Denver, Colorado</p>
         <Button
           size="lg"
           className="bg-secondary hover:bg-amber-gold text-secondary-foreground rounded-xl px-12 py-6 text-lg font-bold shadow-2xl shadow-secondary/40 hover:scale-105 transition-all mt-10"
         >
-          Book Your Free Strategy Session →
+          Book a Call →
         </Button>
         <p className="text-sm text-text-on-dark/40 mt-6">
           No sales pitch. No commitment. Just a real conversation.
