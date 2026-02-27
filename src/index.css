@@ -37,8 +37,9 @@
     --radius: 0.75rem;
 
     /* Alpine Frost palette */
-    --alpine-dark: 213 45% 11%;
-    --alpine-navy: 213 55% 18%;
+    --alpine-dark: 220 20% 6%;
+    --alpine-navy: 213 55% 14%;
+    --alpine-black: 0 0% 4%;
     --ice-blue: 213 80% 50%;
     --deep-ice: 213 60% 35%;
     --frost-light: 216 60% 95%;

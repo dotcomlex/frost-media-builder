@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const FinalCTASection = () => (
-  <section id="contact" className="py-20 md:py-28 bg-alpine-dark bg-frost-pattern">
+  <section id="contact" className="py-20 md:py-28 bg-alpine-black bg-frost-pattern">
     <div className="max-w-3xl mx-auto px-4 md:px-8 text-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
