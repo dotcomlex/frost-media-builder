@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import LogoMarquee from "@/components/LogoMarquee";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
 import SystemDiagramSection from "@/components/SystemDiagramSection";
 import AboutSection from "@/components/AboutSection";
@@ -11,6 +12,7 @@ const Index = () => (
   <div className="min-h-screen overflow-x-hidden">
     <Navigation />
     <HeroSection />
+    <LogoMarquee />
     <CapabilitiesSection />
     <SystemDiagramSection />
     <AboutSection />
