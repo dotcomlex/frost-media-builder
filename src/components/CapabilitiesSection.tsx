@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, Bot, PenTool, Megaphone } from "lucide-react";
+import { Target, Bot, PenTool, Megaphone, Globe, Settings } from "lucide-react";
 
 const services = [
   {
@@ -26,11 +26,23 @@ const services = [
     benefit: "Words and visuals that sell.",
     points: ["Direct-response ad copy that converts", "Branded creative & video production", "Landing page copy & email sequences"],
   },
+  {
+    icon: Globe,
+    title: "Web Design & Funnels",
+    benefit: "High-converting sites built to close.",
+    points: ["Custom websites & landing pages", "Conversion-optimized funnels", "Mobile-first, fast-loading design"],
+  },
+  {
+    icon: Settings,
+    title: "CRM & Automation",
+    benefit: "Never lose a lead again.",
+    points: ["Pipeline management & lead routing", "Automated follow-up sequences", "Full visibility into every deal"],
+  },
 ];
 
 const CapabilitiesSection = () => (
   <section id="services" className="py-14 md:py-20 bg-alpine-dark border-t border-white/5">
-    <div className="max-w-5xl mx-auto px-4 md:px-8">
+    <div className="max-w-6xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +59,7 @@ const CapabilitiesSection = () => (
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
         {services.map((s, i) => (
           <motion.div
             key={s.title}

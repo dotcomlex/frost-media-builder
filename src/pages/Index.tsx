@@ -4,6 +4,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
 import ProcessSection from "@/components/ProcessSection";
 import SystemDiagramSection from "@/components/SystemDiagramSection";
+import SystemBreakdownSection from "@/components/SystemBreakdownSection";
 import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -17,6 +18,7 @@ const Index = () => (
     <CapabilitiesSection />
     <ProcessSection />
     <SystemDiagramSection />
+    <SystemBreakdownSection />
     <AboutSection />
     <FAQSection />
     <FinalCTASection />

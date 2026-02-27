@@ -42,7 +42,7 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-16 md:py-24 bg-alpine-dark">
+  <section id="faq" className="py-16 md:py-24 bg-frost-light">
     <div className="max-w-3xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ const FAQSection = () => (
         className="mb-10"
       >
         <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">FAQ</p>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark">
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
           Common Questions
         </h2>
       </motion.div>
@@ -62,12 +62,12 @@ const FAQSection = () => (
           <AccordionItem
             key={i}
             value={`item-${i}`}
-            className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:border-ice-blue/30"
+            className="border border-border rounded-xl px-6 bg-white data-[state=open]:border-ice-blue/30"
           >
-            <AccordionTrigger className="text-text-on-dark hover:text-ice-blue hover:no-underline text-left py-5 font-semibold">
+            <AccordionTrigger className="text-foreground hover:text-ice-blue hover:no-underline text-left py-5 font-semibold">
               {faq.q}
             </AccordionTrigger>
-            <AccordionContent className="text-text-on-dark/60 leading-relaxed pb-5">
+            <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
               {faq.a}
             </AccordionContent>
           </AccordionItem>
