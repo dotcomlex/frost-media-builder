@@ -7,24 +7,24 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 213 45% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 213 45% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 213 45% 11%;
 
-    --primary: 213 58% 57%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 213 80% 50%;
+    --primary-foreground: 210 25% 97%;
 
-    --secondary: 33 64% 47%;
+    --secondary: 30 78% 53%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 27% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 214 40% 96%;
+    --muted-foreground: 213 20% 42%;
 
-    --accent: 213 58% 57%;
+    --accent: 213 80% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -32,30 +32,29 @@
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 213 58% 57%;
+    --ring: 213 80% 50%;
 
     --radius: 0.75rem;
 
-    /* Frost palette */
-    --ice-blue: 213 58% 57%;
-    --deep-ice: 210 50% 36%;
-    --frost-white: 220 27% 98%;
-    --ice-gray: 214 25% 93%;
-    --amber: 33 64% 47%;
-    --warm-gold: 36 55% 58%;
-    --light-amber: 33 60% 92%;
-    --slate-dark: 215 25% 15%;
+    /* Alpine Frost palette */
+    --alpine-dark: 213 45% 11%;
+    --alpine-navy: 213 55% 18%;
+    --ice-blue: 213 80% 50%;
+    --deep-ice: 213 60% 35%;
+    --frost-light: 216 60% 95%;
+    --amber: 30 78% 53%;
+    --warm-gold: 33 70% 58%;
+    --text-on-dark: 210 25% 97%;
     --success: 160 84% 39%;
-    --warning: 38 92% 50%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 215 25% 15%;
-    --sidebar-primary: 213 58% 57%;
+    --sidebar-foreground: 213 45% 11%;
+    --sidebar-primary: 213 80% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 27% 96%;
-    --sidebar-accent-foreground: 215 25% 15%;
+    --sidebar-accent: 214 40% 96%;
+    --sidebar-accent-foreground: 213 45% 11%;
     --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 213 58% 57%;
+    --sidebar-ring: 213 80% 50%;
   }
 }
 
@@ -89,24 +88,6 @@
 }
 
 @layer utilities {
-  .text-gradient-ice {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(213 58% 57%), hsl(210 50% 36%));
-  }
-
-  .text-gradient-amber {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(33 64% 47%), hsl(36 55% 58%));
-  }
-
-  .glow-ice {
-    box-shadow: 0 0 30px hsl(213 58% 57% / 0.15);
-  }
-
-  .glow-amber {
-    box-shadow: 0 0 30px hsl(33 64% 47% / 0.2);
-  }
-
   .font-mono-tech {
     font-family: 'JetBrains Mono', monospace;
   }
@@ -116,16 +97,7 @@
   }
 
   .bg-frost-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30M0 0L60 60M60 0L0 60' stroke='%234A90D9' stroke-width='0.3' opacity='0.06'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30M0 0L60 60M60 0L0 60' stroke='%231E88E5' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
     background-size: 60px 60px;
   }
-}
-
-@keyframes trust-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-trust-scroll {
-  animation: trust-scroll 30s linear infinite;
 }
