@@ -1,52 +1,111 @@
 
 
-# Frost Media — Fresh Build from Scratch
+# Frost Media — Streamlined Redesign with Real Color & Contrast
 
-## The Problem
-The current site uses the same Lovable-default patterns: centered hero with badge → trust bar → card grid → dark section → two-column about → FAQ accordion. Every section follows the same rhythm. It looks like a template, not a cutting-edge AI agency.
+## Problems Identified
+1. **No color contrast** — everything is white/light gray/pale blue. Text blends into background. Metrics number (amber on white) barely visible.
+2. **Too much content** — 11 sections is excessive. Trust bar, bilingual spotlight, and results section repeat info already in hero/case studies.
+3. **Colors don't feel "Frost"** — pale washed-out blue doesn't evoke frost, ice, mountains, or Colorado. Needs deeper, richer blues and actual contrast.
+4. **Not mobile-optimized** — hero takes up too much space, text is small, sections are long.
+5. **Generic template vibe** — same centered layout every section.
 
-## What Changes
+## Color Overhaul — "Alpine Frost" Palette
+Shift from washed-out pastels to **bold, high-contrast frost colors** that actually feel cold, sharp, and premium:
 
-### Visual Direction: "Tech Terminal Meets Editorial Magazine"
-Instead of the standard agency template feel, blend a high-end editorial layout (asymmetric grids, large whitespace, dramatic typography scale) with subtle tech-terminal elements (monospace data readouts, blinking cursors, code-inspired UI).
+- **Primary dark**: `#0B1D33` (deep midnight navy — hero bg, dark sections)
+- **Primary blue**: `#1E88E5` (vivid ice blue — accents, links)  
+- **Frost light**: `#E8F0FE` (cool blue-white — light section bg)
+- **Pure white**: `#FFFFFF` (card backgrounds)
+- **CTA amber**: `#E8922A` (bright warm amber — high contrast on both dark and light)
+- **Text on dark**: `#F0F4F8` (soft white)
+- **Text on light**: `#0B1D33` (the dark navy)
 
-### Specific Structural Changes
+This gives strong contrast on both dark and light backgrounds. The deep navy + vivid blue actually feels like frost/ice/alpine.
 
-**Hero**: Break the centered-text mold. Use a split layout — left side has headline text left-aligned with a terminal-style live data ticker (typing effect showing real metrics like `> leads_generated: 1,947`), right side has an animated abstract frost/crystal 3D-ish graphic built from CSS/SVG (not a stock photo placeholder). Much more visual weight and asymmetry.
+## Content Reduction — Cut from 11 to 7 sections
+Remove redundant sections. Keep only what drives trust and conversion:
 
-**Trust Bar**: Replace static badges with an auto-scrolling infinite marquee of logos/badges with slight grayscale-to-color hover. More editorial, less "template row."
+**Keep:**
+1. Navigation (simplified)
+2. Hero (tighter, bolder, dark background with frost feel)
+3. Services (3 cards max, not 5)
+4. Case Studies (keep but simplify to 3 cards, no tabs)
+5. About (shorter)
+6. FAQ (keep 5 questions max)
+7. Final CTA + Footer combined
 
-**Services**: Instead of uniform card grid, use a magazine-style staggered layout — alternating large feature blocks (full-width with image/illustration) and smaller supporting cards. Each service gets a unique visual treatment, not identical cards with different icons.
+**Remove entirely:**
+- TrustBar (trust pills already in hero)
+- BilingualSpotlight (info already in services and about)
+- ResultsSection/testimonials (quotes already in case studies)
+- MobileCTABar (nav CTA is enough)
 
-**Case Studies**: Replace the tabbed card grid with a horizontal scroll showcase — large cards that feel like magazine spreads, each with a bold metric, short story, and a testimonial pulled out as a large pull-quote. Think portfolio, not data table.
+## Section-by-Section Changes
 
-**About**: Instead of two-column text + placeholder photo, use a full-width story section with large pull quotes, timeline markers, and credential badges woven into the narrative — more like a magazine profile piece.
+### 1. Navigation — keep but darken
+- Dark nav: `bg-[#0B1D33]` with white text
+- Remove EN/ES toggle (not functional), keep phone + "Let's Talk"
+- Simpler: logo left, 3 links center (Work, About, Contact), CTA right
 
-**AI Chat Demo**: Bring back the interactive AI conversation demo from the earlier dark theme iteration — this was unique and memorable. Show it as an embedded "live terminal" with the typing effect.
+### 2. Hero — dark background, bold contrast, less content
+- **Dark bg**: `bg-[#0B1D33]` with subtle frost SVG pattern in light blue at 8% opacity
+- Left-aligned headline (not centered), bigger on mobile
+- Remove rotating metrics carousel — replace with ONE bold stat: "1,900+ Leads in 30 Days" always visible
+- Remove trust pills (redundant)
+- Remove scroll indicator
+- Just: headline + one stat + one CTA button (amber)
+- Subheadline: one sentence max
 
-**FAQ**: Style as a clean editorial Q&A with large question typography, not a standard accordion.
+### 3. Services — 3 cards, light bg with contrast
+- `bg-[#E8F0FE]` background (actually visible frost-blue)
+- Only 3 services: Lead Generation, AI Systems, Web & Branding
+- Cards with `bg-white` and visible border/shadow
+- Remove "Learn More →" links, remove section CTA
 
-**Final CTA**: Full-bleed dark section with a single bold statement and one button. No dual CTAs, no subheadline clutter.
+### 4. Case Studies — dark section, 3 cards, no tabs
+- `bg-[#0B1D33]` dark section  
+- Remove tab system entirely — show 3 best case studies as cards
+- Each card: metric + one sentence + one quote line
+- Brighter card backgrounds: `bg-white/10` with stronger border
 
-### Animation Overhaul
-- Replace generic fade-in-up everywhere with section-specific reveals (horizontal slides, scale-ins, clip-path reveals)
-- Add a custom cursor glow effect on dark sections
-- Parallax depth on the hero frost graphic
-- Staggered character-by-character headline reveal instead of word-by-word
+### 5. About — shorter, one column
+- Light bg, left-aligned
+- Cut to 2 paragraphs max
+- Keep photo placeholder + contact info
+- Remove credentials pills (already conveyed elsewhere)
 
-### Technical Plan
-1. Rewrite `HeroSection.tsx` — asymmetric split layout with terminal data ticker
-2. Rewrite `TrustBar.tsx` — infinite marquee with grayscale logos
-3. Rewrite `CapabilitiesSection.tsx` — magazine staggered layout
-4. Rewrite `SystemDiagramSection.tsx` — horizontal scroll case studies + bring back AI chat demo as sub-section
-5. Rewrite `AboutSection.tsx` — editorial profile layout
-6. Rewrite `ResultsSection.tsx` — large pull-quote testimonials
-7. Rewrite `FAQSection.tsx` — editorial Q&A style
-8. Rewrite `FinalCTASection.tsx` — minimal full-bleed dark
-9. Update `Footer.tsx` — cleaner, more minimal
-10. Update `src/index.css` — new animation keyframes, cursor effects
-11. Update `src/pages/Index.tsx` — new section order
+### 6. FAQ — 5 questions max
+- Remove 3 least important questions
+- Keep on frost-light bg
 
-### Files Modified
-All component files rewritten, `src/index.css` and `tailwind.config.ts` updated. No new files needed, no deletions.
+### 7. Final CTA + Footer merged
+- Dark section with CTA headline + one button
+- Footer columns directly below, same dark bg
+- Remove duplicate "Book Strategy Session" — just one clear CTA
+
+## Mobile Priorities
+- Hero headline: `text-3xl` minimum, high contrast white on dark
+- All touch targets 48px+
+- Single-column everything
+- Remove MobileCTABar (sticky bottom bar) — simplify
+- Shorter sections with less padding on mobile
+
+## Files Modified
+- `src/index.css` — new color vars, remove unused utilities
+- `tailwind.config.ts` — update color tokens
+- `src/components/HeroSection.tsx` — dark bg, simplified content
+- `src/components/Navigation.tsx` — dark nav, fewer links
+- `src/components/CapabilitiesSection.tsx` — 3 services, frost-blue bg
+- `src/components/SystemDiagramSection.tsx` — remove tabs, 3 flat cards
+- `src/components/AboutSection.tsx` — shorter copy
+- `src/components/FAQSection.tsx` — 5 questions
+- `src/components/FinalCTASection.tsx` — merge with footer
+- `src/components/Footer.tsx` — simplified, merged with CTA
+- `src/pages/Index.tsx` — remove TrustBar, BilingualSpotlight, ResultsSection, MobileCTABar
+
+## Files to Delete
+- `src/components/TrustBar.tsx`
+- `src/components/BilingualSpotlight.tsx`
+- `src/components/ResultsSection.tsx`
+- `src/components/MobileCTABar.tsx`
 
