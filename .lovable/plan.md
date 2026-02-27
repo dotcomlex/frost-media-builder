@@ -1,67 +1,37 @@
 
 
-# Fix Background Blending + Add Services + New System Breakdown Section
-
-## Problem
-From Testimonials all the way to Footer, everything is `bg-alpine-dark` — five consecutive dark sections with zero visual breaks. The user keeps telling us about this and we keep missing it.
+# Logo Marquee Light Break + Services Enhancement + System Section Decision
 
 ## Current Background Flow
 ```text
 Hero:          bg-alpine-black   (black)
-Marquee:       bg-alpine-dark    (dark)
-Services:      bg-alpine-dark    (dark)
-Process:       bg-frost-light    (LIGHT) ← only break
-Testimonials:  bg-alpine-dark    (dark)
-About:         bg-alpine-dark    (dark) ← blends
-FAQ:           bg-alpine-dark    (dark) ← blends
-CTA:           bg-alpine-black   (dark) ← blends
-Footer:        bg-alpine-dark    (dark) ← blends
-```
-
-## Fixed Background Flow (alternating light breaks)
-```text
-Hero:          bg-alpine-black   (black)
-Marquee:       bg-alpine-dark    (dark)
-Services:      bg-alpine-dark    (dark, border divider)
+Marquee:       bg-alpine-dark    (dark) ← blends with hero
+Services:      bg-alpine-dark    (dark) ← blends with marquee
 Process:       bg-frost-light    (LIGHT)
 Testimonials:  bg-alpine-dark    (dark)
-NEW Section:   bg-frost-light    (LIGHT) ← new break
+System:        bg-frost-light    (LIGHT)
 About:         bg-alpine-dark    (dark)
-FAQ:           bg-frost-light    (LIGHT) ← changed
+FAQ:           bg-frost-light    (LIGHT)
 CTA:           bg-alpine-black   (black)
 Footer:        bg-alpine-dark    (dark)
 ```
 
----
-
 ## Changes
 
-### 1. `CapabilitiesSection.tsx` — Expand to 6 services (3x2 grid)
-Add back **Web Design & Funnels** and add **CRM & Automation** as the 6th card. Grid becomes `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`. Six services:
-- Paid Media (Meta campaigns)
-- Lead Generation
-- AI Systems
-- Copywriting & Creative
-- Web Design & Funnels (custom sites, landing pages, conversion funnels)
-- CRM & Automation (pipeline management, automated follow-ups, lead routing)
+### 1. `LogoMarquee.tsx` — White/light background break
+- Change `bg-alpine-dark` → `bg-white` (or `bg-frost-light`)
+- Remove `brightness-0 invert` filter so logos show in full color
+- Remove `border-y border-white/5`, add subtle `border-y border-border` instead
+- This creates a clear visual break between Hero (black) and Services (dark)
 
-Remove any mention of Google Ads. Keep benefit-first copy.
+### 2. `CapabilitiesSection.tsx` — More engaging service cards
+- Add a small illustrative image/gradient visual to each card (a decorative gradient panel or abstract shape at the top of each card to represent the service visually)
+- Use colored gradient backgrounds per card (subtle, not overwhelming) — e.g., a top accent bar or a small gradient circle behind the icon
+- This makes cards feel less template-y and more premium
 
-### 2. New `SystemBreakdownSection.tsx` — "How We Build Your Revenue Machine"
-A new light-background section (`bg-frost-light`) placed between Testimonials and About. Three visual columns/cards showing:
-1. **Custom Ad Campaigns** — We build and manage Meta ad campaigns tailored to your market, audience, and goals
-2. **AI-Powered Response System** — Custom AI chatbot + voice + SMS agent that responds to every inbound lead in under 60 seconds, 24/7
-3. **Revenue Infrastructure** — Funnels, landing pages, CRM setup, and automated follow-ups that turn leads into closed deals
-
-Each card has an icon, short headline, 2-3 sentence description. Clean, light theme with `text-foreground` colors.
-
-### 3. `AboutSection.tsx` — Keep dark, no changes needed (now separated by the new light section above it)
-
-### 4. `FAQSection.tsx` — Change to `bg-frost-light`
-Switch all text/card colors to light-theme variants (`text-foreground`, `bg-white`, `border-border`). This creates a visual break between About (dark) and CTA (black).
-
-### 5. `Index.tsx` — Add SystemBreakdownSection between Testimonials and About
+### 3. `SystemBreakdownSection.tsx` — Merge into services or make it more distinct
+My recommendation: **Keep it but make it more actionable and distinct from Services.** Right now it overlaps with Services content. Instead, reframe it as a **numbered step-by-step flow** — "How It Works" rather than "The System." Add numbered steps (01 → 02 → 03) with connecting arrows/lines between columns, and add a CTA at the bottom ("See it in action" or "Book a call"). This differentiates it from the capabilities grid above.
 
 ### Files Modified
-`CapabilitiesSection.tsx`, `FAQSection.tsx`, `Index.tsx` + new `SystemBreakdownSection.tsx`
+`LogoMarquee.tsx`, `CapabilitiesSection.tsx`, `SystemBreakdownSection.tsx`
 
