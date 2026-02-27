@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import LogoMarquee from "@/components/LogoMarquee";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
+import ProcessSection from "@/components/ProcessSection";
 import SystemDiagramSection from "@/components/SystemDiagramSection";
 import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
@@ -14,6 +15,7 @@ const Index = () => (
     <HeroSection />
     <LogoMarquee />
     <CapabilitiesSection />
+    <ProcessSection />
     <SystemDiagramSection />
     <AboutSection />
     <FAQSection />

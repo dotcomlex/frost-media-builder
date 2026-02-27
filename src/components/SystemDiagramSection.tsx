@@ -1,83 +1,168 @@
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
 
-const caseStudies = [
+const reviews = [
   {
-    tag: "HVAC",
+    name: "Marcus T.",
+    role: "HVAC Owner",
     location: "Phoenix, AZ",
-    title: "HVAC Company Dominates Peak Season",
-    narrative: "A mid-size HVAC company in Phoenix was relying on word-of-mouth and outdated mailers. We launched targeted Meta campaigns, built a high-converting landing page, and deployed an AI agent to instantly qualify and book leads. Within two months, their schedule was fully booked through summer — and they had to hire two new techs to keep up.",
+    tag: "HVAC",
+    quote: "Frost Media built us an AI lead system that completely filled our summer schedule. We had to hire two new techs just to keep up. Best investment we've ever made.",
   },
   {
-    tag: "Concrete",
-    location: "Dallas, TX",
-    title: "Concrete Contractor Scales Past Seven Figures",
-    narrative: "A Dallas-based concrete contractor had inconsistent deal flow and was wasting hours chasing unqualified leads. We built a full lead gen system with geo-targeted ads, an automated follow-up sequence, and a branded website that positioned them as the premium option. They closed more jobs in Q1 than the entire previous year.",
-  },
-  {
-    tag: "Painting",
+    name: "Sarah L.",
+    role: "Beauty Studio Owner",
     location: "Denver, CO",
-    title: "Painting Company Eliminates Wasted Estimates",
-    narrative: "A Denver painter was driving across town for estimates that never closed. We implemented an AI chatbot that pre-qualifies every lead — asking about square footage, timeline, and budget before scheduling. Now every estimate is with a serious buyer, and his close rate went through the roof.",
-  },
-  {
     tag: "Beauty",
-    location: "Denver, CO",
-    title: "Beauty Studio Fills the Calendar on Autopilot",
-    narrative: "A boutique beauty studio was posting on Instagram but getting zero bookings from it. We ran conversion-focused ad campaigns with scroll-stopping creative and connected an AI booking assistant that responds instantly. Within weeks, she went from empty afternoons to a waitlist.",
+    quote: "I went from empty afternoons to a full waitlist in three weeks. Their ad campaigns and AI booking assistant changed everything for my studio.",
   },
   {
-    tag: "E-Commerce",
+    name: "David R.",
+    role: "Concrete Contractor",
+    location: "Dallas, TX",
+    tag: "Concrete",
+    quote: "We closed more jobs in Q1 than the entire previous year. The lead gen system they built is a machine — quality leads, every single day.",
+  },
+  {
+    name: "Jennifer K.",
+    role: "E-Commerce Brand Owner",
     location: "Los Angeles, CA",
-    title: "E-Commerce Brand Triples ROAS",
-    narrative: "An LA-based skincare brand was burning cash on poorly structured ad accounts with no creative testing framework. We rebuilt their ad strategy from scratch — new creative angles, rigorous A/B testing, optimized landing pages, and retargeting funnels. Their return on ad spend tripled in 60 days.",
+    tag: "E-Commerce",
+    quote: "Our ROAS tripled after they restructured our ad accounts. The creative testing framework alone was worth 10x what we paid.",
   },
   {
-    tag: "Roofing",
+    name: "Mike P.",
+    role: "Painting Company Owner",
+    location: "Denver, CO",
+    tag: "Painting",
+    quote: "Every estimate I go on now actually closes. Their AI chatbot pre-qualifies every lead before I even show up. No more wasted drives.",
+  },
+  {
+    name: "Carlos M.",
+    role: "Roofing Company Owner",
     location: "Tampa, FL",
-    title: "Roofing Company Owns Their Market",
-    narrative: "A Tampa roofing company was competing on price against lowball competitors. We repositioned their brand, built a professional website showcasing their craftsmanship, and ran hyper-local ad campaigns targeting homeowners in storm-prone zip codes. They became the go-to roofer in their area — booked out months in advance.",
+    tag: "Roofing",
+    quote: "We went from competing on price to being the go-to roofer in our zip codes. Booked out months in advance now.",
+  },
+  {
+    name: "Amanda W.",
+    role: "Insurance Agent",
+    location: "Austin, TX",
+    tag: "Insurance",
+    quote: "Their AI chatbot handles all my inbound leads instantly. I used to lose prospects because I couldn't respond fast enough. Not anymore.",
+  },
+  {
+    name: "Jason B.",
+    role: "Real Estate Team Lead",
+    location: "Miami, FL",
+    tag: "Real Estate",
+    quote: "Our lead gen pipeline runs completely on autopilot. Frost Media set it up, and now we just focus on closing deals.",
   },
 ];
 
-const SystemDiagramSection = () => (
-  <section id="work" className="py-16 md:py-24 bg-alpine-dark">
-    <div className="max-w-6xl mx-auto px-4 md:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5 }}
-        className="mb-12"
-      >
-        <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">Proven Results</p>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark tracking-tight">
-          Real Campaigns, Real Revenue
-        </h2>
-      </motion.div>
+function getInitials(name: string) {
+  return name.split(" ").map((n) => n[0]).join("");
+}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {caseStudies.map((cs, i) => (
-          <motion.div
-            key={cs.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="bg-white/[0.06] border border-white/[0.1] rounded-2xl p-7 md:p-8 hover:bg-white/[0.1] transition-colors"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-bold font-mono-tech tracking-wider uppercase bg-ice-blue/15 text-ice-blue px-3 py-1 rounded-full">
-                {cs.tag}
-              </span>
-              <span className="text-xs text-text-on-dark/40">{cs.location}</span>
-            </div>
-            <h3 className="text-lg font-bold text-text-on-dark font-heading leading-snug mb-3">{cs.title}</h3>
-            <p className="text-text-on-dark/60 text-sm leading-relaxed">{cs.narrative}</p>
-          </motion.div>
-        ))}
+const avatarColors = [
+  "bg-ice-blue/20 text-ice-blue",
+  "bg-secondary/20 text-secondary",
+  "bg-primary/20 text-primary",
+  "bg-amber/20 text-amber",
+];
+
+const TestimonialCard = ({ review, index }: { review: typeof reviews[0]; index: number }) => (
+  <div className="bg-card border border-border rounded-2xl p-7 md:p-8 shadow-md flex flex-col h-full min-w-0">
+    <div className="flex items-center gap-4 mb-5">
+      <div className={`w-12 h-12 rounded-full ${avatarColors[index % avatarColors.length]} flex items-center justify-center font-heading font-bold text-sm`}>
+        {getInitials(review.name)}
+      </div>
+      <div>
+        <p className="font-heading font-bold text-foreground text-sm">{review.name}</p>
+        <p className="text-muted-foreground text-xs">{review.role} · {review.location}</p>
       </div>
     </div>
-  </section>
+    <div className="flex gap-0.5 mb-4">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} className="h-4 w-4 fill-secondary text-secondary" />
+      ))}
+    </div>
+    <p className="text-muted-foreground text-sm leading-relaxed flex-1">"{review.quote}"</p>
+    <div className="mt-5">
+      <span className="text-xs font-bold font-mono-tech tracking-wider uppercase bg-primary/10 text-primary px-3 py-1 rounded-full">
+        {review.tag}
+      </span>
+    </div>
+  </div>
 );
+
+const SystemDiagramSection = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: true,
+    slidesToScroll: 1,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
+
+  return (
+    <section id="work" className="py-16 md:py-24 bg-frost-light">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <p className="font-mono-tech text-xs tracking-widest uppercase text-primary mb-3">Social Proof</p>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            What Our Clients Say
+          </h2>
+          <p className="text-muted-foreground text-lg mt-4">Real results from real businesses we've helped scale.</p>
+        </motion.div>
+
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-6">
+            {reviews.map((review, i) => (
+              <div key={review.name} className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_32%] min-w-0">
+                <TestimonialCard review={review} index={i} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                i === selectedIndex ? "bg-primary scale-125" : "bg-border hover:bg-muted-foreground/30"
+              }`}
+              aria-label={`Go to review ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default SystemDiagramSection;
