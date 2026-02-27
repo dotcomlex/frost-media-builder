@@ -1,51 +1,67 @@
 
 
-# Fix Color Consistency, Services, Testimonials & Logos
+# Fix Background Blending + Add Services + New System Breakdown Section
 
 ## Problem
-The `alpine-navy` (#0B1D33 dark blue) creates a jarring color break between sections. User wants one consistent dark color throughout, not alternating between near-black and dark-blue.
+From Testimonials all the way to Footer, everything is `bg-alpine-dark` — five consecutive dark sections with zero visual breaks. The user keeps telling us about this and we keep missing it.
 
-## Color Fix
-Remove `alpine-navy` from all section backgrounds. Use only two backgrounds:
-- **Dark sections**: `bg-alpine-dark` (near-black `220 20% 6%`)
-- **Light section**: `bg-frost-light` (Process only — keeps the visual break)
-- **Hero/CTA**: `bg-alpine-black` (pure black)
+## Current Background Flow
+```text
+Hero:          bg-alpine-black   (black)
+Marquee:       bg-alpine-dark    (dark)
+Services:      bg-alpine-dark    (dark)
+Process:       bg-frost-light    (LIGHT) ← only break
+Testimonials:  bg-alpine-dark    (dark)
+About:         bg-alpine-dark    (dark) ← blends
+FAQ:           bg-alpine-dark    (dark) ← blends
+CTA:           bg-alpine-black   (dark) ← blends
+Footer:        bg-alpine-dark    (dark) ← blends
+```
 
-Sections will use subtle dividers (thin `border-white/5` lines or slight gradient overlays) instead of different background colors to differentiate.
+## Fixed Background Flow (alternating light breaks)
+```text
+Hero:          bg-alpine-black   (black)
+Marquee:       bg-alpine-dark    (dark)
+Services:      bg-alpine-dark    (dark, border divider)
+Process:       bg-frost-light    (LIGHT)
+Testimonials:  bg-alpine-dark    (dark)
+NEW Section:   bg-frost-light    (LIGHT) ← new break
+About:         bg-alpine-dark    (dark)
+FAQ:           bg-frost-light    (LIGHT) ← changed
+CTA:           bg-alpine-black   (black)
+Footer:        bg-alpine-dark    (dark)
+```
 
-## Files & Changes
+---
 
-### 1. `CapabilitiesSection.tsx` — Services Compact Grid
-- Change `bg-alpine-navy` → `bg-alpine-dark`
-- Remove Google Ads mention; add Copywriting as a service
-- Rewrite service cards: Paid Media (Meta only), Lead Generation, AI Systems, Copywriting & Creative
-- Add small icon illustrations per card instead of just lucide icons — use subtle gradient bg panels
-- Keep compact 2x2 grid, benefit-first copy
-- Add subtle top border divider to separate from marquee
+## Changes
 
-### 2. `AboutSection.tsx` — Remove Stats, Fix Background
-- Change `bg-alpine-navy` → `bg-alpine-dark`
-- Remove the stats row (7+ Years, 150+ Clients, $10M+ Revenue) entirely
-- Keep the story copy and section header
+### 1. `CapabilitiesSection.tsx` — Expand to 6 services (3x2 grid)
+Add back **Web Design & Funnels** and add **CRM & Automation** as the 6th card. Grid becomes `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`. Six services:
+- Paid Media (Meta campaigns)
+- Lead Generation
+- AI Systems
+- Copywriting & Creative
+- Web Design & Funnels (custom sites, landing pages, conversion funnels)
+- CRM & Automation (pipeline management, automated follow-ups, lead routing)
 
-### 3. `SystemDiagramSection.tsx` — Fix Testimonials
-- Slow down marquee/scroll speed if auto-scrolling
-- Generate proper avatar images using AI image generation API (8 realistic headshots)
-- Add more testimonials (expand from 8 to ~10-12)
-- Fix any clipping at the end of the scroll container
-- Ensure all cards are fully visible and scrollable on mobile
+Remove any mention of Google Ads. Keep benefit-first copy.
 
-### 4. `LogoMarquee.tsx` — Fix Logo Visibility
-- Slow down the marquee animation (`20s` → `40s`)
-- Ensure all logos render properly with correct sizing
-- Check that `brightness-0 invert` filter works for all logo formats (PNG vs SVG)
+### 2. New `SystemBreakdownSection.tsx` — "How We Build Your Revenue Machine"
+A new light-background section (`bg-frost-light`) placed between Testimonials and About. Three visual columns/cards showing:
+1. **Custom Ad Campaigns** — We build and manage Meta ad campaigns tailored to your market, audience, and goals
+2. **AI-Powered Response System** — Custom AI chatbot + voice + SMS agent that responds to every inbound lead in under 60 seconds, 24/7
+3. **Revenue Infrastructure** — Funnels, landing pages, CRM setup, and automated follow-ups that turn leads into closed deals
 
-### 5. `tailwind.config.ts` — Slow marquee
-- Change marquee duration from `20s` to `40s`
+Each card has an icon, short headline, 2-3 sentence description. Clean, light theme with `text-foreground` colors.
 
-### 6. `testimonial-cards.tsx` — Better avatars
-- Use AI-generated avatar images instead of pravatar.cc
+### 3. `AboutSection.tsx` — Keep dark, no changes needed (now separated by the new light section above it)
+
+### 4. `FAQSection.tsx` — Change to `bg-frost-light`
+Switch all text/card colors to light-theme variants (`text-foreground`, `bg-white`, `border-border`). This creates a visual break between About (dark) and CTA (black).
+
+### 5. `Index.tsx` — Add SystemBreakdownSection between Testimonials and About
 
 ### Files Modified
-`CapabilitiesSection.tsx`, `AboutSection.tsx`, `SystemDiagramSection.tsx`, `LogoMarquee.tsx`, `testimonial-cards.tsx`, `tailwind.config.ts`
+`CapabilitiesSection.tsx`, `FAQSection.tsx`, `Index.tsx` + new `SystemBreakdownSection.tsx`
 
