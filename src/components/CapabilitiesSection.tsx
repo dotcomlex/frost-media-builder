@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Target, Bot, Globe, Megaphone } from "lucide-react";
+import { Target, Bot, PenTool, Megaphone } from "lucide-react";
 
 const services = [
   {
     icon: Megaphone,
     title: "Paid Media",
     benefit: "More customers, lower cost per lead.",
-    points: ["Meta & Google campaigns that scale", "Scroll-stopping creative that converts", "A/B tested for maximum ROI"],
+    points: ["Meta campaigns that scale profitably", "Scroll-stopping creative that converts", "A/B tested for maximum ROI"],
   },
   {
     icon: Target,
@@ -21,15 +21,15 @@ const services = [
     points: ["Custom AI chatbot responds in <30s", "Automated booking & follow-ups", "Works 24/7 so you don't have to"],
   },
   {
-    icon: Globe,
-    title: "Web & Funnels",
-    benefit: "Pages that convert visitors into revenue.",
-    points: ["High-converting landing pages & funnels", "Brand identity & visual systems", "Mobile-first, SEO-optimized builds"],
+    icon: PenTool,
+    title: "Copywriting & Creative",
+    benefit: "Words and visuals that sell.",
+    points: ["Direct-response ad copy that converts", "Branded creative & video production", "Landing page copy & email sequences"],
   },
 ];
 
 const CapabilitiesSection = () => (
-  <section id="services" className="py-14 md:py-20 bg-alpine-navy">
+  <section id="services" className="py-14 md:py-20 bg-alpine-dark border-t border-white/5">
     <div className="max-w-5xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

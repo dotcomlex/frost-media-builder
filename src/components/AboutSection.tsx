@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
 
-const stats = [
-  { value: "7+", label: "Years Experience" },
-  { value: "150+", label: "Clients Served" },
-  { value: "$10M+", label: "Revenue Generated" },
-];
-
 const AboutSection = () => (
-  <section id="about" className="py-16 md:py-24 bg-alpine-navy">
+  <section id="about" className="py-16 md:py-24 bg-alpine-dark border-t border-white/5">
     <div className="max-w-3xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -30,22 +24,6 @@ const AboutSection = () => (
             We don't just run ads. We build the entire infrastructure — from the first click to the closed deal. That's why our clients stay, and that's why they grow.
           </p>
         </div>
-      </motion.div>
-
-      {/* Stats row */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/10"
-      >
-        {stats.map((s) => (
-          <div key={s.label} className="text-center">
-            <p className="font-heading text-2xl md:text-4xl font-black text-ice-blue">{s.value}</p>
-            <p className="text-xs md:text-sm text-text-on-dark/40 mt-1">{s.label}</p>
-          </div>
-        ))}
       </motion.div>
     </div>
   </section>
