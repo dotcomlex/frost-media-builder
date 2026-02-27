@@ -1,33 +1,43 @@
 
 
-# Replace Testimonial Section with Draggable Shuffle Cards
+# Fix Testimonial Section - Complete Rebuild
 
-## Approach
-Replace the current embla-carousel testimonial section (`SystemDiagramSection.tsx`) with the TwentyFirst Dev shuffle card component. The drag-to-shuffle interaction is more engaging than a standard carousel.
+## Problems Identified
+- Cards overflow viewport on both desktop and mobile (350px cards with 33%/66% x-offsets push content off-screen)
+- frost-light background with white cards has zero contrast
+- Initials-only avatars look cheap
+- Drag interaction is unintuitive and broken on mobile (no visual cue)
 
-## Adaptation for Frost Media
-- Create `src/components/ui/testimonial-cards.tsx` with the shuffle card component, adapted with proper TypeScript types
-- Restyle cards to match the site's alpine/frost theme (use `bg-card`, `border-border`, `text-foreground`, etc.) instead of the default slate/indigo
-- Keep the 8 existing realistic reviews from the current `SystemDiagramSection`, cycling through them in groups of 3
-- Use initials-based avatars (like we already have) instead of `pravatar.cc` to keep it consistent and avoid external dependencies
-- Add industry tag pills and star ratings to the cards (carried over from current design)
+## Approach: Replace with Horizontal Scrolling Carousel
+Drop the shuffle-card pattern entirely. It's fundamentally broken for responsive layouts. Replace with a clean, horizontally scrolling testimonial strip that works on all devices.
 
-## Steps
+## Changes
 
-### 1. Create `src/components/ui/testimonial-cards.tsx`
-- Copy the `TestimonialCard` component with TypeScript types added
-- Restyle: `border-border`, `bg-card/80`, `backdrop-blur-md`, ice-blue accent for author name, `text-muted-foreground` for quote
-- Use initials avatar circle instead of external image
+### 1. Rewrite `src/components/SystemDiagramSection.tsx`
+- **Background**: Dark alpine-navy (`bg-alpine-dark`) section for strong contrast
+- **Layout**: Full-width section with header centered on top, then a horizontally scrolling row of cards below
+- **Scrolling**: Native CSS horizontal scroll with `overflow-x: auto`, `snap-x`, `snap-mandatory` for smooth snapping. No carousel library needed.
+- **Cards**: Each card is a fixed-width glass-style card (`bg-white/5 backdrop-blur border border-white/10`) with:
+  - Avatar image (use `https://i.pravatar.cc/128?img=N` with unique IDs per review for realistic generated faces)
+  - 5-star rating in amber/gold
+  - Quote text in `text-on-dark`
+  - Author name in ice-blue, role + location in muted light text
+  - Industry tag pill
+- **Card sizing**: `w-[320px] md:w-[380px]` with `flex-shrink-0` so they scroll horizontally
+- **Mobile**: Cards scroll naturally with touch/swipe. Add `scrollbar-hide` utility.
+- **Desktop**: Show ~3 cards visible at once, user can scroll or use subtle left/right arrow buttons
 
-### 2. Rewrite `src/components/SystemDiagramSection.tsx`
-- Remove embla-carousel import and logic
-- Import `TestimonialCard` from the new UI component
-- Implement the `ShuffleCards` pattern with `positions` state and `handleShuffle`
-- Keep all 8 reviews — cycle through them: when the user shuffles past the current 3, rotate the next review in
-- Keep the section header ("What Our Clients Say") and `frost-light` background
-- Layout: left side has the section title + subtitle text, right side has the stacked shuffle cards (split layout on desktop, stacked on mobile)
+### 2. Update `src/components/ui/testimonial-cards.tsx`
+- Simplify to a static card component (no drag/motion logic needed)
+- Accept avatar URL, name, role, location, tag, quote as props
+- Styled as a dark glassmorphism card
+
+### 3. Add scrollbar-hide utility to `src/index.css`
+```css
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+```
 
 ### Files
-- **Created**: `src/components/ui/testimonial-cards.tsx`
-- **Modified**: `src/components/SystemDiagramSection.tsx`
+- **Modified**: `src/components/SystemDiagramSection.tsx`, `src/components/ui/testimonial-cards.tsx`, `src/index.css`
 
