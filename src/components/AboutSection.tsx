@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail } from "lucide-react";
 
 const AboutSection = () => (
-  <section id="about" className="py-16 md:py-24 bg-background">
+  <section id="about" className="py-16 md:py-24 bg-gradient-to-b from-frost-light to-background">
     <div className="max-w-3xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -19,14 +18,8 @@ const AboutSection = () => (
             After seven years running performance campaigns across insurance, e-commerce, beauty, and home services, we kept seeing businesses throwing money at ads with zero tracking and agencies charging retainers regardless of results.
           </p>
           <p>
-            So we built Frost Media differently. A small expert team in Denver, Colorado — combining AI technology with proven direct-response marketing. We speak fluent English and Spanish, unlocking markets your competitors can't touch. Everything is custom. No templates, no recycled campaigns.
+            So we built Frost Media differently. A small expert team based in Denver, Colorado — combining AI technology with proven direct-response marketing. Everything is custom. No templates, no recycled campaigns. Just systems that generate real revenue.
           </p>
-        </div>
-
-        <div className="flex flex-col gap-2 mt-8 text-sm text-muted-foreground">
-          <span className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Commerce City, Colorado 80022</span>
-          <a href="tel:7202887101" className="flex items-center gap-2 hover:text-foreground transition-colors"><Phone className="h-4 w-4 text-primary" /> (720) 288-7101</a>
-          <a href="mailto:hello@frostmedia.co" className="flex items-center gap-2 hover:text-foreground transition-colors"><Mail className="h-4 w-4 text-primary" /> hello@frostmedia.co</a>
         </div>
       </motion.div>
     </div>

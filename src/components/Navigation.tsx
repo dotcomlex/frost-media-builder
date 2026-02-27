@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, Phone } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
@@ -39,13 +39,9 @@ const Navigation = () => {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
-          <a href="tel:7202887101" className="text-sm text-text-on-dark/60 hover:text-text-on-dark flex items-center gap-1.5 transition-colors">
-            <Phone className="h-3.5 w-3.5" />
-            (720) 288-7101
-          </a>
-          <Button className="bg-secondary hover:bg-amber-gold text-secondary-foreground rounded-xl px-6 font-semibold shadow-lg shadow-secondary/30">
-            Let's Talk
+        <div className="hidden md:block">
+          <Button asChild className="bg-secondary hover:bg-amber-gold text-secondary-foreground rounded-xl px-6 font-semibold shadow-lg shadow-secondary/30">
+            <a href="#contact">Let's Talk</a>
           </Button>
         </div>
 
@@ -68,12 +64,8 @@ const Navigation = () => {
                   {link.label}
                 </a>
               ))}
-              <a href="tel:7202887101" className="text-base text-text-on-dark/60 flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                (720) 288-7101
-              </a>
-              <Button className="bg-secondary hover:bg-amber-gold text-secondary-foreground rounded-xl font-semibold w-full mt-4">
-                Let's Talk
+              <Button asChild className="bg-secondary hover:bg-amber-gold text-secondary-foreground rounded-xl font-semibold w-full mt-4">
+                <a href="#contact" onClick={() => setOpen(false)}>Let's Talk</a>
               </Button>
             </div>
           </SheetContent>
