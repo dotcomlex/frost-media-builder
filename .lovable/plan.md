@@ -1,68 +1,71 @@
 
 
-# Frost Media — Content & Design Overhaul
+# Major Content & Structure Overhaul
 
-## Changes Overview
+## 1. Redesign Services Section (CapabilitiesSection.tsx)
+Transform from boring icon+paragraph cards into engaging, visually rich service blocks. Each service gets:
+- A bold headline with a short punchy tagline
+- Bullet-point deliverables (what they actually get)
+- An outcome statement (what happens after)
+- Alternating layout: odd cards have accent left border in ice-blue, even in amber
+- Hover state lifts card with shadow
+- "Learn more" links that go to dedicated service pages (future)
 
-### 1. HeroSection.tsx — Clean up copy & CTA
-- Remove "bilingual" from subheadline
-- Remove the "1,900+" stat block entirely
-- Replace "See Our Results" with a proper CTA: "Book a Free Strategy Call →" linking to #contact
-- Keep the dark bg, left-aligned headline, frost pattern — those are working well
+Services content:
+1. **Paid Media & Advertising** — "Your ads, engineered to print money." Deliverables: Meta/Instagram/Google campaigns, creative production, A/B testing, audience research, retargeting funnels, scaling strategies. Outcome: "Stop guessing. Start scaling."
+2. **Lead Generation** — "Your pipeline, full. Every single month." Deliverables: Custom campaigns for home services, beauty, insurance, real estate, e-commerce. Geo-targeted, funnel-built, CRM-integrated. Outcome: "From empty calendar to fully booked."
+3. **AI-Powered Systems** — "Your best closer — working 24/7." Deliverables: Custom AI agent/chatbot, instant lead response, FAQ handling, objection handling, appointment booking, follow-up sequences, CRM integration. Outcome: "Every lead gets a response in seconds, not hours."
+4. **Web Design & Funnels** — "Websites that sell. Not just sit there." Deliverables: Landing pages, sales funnels, full website builds, brand identity, mobile-first, SEO-optimized. Outcome: "Your digital presence becomes your best salesperson."
 
-### 2. CapabilitiesSection.tsx — Expand to 4 services with richer descriptions
-Split into 4 cards with expanded copy and decorative gradient/icon treatments per card:
-- **Paid Media & Advertising** — Meta, Instagram, Google ads, creative production, A/B testing, audience targeting, scaling for e-commerce and local businesses
-- **Lead Generation** — Full-funnel lead gen for home services, beauty, insurance, real estate, e-commerce — custom campaigns, not templates
-- **AI-Powered Systems** — Custom AI agent/chatbot handling inbound leads, follow-ups, FAQ responses, objection handling, appointment booking, 24/7 automated
-- **Web Design & Funnels** — Landing pages, funnels, full website builds, brand identity — designed to convert and stand out
+Layout: Full-width stacked cards (not 2x2 grid) with generous padding, each card a mini-section. On mobile, clean vertical stack with proper spacing.
 
-Each card gets a subtle gradient accent or illustration-style SVG icon to make it more visually engaging. Grid: 2x2 on desktop, stacked on mobile with proper spacing.
+## 2. Replace Case Studies with Testimonial Carousel (SystemDiagramSection.tsx)
+Replace the current case study grid with a horizontally scrolling testimonial/review section. Each review card:
+- Avatar (generated initials-based)
+- Name, business type, location
+- Star rating (5 stars)
+- Quote about how Frost Media helped them
+- Industry tag pill
 
-### 3. SystemDiagramSection.tsx — Expanded case studies, more industries, no bilingual mentions
-Expand from 3 to 6 case studies across diverse industries and states. Remove all bilingual/Spanish references. Remove specific metrics (1,900+, 78%, $120K) — replace with narrative-focused cards that describe the problem solved and outcome without hard numbers. Separate testimonial quotes from case study descriptions (no mixing).
+Reviews (realistic, diverse industries and locations):
+1. Marcus T. — HVAC Owner, Phoenix AZ — AI lead system filled his summer schedule
+2. Sarah L. — Beauty Studio Owner, Denver CO — Went from empty afternoons to a waitlist
+3. David R. — Concrete Contractor, Dallas TX — More jobs in Q1 than entire previous year
+4. Jennifer K. — E-Commerce Brand, LA — ROAS tripled after ad restructure
+5. Mike P. — Painting Company, Denver CO — Every estimate now closes
+6. Carlos M. — Roofing Company, Tampa FL — Became the go-to in his zip codes
+7. Amanda W. — Insurance Agent, Austin TX — AI chatbot handles all inbound leads
+8. Jason B. — Real Estate Team, Miami FL — Lead gen pipeline runs on autopilot
 
-Industries to include:
-- HVAC company (Phoenix, AZ)
-- Concrete contractor (Dallas, TX)
-- Painting company (Denver, CO)
-- Beauty studio (Denver, CO)
-- E-commerce brand (Los Angeles, CA)
-- Roofing company (Tampa, FL)
+Use embla-carousel (already installed) for horizontal scroll with dots/arrows. Section title: "What Our Clients Say". Light frost-light background to contrast the dark hero above.
 
-Layout: 2-column grid on desktop (3 rows), single column on mobile. Each card has industry tag, company description, what we did, and the result — written as a short narrative paragraph.
+## 3. Add "How It Works" Section (new ProcessSection.tsx)
+Add between services and testimonials. Three-step process on dark bg:
+1. **Strategy Call** — "We learn your business, your goals, and your market."
+2. **We Build Your System** — "Custom ads, AI automation, and funnels — all integrated."
+3. **You Scale** — "Leads flow in, your calendar fills up, revenue grows."
 
-### 4. AboutSection.tsx — Remove contact info, add background
-- Remove phone, email, address completely
-- Remove "bilingual" and "English and Spanish" references
-- Add a subtle frost-light gradient or alpine-dark background instead of plain white
-- Keep "Denver, Colorado" mention naturally in the copy
-- Tighten to 2 clean paragraphs
+Clean numbered steps with connecting line/dots. Simple, outcome-focused.
 
-### 5. FAQSection.tsx — Remove bilingual references
-- Update FAQ answers to remove all "bilingual", "English/Spanish" mentions
-- Update industries FAQ to include the expanded list (home services, e-commerce, beauty, insurance, real estate, contractors)
+## 4. Update Page Structure (Index.tsx)
+New order:
+1. Navigation
+2. Hero
+3. Logo Marquee
+4. Services (redesigned)
+5. How It Works (new)
+6. Testimonials (replaces case studies)
+7. About
+8. FAQ
+9. Final CTA
+10. Footer
 
-### 6. Navigation.tsx — Remove phone number
-- Remove phone number from nav and mobile menu
-- Keep "Let's Talk" CTA button
+Add "Services" to nav links.
 
-### 7. Footer.tsx — Remove address, phone, email
-- Remove the "Denver Office" column with address/phone/email
-- Replace with a simpler 2-column layout: brand + social links, quick links
-- Keep "Denver, Colorado" only in the copyright line
+## 5. Update Navigation (Navigation.tsx)
+Add "Services" link pointing to `#services`.
 
-### 8. FinalCTASection.tsx — Update CTA to "Book a Call"
-- Change button text to "Book a Call →"
-- Keep "Denver, Colorado" as location context subtly
-
-## Files Modified
-- `src/components/HeroSection.tsx`
-- `src/components/CapabilitiesSection.tsx`
-- `src/components/SystemDiagramSection.tsx`
-- `src/components/AboutSection.tsx`
-- `src/components/FAQSection.tsx`
-- `src/components/Navigation.tsx`
-- `src/components/Footer.tsx`
-- `src/components/FinalCTASection.tsx`
+## Files
+- **Modified**: `CapabilitiesSection.tsx`, `SystemDiagramSection.tsx`, `Navigation.tsx`, `Index.tsx`
+- **Created**: `src/components/ProcessSection.tsx`
 
