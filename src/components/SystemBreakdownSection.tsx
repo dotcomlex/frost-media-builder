@@ -1,22 +1,31 @@
 import { motion } from "framer-motion";
 import { Megaphone, Bot, Layers, ArrowRight } from "lucide-react";
+import systemAds from "@/assets/system-ads.png";
+import systemAi from "@/assets/system-ai.png";
+import systemCrm from "@/assets/system-crm.png";
 
 const steps = [
   {
     num: "01",
     icon: Megaphone,
+    image: systemAds,
+    imageAlt: "Ad campaign analytics dashboard",
     title: "Custom Ad Campaigns",
     desc: "We build and manage Meta ad campaigns tailored to your market, audience, and goals. Every dollar is tracked, tested, and optimized weekly for maximum ROI.",
   },
   {
     num: "02",
     icon: Bot,
+    image: systemAi,
+    imageAlt: "AI chatbot responding to customer on phone",
     title: "AI-Powered Response System",
     desc: "Custom AI chatbot, voice, and SMS agent that responds to every inbound lead in under 60 seconds — 24/7. No missed calls, no slow follow-ups, no lost revenue.",
   },
   {
     num: "03",
     icon: Layers,
+    image: systemCrm,
+    imageAlt: "CRM pipeline and revenue funnel dashboard",
     title: "Revenue Infrastructure",
     desc: "Funnels, landing pages, CRM setup, and automated follow-ups that turn raw leads into closed deals. Everything connected, everything measured.",
   },
@@ -64,12 +73,23 @@ const SystemBreakdownSection = () => (
               )}
             </div>
 
-            <div className="bg-white rounded-2xl border border-border p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow text-center">
-              <div className="w-12 h-12 rounded-xl bg-ice-blue/10 flex items-center justify-center mx-auto mb-5">
-                <step.icon className="h-6 w-6 text-ice-blue" />
+            <div className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow text-center">
+              {/* Contextual image */}
+              <div className="w-full h-48 overflow-hidden">
+                <img
+                  src={step.image}
+                  alt={step.imageAlt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="font-heading text-xl font-bold text-foreground mb-3">{step.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+              <div className="p-6 md:p-8">
+                <div className="w-12 h-12 rounded-xl bg-ice-blue/10 flex items-center justify-center mx-auto mb-5">
+                  <step.icon className="h-6 w-6 text-ice-blue" />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-foreground mb-3">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+              </div>
             </div>
           </motion.div>
         ))}
