@@ -19,12 +19,12 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		if (!containerRef.current) return;
 
 		const container = containerRef.current;
-		const SEPARATION = 150;
-		const AMOUNTX = 40;
-		const AMOUNTY = 60;
+		const SEPARATION = 100;
+		const AMOUNTX = 60;
+		const AMOUNTY = 80;
 
 		const scene = new THREE.Scene();
-		scene.fog = new THREE.Fog(0x000000, 2000, 10000);
+		scene.fog = new THREE.Fog(0x000000, 1500, 8000);
 
 		const camera = new THREE.PerspectiveCamera(
 			60,
@@ -32,13 +32,13 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 			1,
 			10000,
 		);
-		camera.position.set(0, 200, 900);
+		camera.position.set(0, 350, 700);
 
 		const renderer = new THREE.WebGLRenderer({
 			alpha: true,
 			antialias: true,
 		});
-		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 		renderer.setSize(container.clientWidth, container.clientHeight);
 		renderer.setClearColor(0x000000, 0);
 
@@ -54,7 +54,6 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 				const y = 0;
 				const z = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2;
 				positions.push(x, y, z);
-				// Ice-blue tinted dots for dark hero
 				colors.push(0.4, 0.7, 1.0);
 			}
 		}
@@ -63,10 +62,10 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
 		const material = new THREE.PointsMaterial({
-			size: 8,
+			size: 3,
 			vertexColors: true,
 			transparent: true,
-			opacity: 0.6,
+			opacity: 0.25,
 			sizeAttenuation: true,
 		});
 
@@ -86,15 +85,15 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 			for (let ix = 0; ix < AMOUNTX; ix++) {
 				for (let iy = 0; iy < AMOUNTY; iy++) {
 					pos[i * 3 + 1] =
-						Math.sin((ix + count) * 0.3) * 50 +
-						Math.sin((iy + count) * 0.5) * 50;
+						Math.sin((ix + count) * 0.3) * 30 +
+						Math.sin((iy + count) * 0.5) * 30;
 					i++;
 				}
 			}
 
 			positionAttribute.needsUpdate = true;
 			renderer.render(scene, camera);
-			count += 0.1;
+			count += 0.06;
 		};
 
 		const handleResize = () => {

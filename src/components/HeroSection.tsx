@@ -12,19 +12,19 @@ const HeroSection = () => (
       aria-hidden="true"
       className="absolute inset-0 w-full h-full object-cover z-0"
     />
-    {/* Layer 2: Dark gradient overlay for text readability */}
-    <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/90 via-black/65 to-black/45" />
+    {/* Layer 2: Gradient overlay — balanced for visibility */}
+    <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/55 to-black/35" />
     {/* Layer 3: Particle wave effect */}
     <div className="absolute inset-0 z-[2] overflow-hidden">
       <DottedSurface className="h-full w-full" />
     </div>
     {/* Layer 4: Content */}
-    <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32 w-full">
+    <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-8 py-24 md:py-32 w-full">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="font-mono-tech text-xs md:text-sm tracking-widest uppercase text-ice-blue mb-6"
+        className="font-mono-tech text-xs md:text-sm tracking-widest uppercase text-ice-blue mb-6 hero-text-glow"
       >
         📍 Denver, Colorado — AI-Powered Marketing
       </motion.p>
@@ -33,20 +33,21 @@ const HeroSection = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1] text-text-on-dark max-w-4xl"
+        className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1] text-text-on-dark max-w-4xl hero-text-glow"
       >
         We Build Systems That Generate{" "}
-        <span className="text-ice-blue">Real Revenue</span>
+        <span className="hero-gradient-text">Real Revenue</span>
       </motion.h1>
 
-      <motion.p
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-base md:text-lg text-text-on-dark/60 max-w-2xl mt-6 leading-relaxed"
       >
-        Custom Meta campaigns + AI automation + high-converting funnels. Built from scratch for businesses ready to dominate.
-      </motion.p>
+        <p className="text-base md:text-lg text-text-on-dark/70 max-w-2xl mt-6 leading-relaxed hero-subtitle-pill">
+          Custom Meta campaigns + AI automation + high-converting funnels. Built from scratch for businesses ready to dominate.
+        </p>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

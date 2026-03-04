@@ -1,43 +1,35 @@
 import { motion } from "framer-motion";
-import { Users, Calendar, DollarSign, MapPin } from "lucide-react";
-
-const stats = [
-  { icon: Users, value: "150+", label: "Clients Served" },
-  { icon: Calendar, value: "7+", label: "Years Experience" },
-  { icon: DollarSign, value: "$2M+", label: "Ad Spend Managed" },
-  { icon: MapPin, value: "Denver", label: "Colorado HQ" },
-];
+import aboutTeam from "@/assets/about-team.jpg";
 
 const AboutSection = () => (
   <section id="about" className="py-16 md:py-24 bg-alpine-dark border-t border-white/5">
-    <div className="max-w-4xl mx-auto px-4 md:px-8">
+    <div className="max-w-4xl mx-auto px-5 md:px-8">
+      {/* Team image */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
+        className="relative rounded-2xl overflow-hidden mb-10"
       >
-        <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">About Frost Media</p>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark tracking-tight mb-8">
-          Built by Denver Marketers Who Saw the Gaps
-        </h2>
+        <img
+          src={aboutTeam}
+          alt="Frost Media team working in our Denver office"
+          className="w-full h-48 md:h-72 object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-alpine-dark/80 via-transparent to-transparent" />
       </motion.div>
 
-      {/* Stats row */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10"
       >
-        {stats.map((s) => (
-          <div key={s.label} className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 text-center">
-            <s.icon className="h-5 w-5 text-ice-blue mx-auto mb-2" />
-            <p className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark">{s.value}</p>
-            <p className="text-text-on-dark/40 text-xs mt-1">{s.label}</p>
-          </div>
-        ))}
+        <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">About Frost Media</p>
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark tracking-tight mb-8">
+          Built by Denver Marketers Who Saw the Gaps
+        </h2>
       </motion.div>
 
       {/* Divider */}

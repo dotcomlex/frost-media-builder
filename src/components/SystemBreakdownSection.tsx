@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Megaphone, Bot, Layers, Phone, MessageSquare, BrainCircuit, BarChart3, Zap, Users, Clock, TrendingUp, PieChart } from "lucide-react";
+import { Megaphone, Bot, Layers, Phone, MessageSquare, BrainCircuit, BarChart3, Zap, Users, TrendingUp, Clock, PieChart } from "lucide-react";
 
 const steps = [
   {
@@ -7,51 +7,51 @@ const steps = [
     icon: Megaphone,
     title: "Custom Ad Campaigns",
     subtitle: "Attract the Right Customers",
-    desc: "We build and manage Meta ad campaigns tailored to your market, audience, and goals. Every dollar is tracked, tested, and optimized weekly for maximum ROI.",
-    details: [
-      { icon: BarChart3, label: "Weekly optimization & reporting" },
+    desc: "We build and manage Meta ad campaigns tailored to your market, audience, and goals. Every dollar is tracked, tested, and optimized weekly so your cost per lead drops while your pipeline grows.",
+    pills: [
+      { icon: BarChart3, label: "Weekly optimization" },
       { icon: Zap, label: "Scroll-stopping creative" },
       { icon: Users, label: "Hyper-targeted audiences" },
     ],
-    gradient: "from-primary/20 to-primary/5",
     accentColor: "text-primary",
-    iconBg: "bg-primary/15",
+    pillBg: "bg-primary/10",
+    numColor: "text-primary/[0.06]",
   },
   {
     num: "02",
     icon: Bot,
     title: "AI-Powered Response System",
     subtitle: "Engage Leads Instantly — 24/7",
-    desc: "Your business never sleeps. Our cutting-edge AI suite handles every inbound lead instantly — no missed calls, no slow follow-ups, no lost revenue. Replace 2-3 employees at a fraction of the cost.",
-    details: [
-      { icon: Phone, label: "AI Voice Callers — qualify & book leads" },
-      { icon: MessageSquare, label: "AI SMS Agents — instant text follow-ups" },
-      { icon: BrainCircuit, label: "AI Chatbots — <30s website responses" },
+    desc: "Your business never sleeps. Our AI suite handles every inbound lead the moment they come in — qualifying, responding, and booking automatically. No missed calls, no slow follow-ups, no lost revenue.",
+    pills: [
+      { icon: Phone, label: "AI Voice Callers" },
+      { icon: MessageSquare, label: "AI SMS Agents" },
+      { icon: BrainCircuit, label: "AI Chatbots" },
     ],
-    gradient: "from-accent/20 to-accent/5",
     accentColor: "text-accent",
-    iconBg: "bg-accent/15",
+    pillBg: "bg-accent/10",
+    numColor: "text-accent/[0.06]",
   },
   {
     num: "03",
     icon: Layers,
     title: "Revenue Infrastructure",
     subtitle: "Convert & Close Automatically",
-    desc: "Funnels, landing pages, CRM setup, and automated follow-ups that turn raw leads into closed deals. Everything connected, everything measured — so you know exactly what's working.",
-    details: [
-      { icon: TrendingUp, label: "Conversion-optimized funnels" },
-      { icon: Clock, label: "Automated nurture sequences" },
-      { icon: PieChart, label: "Full pipeline visibility" },
+    desc: "Funnels, landing pages, CRM, and automated follow-ups that turn raw leads into closed deals. Everything connected, everything measured — so you know exactly what's driving growth.",
+    pills: [
+      { icon: TrendingUp, label: "Optimized funnels" },
+      { icon: Clock, label: "Automated nurture" },
+      { icon: PieChart, label: "Full visibility" },
     ],
-    gradient: "from-success/20 to-success/5",
     accentColor: "text-success",
-    iconBg: "bg-success/15",
+    pillBg: "bg-success/10",
+    numColor: "text-success/[0.06]",
   },
 ];
 
 const SystemBreakdownSection = () => (
-  <section className="py-16 md:py-24 bg-frost-light">
-    <div className="max-w-5xl mx-auto px-4 md:px-8">
+  <section className="bg-frost-light overflow-hidden">
+    <div className="max-w-5xl mx-auto px-5 md:px-8 py-16 md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -63,67 +63,63 @@ const SystemBreakdownSection = () => (
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
           How We Build Your Revenue Machine
         </h2>
-        <p className="text-muted-foreground text-lg mt-4 max-w-xl mx-auto">
+        <p className="text-muted-foreground text-base md:text-lg mt-4 max-w-xl mx-auto">
           Three pillars working together to fill your pipeline and grow your business.
         </p>
       </motion.div>
 
-      {/* Timeline */}
-      <div className="relative">
-        {/* Vertical connector line */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 z-0" />
-
-        {steps.map((step, i) => {
-          const isEven = i % 2 === 0;
-          return (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-12 mb-16 last:mb-0 ${isEven ? '' : 'md:flex-row-reverse'}`}
+      {/* Immersive stacked sections */}
+      <div className="space-y-12 md:space-y-20">
+        {steps.map((step, i) => (
+          <motion.div
+            key={step.title}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: i * 0.1 }}
+            className="relative"
+          >
+            {/* Giant watermark number */}
+            <span
+              className={`absolute -top-4 md:-top-8 left-0 font-heading text-[8rem] md:text-[12rem] font-black leading-none select-none pointer-events-none ${step.numColor}`}
             >
-              {/* Step number on the timeline */}
-              <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10 w-14 h-14 rounded-full bg-background border-2 border-ice-blue/30 items-center justify-center shadow-md">
-                <span className="font-mono-tech text-lg font-bold text-ice-blue">{step.num}</span>
+              {step.num}
+            </span>
+
+            <div className="relative z-10">
+              {/* Subtitle label */}
+              <p className={`font-mono-tech text-xs tracking-widest uppercase ${step.accentColor} mb-2`}>
+                {step.subtitle}
+              </p>
+
+              {/* Title + icon */}
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`w-10 h-10 rounded-xl ${step.pillBg} flex items-center justify-center shrink-0`}>
+                  <step.icon className={`h-5 w-5 ${step.accentColor}`} />
+                </div>
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">{step.title}</h3>
               </div>
 
-              {/* Content side */}
-              <div className={`flex-1 ${isEven ? 'md:text-right md:pr-16' : 'md:text-left md:pl-16'}`}>
-                {/* Mobile step number */}
-                <div className="md:hidden flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-background border-2 border-ice-blue/30 flex items-center justify-center">
-                    <span className="font-mono-tech text-sm font-bold text-ice-blue">{step.num}</span>
-                  </div>
-                  <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue">{step.subtitle}</p>
-                </div>
-                <p className={`hidden md:block font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-2`}>{step.subtitle}</p>
-                <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-3">{step.title}</h3>
-                <p className="text-muted-foreground text-base leading-relaxed">{step.desc}</p>
-              </div>
+              {/* Description */}
+              <p className="text-muted-foreground text-base leading-relaxed max-w-2xl mb-6">
+                {step.desc}
+              </p>
 
-              {/* Visual card side */}
-              <div className="flex-1 w-full md:w-auto">
-                <div className={`bg-background rounded-2xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow ${isEven ? 'md:ml-16' : 'md:mr-16'}`}>
-                  <div className={`w-14 h-14 rounded-xl ${step.iconBg} flex items-center justify-center mb-5`}>
-                    <step.icon className={`h-7 w-7 ${step.accentColor}`} />
+              {/* Horizontal pills */}
+              <div className="flex flex-wrap gap-2">
+                {step.pills.map((pill) => (
+                  <div
+                    key={pill.label}
+                    className={`flex items-center gap-2 ${step.pillBg} rounded-full px-4 py-2`}
+                  >
+                    <pill.icon className={`h-4 w-4 ${step.accentColor}`} />
+                    <span className="text-foreground/80 text-sm font-medium">{pill.label}</span>
                   </div>
-                  <div className="space-y-3">
-                    {step.details.map((d) => (
-                      <div key={d.label} className="flex items-center gap-3 text-sm">
-                        <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${step.gradient} flex items-center justify-center shrink-0`}>
-                          <d.icon className={`h-4 w-4 ${step.accentColor}`} />
-                        </div>
-                        <span className="text-foreground/80">{d.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
-            </motion.div>
-          );
-        })}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   </section>
