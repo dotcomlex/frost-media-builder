@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TestimonialCard } from "@/components/ui/testimonial-cards";
+import heroMountains from "@/assets/hero-mountains.png";
 
 import avatarMarcus from "@/assets/avatar-marcus.jpg";
 import avatarSarah from "@/assets/avatar-sarah.jpg";
@@ -41,8 +42,17 @@ const SystemDiagramSection = () => {
   };
 
   return (
-    <section id="work" className="py-16 md:py-24 bg-alpine-dark overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section id="work" className="relative py-16 md:py-24 overflow-hidden">
+      {/* Mountain background */}
+      <img
+        src={heroMountains}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/85 via-black/75 to-black/85" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,8 +87,8 @@ const SystemDiagramSection = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-alpine-dark to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-alpine-dark to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/80 to-transparent z-10 pointer-events-none" />
           <div
             ref={scrollRef}
             className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0"

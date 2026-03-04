@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, Bot, PenTool, Megaphone, Globe, Settings } from "lucide-react";
+import { Target, Bot, PenTool, Megaphone, Globe, Settings, Phone, MessageSquare, BrainCircuit, Clock, DollarSign, UserMinus } from "lucide-react";
 
 const services = [
   {
@@ -7,48 +7,61 @@ const services = [
     title: "Paid Media",
     benefit: "More customers, lower cost per lead.",
     points: ["Meta campaigns that scale profitably", "Scroll-stopping creative that converts", "A/B tested for maximum ROI"],
-    gradient: "from-blue-500/20 to-cyan-400/10",
-    accentColor: "bg-blue-500",
+    borderColor: "border-l-primary",
+    iconBg: "bg-primary/15",
+    iconColor: "text-primary",
   },
   {
     icon: Target,
     title: "Lead Generation",
     benefit: "Your calendar, fully booked every month.",
     points: ["Geo-targeted campaigns for any industry", "Full-funnel lead capture & routing", "Home services, beauty, insurance & more"],
-    gradient: "from-emerald-500/20 to-teal-400/10",
-    accentColor: "bg-emerald-500",
+    borderColor: "border-l-success",
+    iconBg: "bg-success/15",
+    iconColor: "text-success",
   },
   {
     icon: Bot,
-    title: "AI Systems",
-    benefit: "Instant responses, zero missed leads.",
-    points: ["Custom AI chatbot responds in <30s", "Automated booking & follow-ups", "Works 24/7 so you don't have to"],
-    gradient: "from-violet-500/20 to-purple-400/10",
-    accentColor: "bg-violet-500",
+    title: "AI Automation Suite",
+    benefit: "Save time & money — no extra hires needed.",
+    points: [
+      "AI Voice Callers — answer & qualify leads 24/7",
+      "AI SMS Agents — instant text follow-ups that close",
+      "AI Chatbots — respond in <30s on your website",
+      "Automated booking, reminders & nurture sequences",
+    ],
+    extraDetail: "Replace 2-3 full-time employees with AI that never sleeps, never calls in sick, and costs a fraction of a salary.",
+    borderColor: "border-l-accent",
+    iconBg: "bg-accent/15",
+    iconColor: "text-accent",
+    featured: true,
   },
   {
     icon: PenTool,
     title: "Copywriting & Creative",
     benefit: "Words and visuals that sell.",
     points: ["Direct-response ad copy that converts", "Branded creative & video production", "Landing page copy & email sequences"],
-    gradient: "from-amber-500/20 to-orange-400/10",
-    accentColor: "bg-amber-500",
+    borderColor: "border-l-secondary",
+    iconBg: "bg-secondary/15",
+    iconColor: "text-secondary",
   },
   {
     icon: Globe,
     title: "Web Design & Funnels",
     benefit: "High-converting sites built to close.",
     points: ["Custom websites & landing pages", "Conversion-optimized funnels", "Mobile-first, fast-loading design"],
-    gradient: "from-rose-500/20 to-pink-400/10",
-    accentColor: "bg-rose-500",
+    borderColor: "border-l-destructive",
+    iconBg: "bg-destructive/15",
+    iconColor: "text-destructive",
   },
   {
     icon: Settings,
     title: "CRM & Automation",
     benefit: "Never lose a lead again.",
     points: ["Pipeline management & lead routing", "Automated follow-up sequences", "Full visibility into every deal"],
-    gradient: "from-sky-500/20 to-indigo-400/10",
-    accentColor: "bg-sky-500",
+    borderColor: "border-l-ice-blue",
+    iconBg: "bg-ice-blue/15",
+    iconColor: "text-ice-blue",
   },
 ];
 
@@ -79,26 +92,48 @@ const CapabilitiesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="rounded-xl border border-white/[0.08] bg-white/[0.03] overflow-hidden hover:bg-white/[0.06] transition-all duration-300 group"
+            whileHover={{ y: -6 }}
+            className={`rounded-xl border border-white/[0.08] ${s.borderColor} border-l-4 bg-white/[0.03] overflow-hidden hover:bg-white/[0.06] hover:shadow-lg hover:shadow-ice-blue/5 transition-all duration-300 group ${s.featured ? 'sm:col-span-2 lg:col-span-1 ring-1 ring-accent/20' : ''}`}
           >
-            {/* Gradient accent bar */}
-            <div className={`h-1.5 w-full bg-gradient-to-r ${s.gradient}`} />
             <div className="p-5 md:p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${s.gradient} flex items-center justify-center shrink-0`}>
-                  <s.icon className="h-5 w-5 text-ice-blue" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center shrink-0 shadow-lg shadow-ice-blue/5`}>
+                  <s.icon className={`h-6 w-6 ${s.iconColor}`} />
                 </div>
-                <h3 className="text-lg font-bold text-text-on-dark font-heading">{s.title}</h3>
+                <div>
+                  <h3 className="text-lg font-bold text-text-on-dark font-heading">{s.title}</h3>
+                  <p className="text-ice-blue font-medium text-xs">{s.benefit}</p>
+                </div>
               </div>
-              <p className="text-ice-blue font-medium text-sm mb-3">{s.benefit}</p>
-              <ul className="space-y-1.5">
+
+              <ul className="space-y-2">
                 {s.points.map((p) => (
-                  <li key={p} className="text-text-on-dark/50 text-sm flex items-start gap-2">
-                    <span className="text-ice-blue mt-1 text-xs">▸</span>
+                  <li key={p} className="text-text-on-dark/55 text-sm flex items-start gap-2">
+                    <span className="text-ice-blue mt-0.5 text-xs">▸</span>
                     {p}
                   </li>
                 ))}
               </ul>
+
+              {s.extraDetail && (
+                <div className="mt-4 pt-3 border-t border-white/[0.08]">
+                  <div className="flex items-center gap-4 mb-2">
+                    <div className="flex items-center gap-1.5 text-text-on-dark/40 text-xs">
+                      <Clock className="h-3.5 w-3.5 text-ice-blue" />
+                      <span>24/7</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-text-on-dark/40 text-xs">
+                      <DollarSign className="h-3.5 w-3.5 text-success" />
+                      <span>Save 70%+</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-text-on-dark/40 text-xs">
+                      <UserMinus className="h-3.5 w-3.5 text-secondary" />
+                      <span>No hires</span>
+                    </div>
+                  </div>
+                  <p className="text-text-on-dark/40 text-xs leading-relaxed italic">{s.extraDetail}</p>
+                </div>
+              )}
             </div>
           </motion.div>
         ))}

@@ -13,7 +13,7 @@ const HeroSection = () => (
       className="absolute inset-0 w-full h-full object-cover z-0"
     />
     {/* Layer 2: Dark gradient overlay for text readability */}
-    <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+    <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/90 via-black/65 to-black/45" />
     {/* Layer 3: Particle wave effect */}
     <div className="absolute inset-0 z-[2] overflow-hidden">
       <DottedSurface className="h-full w-full" />
