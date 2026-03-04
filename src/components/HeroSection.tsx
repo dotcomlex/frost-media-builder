@@ -1,12 +1,24 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { DottedSurface } from "@/components/ui/dotted-surface";
+import heroMountains from "@/assets/hero-mountains.png";
 
 const HeroSection = () => (
   <section className="relative bg-alpine-black min-h-[80vh] md:min-h-[85vh] flex items-center">
-    <div className="absolute inset-0 z-0 overflow-hidden">
+    {/* Layer 1: Mountain background image */}
+    <img
+      src={heroMountains}
+      alt=""
+      aria-hidden="true"
+      className="absolute inset-0 w-full h-full object-cover z-0"
+    />
+    {/* Layer 2: Dark gradient overlay for text readability */}
+    <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+    {/* Layer 3: Particle wave effect */}
+    <div className="absolute inset-0 z-[2] overflow-hidden">
       <DottedSurface className="h-full w-full" />
     </div>
+    {/* Layer 4: Content */}
     <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32 w-full">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
