@@ -1,37 +1,37 @@
 
 
-# Logo Marquee Light Break + Services Enhancement + System Section Decision
-
-## Current Background Flow
-```text
-Hero:          bg-alpine-black   (black)
-Marquee:       bg-alpine-dark    (dark) ← blends with hero
-Services:      bg-alpine-dark    (dark) ← blends with marquee
-Process:       bg-frost-light    (LIGHT)
-Testimonials:  bg-alpine-dark    (dark)
-System:        bg-frost-light    (LIGHT)
-About:         bg-alpine-dark    (dark)
-FAQ:           bg-frost-light    (LIGHT)
-CTA:           bg-alpine-black   (black)
-Footer:        bg-alpine-dark    (dark)
-```
+# Hero Mountain Background + System Section Images
 
 ## Changes
 
-### 1. `LogoMarquee.tsx` — White/light background break
-- Change `bg-alpine-dark` → `bg-white` (or `bg-frost-light`)
-- Remove `brightness-0 invert` filter so logos show in full color
-- Remove `border-y border-white/5`, add subtle `border-y border-border` instead
-- This creates a clear visual break between Hero (black) and Services (dark)
+### 1. `HeroSection.tsx` — Mountain background image behind particles
+- Generate an AI image of frosty Colorado mountains (dramatic, moody, blue-tinted) using `google/gemini-2.5-flash-image`
+- Save as `src/assets/hero-mountains.png`
+- Add the image as an `<img>` layer between the `bg-alpine-black` background and the `DottedSurface` particle overlay
+- Add a dark overlay gradient (`bg-gradient-to-t from-black/80 via-black/50 to-black/30`) so text remains readable
+- The particle wave effect stays on top, creating a frosty mountains + floating particles combo
 
-### 2. `CapabilitiesSection.tsx` — More engaging service cards
-- Add a small illustrative image/gradient visual to each card (a decorative gradient panel or abstract shape at the top of each card to represent the service visually)
-- Use colored gradient backgrounds per card (subtle, not overwhelming) — e.g., a top accent bar or a small gradient circle behind the icon
-- This makes cards feel less template-y and more premium
+Layer stack (bottom to top):
+```text
+1. bg-alpine-black (fallback)
+2. Mountain image (absolute, cover, object-cover)
+3. Dark gradient overlay (absolute)
+4. DottedSurface particles (absolute, existing)
+5. Text content (relative z-10, existing)
+```
 
-### 3. `SystemBreakdownSection.tsx` — Merge into services or make it more distinct
-My recommendation: **Keep it but make it more actionable and distinct from Services.** Right now it overlaps with Services content. Instead, reframe it as a **numbered step-by-step flow** — "How It Works" rather than "The System." Add numbered steps (01 → 02 → 03) with connecting arrows/lines between columns, and add a CTA at the bottom ("See it in action" or "Book a call"). This differentiates it from the capabilities grid above.
+### 2. `SystemBreakdownSection.tsx` — Contextual images per card
+- Generate 3 small images using `google/gemini-2.5-flash-image`:
+  - Ad dashboard/analytics screen
+  - AI chatbot interface on a phone
+  - CRM pipeline/funnel view
+- Save to `src/assets/` and add as small visuals above each card's icon area
+- Images will be ~200px tall, rounded, inside each white card at the top
+
+### 3. No changes to About section (per user request)
 
 ### Files Modified
-`LogoMarquee.tsx`, `CapabilitiesSection.tsx`, `SystemBreakdownSection.tsx`
+- `HeroSection.tsx` — add mountain image layer
+- `SystemBreakdownSection.tsx` — add contextual images to cards
+- New assets: `hero-mountains.png`, `system-ads.png`, `system-ai.png`, `system-crm.png`
 
