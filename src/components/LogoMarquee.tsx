@@ -51,40 +51,33 @@ const LogoMarquee = () => {
   }, [api, current]);
 
   return (
-    <section className="py-10 w-full">
+    <div className="w-full py-14 bg-alpine-dark">
       <div className="container mx-auto">
-        <div className="flex flex-col gap-6">
-          <h3 className="text-center text-sm font-medium text-muted-foreground">
+        <div className="flex flex-col gap-10">
+          <h2 className="text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-heading text-text-on-dark">
             Trusted by thousands of businesses worldwide
-          </h3>
-          <div className="relative">
-            <div className="flex justify-center">
-              <Carousel
-                setApi={setApi}
-                opts={{ align: "start", loop: true }}
-              >
-                <CarouselContent>
-                  {logos.map((logo, i) => (
-                    <CarouselItem
-                      key={i}
-                      className="basis-1/3 md:basis-1/4 lg:basis-1/5"
-                    >
-                      <div className="flex items-center justify-center h-16 p-2">
-                        <img
-                          src={logo.src}
-                          alt={logo.alt}
-                          className="h-10 md:h-12 w-auto max-w-[120px] object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-                        />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-            </div>
-          </div>
+          </h2>
+          <Carousel setApi={setApi} opts={{ align: "start", loop: true }}>
+            <CarouselContent>
+              {logos.map((logo, i) => (
+                <CarouselItem
+                  key={i}
+                  className="basis-1/4 lg:basis-1/6"
+                >
+                  <div className="flex items-center justify-center rounded-xl bg-alpine-navy aspect-square p-6">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="h-12 w-auto max-w-full object-contain opacity-80"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
