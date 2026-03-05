@@ -14,7 +14,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="font-mono-tech text-[10px] md:text-xs tracking-widest uppercase text-secondary mb-4"
+            className="font-mono-tech text-[10px] md:text-xs tracking-widest uppercase text-ice-blue mb-4"
           >
             📍 Denver, Colorado
           </motion.p>
@@ -27,7 +27,7 @@ const HeroSection = () => {
             style={{ textShadow: '0 2px 20px rgba(0,0,0,0.7)' }}
           >
             We Build{" "}
-            <span className="text-secondary">Growth Machines</span>{" "}
+            <span className="text-ice-blue">Growth Machines</span>{" "}
             for Ambitious Brands
           </motion.h1>
 

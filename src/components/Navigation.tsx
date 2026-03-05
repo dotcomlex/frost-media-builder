@@ -11,16 +11,9 @@ const navLinks = [
 ];
 
 const Navigation = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { openForm } = useContactForm();
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -28,11 +21,9 @@ const Navigation = () => {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const isHome = location.pathname === "/";
-
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || !isHome ? "bg-alpine-dark/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20" : "bg-transparent"}`}>
+      <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center">
             <img src={logoFrost} alt="Frost Media" className="h-7 md:h-8 w-auto" />

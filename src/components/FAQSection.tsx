@@ -42,7 +42,7 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-12 md:py-18 bg-white">
+  <section id="faq" className="py-12 md:py-18 bg-background">
     <div className="max-w-2xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
@@ -62,9 +62,9 @@ const FAQSection = () => (
           <AccordionItem
             key={i}
             value={`item-${i}`}
-            className="border border-border rounded-lg px-5 bg-white data-[state=open]:border-secondary/30"
+            className="border border-border rounded-lg px-5 bg-background data-[state=open]:border-ice-blue/30"
           >
-            <AccordionTrigger className="text-foreground hover:text-secondary hover:no-underline text-left py-4 text-sm font-semibold">
+            <AccordionTrigger className="text-foreground hover:text-ice-blue hover:no-underline text-left py-4 text-sm font-semibold">
               {faq.q}
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">

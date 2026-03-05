@@ -45,17 +45,17 @@ const LogoMarquee = () => {
         api.scrollNext();
         setCurrent(current + 1);
       }
-    }, 1000);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, [api, current]);
 
   return (
-    <div className="w-full py-14 bg-white">
+    <div className="w-full py-14 bg-background">
       <div className="container mx-auto">
         <div className="flex flex-col gap-10">
-          <h2 className="text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-heading text-foreground">
-            Trusted by thousands of businesses worldwide
+          <h2 className="text-xl md:text-2xl tracking-tight font-heading text-foreground">
+            Trusted by businesses across the U.S.
           </h2>
           <Carousel setApi={setApi} opts={{ align: "start", loop: true }}>
             <CarouselContent>
@@ -68,7 +68,7 @@ const LogoMarquee = () => {
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="h-10 md:h-14 w-auto max-w-full object-contain"
+                      className="h-12 md:h-14 w-auto max-w-full object-contain brightness-0 opacity-60"
                     />
                   </div>
                 </CarouselItem>
