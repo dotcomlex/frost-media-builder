@@ -62,13 +62,14 @@ const LogoMarquee = () => {
               {logos.map((logo, i) => (
                 <CarouselItem
                   key={i}
-                  className="basis-1/3 lg:basis-1/5"
+                  className="basis-1/2 lg:basis-1/5"
                 >
                   <div className="flex items-center justify-center p-4">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="h-12 md:h-14 w-auto max-w-full object-contain brightness-0 opacity-60"
+                      className="h-14 md:h-16 w-auto max-w-full object-contain"
+                      style={{ filter: 'brightness(0) opacity(0.6)' }}
                     />
                   </div>
                 </CarouselItem>
