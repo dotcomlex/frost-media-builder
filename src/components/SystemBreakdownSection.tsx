@@ -32,7 +32,7 @@ const SystemBreakdownSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
-            className="order-2 lg:order-1"
+            className="order-1 lg:order-1"
           >
             <div className="mx-auto max-w-[280px]">
               <div className="rounded-[1.75rem] bg-alpine-dark p-1.5 shadow-xl shadow-black/20">
@@ -84,7 +84,7 @@ const SystemBreakdownSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
-            className="order-1 lg:order-2"
+            className="order-2 lg:order-2"
           >
             <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">Conversational AI</p>
             <h2 className="font-heading text-2xl md:text-3xl lg:text-[2.25rem] font-bold text-foreground tracking-tight leading-tight">
@@ -96,7 +96,7 @@ const SystemBreakdownSection = () => {
 
             <div className="grid grid-cols-3 gap-3 mt-6">
               <div className="text-center p-3 rounded-lg bg-white shadow-sm">
-                <p className="font-heading text-xl md:text-2xl font-black text-ice-blue">&lt; 5s</p>
+                <p className="font-heading text-xl md:text-2xl font-black text-ice-blue">&lt; 30s</p>
                 <p className="text-[10px] text-muted-foreground mt-0.5 font-medium">Response</p>
               </div>
               <div className="text-center p-3 rounded-lg bg-white shadow-sm">
@@ -118,7 +118,7 @@ const SystemBreakdownSection = () => {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-1.5 mt-3">
+            <div className="hidden md:flex flex-wrap gap-1.5 mt-3">
               {industries.map((ind) => (
                 <span key={ind} className="text-[10px] font-mono-tech tracking-wider text-muted-foreground bg-foreground/[0.04] rounded-full px-2.5 py-0.5">
                   {ind}
@@ -126,12 +126,6 @@ const SystemBreakdownSection = () => {
               ))}
             </div>
 
-            <Button
-              onClick={openForm}
-              className="mt-6 bg-ice-blue hover:bg-deep-ice text-primary-foreground rounded-lg px-6 py-4 text-sm font-semibold shadow-lg shadow-ice-blue/20"
-            >
-              See It In Action →
-            </Button>
           </motion.div>
         </div>
       </div>

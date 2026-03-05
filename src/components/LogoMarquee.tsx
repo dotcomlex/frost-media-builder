@@ -51,10 +51,10 @@ const LogoMarquee = () => {
   }, [api, current]);
 
   return (
-    <div className="w-full py-14 bg-alpine-dark">
+    <div className="w-full py-14 bg-white">
       <div className="container mx-auto">
         <div className="flex flex-col gap-10">
-          <h2 className="text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-heading text-text-on-dark">
+          <h2 className="text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-heading text-foreground">
             Trusted by thousands of businesses worldwide
           </h2>
           <Carousel setApi={setApi} opts={{ align: "start", loop: true }}>
@@ -62,13 +62,13 @@ const LogoMarquee = () => {
               {logos.map((logo, i) => (
                 <CarouselItem
                   key={i}
-                  className="basis-1/4 lg:basis-1/6"
+                  className="basis-1/3 lg:basis-1/5"
                 >
-                  <div className="flex items-center justify-center rounded-xl bg-alpine-navy aspect-square p-6">
+                  <div className="flex items-center justify-center p-4">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="h-12 w-auto max-w-full object-contain opacity-80"
+                      className="h-10 md:h-14 w-auto max-w-full object-contain"
                     />
                   </div>
                 </CarouselItem>
