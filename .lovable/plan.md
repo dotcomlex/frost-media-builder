@@ -1,67 +1,99 @@
+# Comprehensive Site Overhaul — Multi-Page Premium Agency Site
 
-
-# Premium Mobile-First Redesign
-
-## Problems Identified
-1. **Hero**: Background too dark, blue text blends with blue mountain/overlay, particles too large and dominant
-2. **Services (CapabilitiesSection)**: Looks like a generic template — same card grid with left borders, too much text on the AI card
-3. **System Breakdown**: Template-looking timeline, not engaging on mobile scroll
-4. **About**: Stats row includes "$2M+ Ad Spend Managed" (user doesn't want money amounts), needs a generated image instead of stat boxes
-
-## Design Philosophy
-Mobile-first, 100% of traffic from Instagram ads. Every section must feel like a $20K site — premium, intentional, not template-y.
+This is a large scope request touching nearly every section plus adding new pages and a contact form. Breaking it into clear parts.
 
 ---
 
-### 1. Hero Section — Text visibility + subtle particles
+## Part 1: Hero Section Fixes
 
-**`dotted-surface.tsx`**: Make particles much smaller (size: 3 instead of 8), more numerous but lower opacity (0.25), and reduce wave amplitude so they feel like ambient snow/frost rather than dominant blobs. Reduce camera Z to spread them across the full viewport.
+`**HeroSection.tsx` + `dotted-surface.tsx` + `index.css**`
 
-**`HeroSection.tsx`**: 
-- Lighten the overlay slightly (`from-black/80 via-black/55 to-black/35`) so mountains are visible
-- Add a **text-shadow/glow effect** to the headline using a custom CSS class (`text-shadow: 0 0 40px rgba(0,0,0,0.8)`) so it pops regardless of background
-- Change "Real Revenue" accent from `text-ice-blue` to a **gradient text effect** (white-to-ice-blue) so it doesn't blend with the blue background
-- Add a subtle frosted glass backdrop blur pill behind the subtitle text for readability
+- **Remove the gradient text effect** on "Real Revenue" — it's blue blending with the blue background. Change to **solid white with a warm amber/gold accent** or keep fully white so nothing blends
+- **Remove the frosted glass pill** behind the subtitle — replace with just a strong text-shadow effect on all text elements
+- **Increase particle size** from 3 back to ~6, opacity from 0.25 to ~0.45 so they're actually visible
+- **Fix mobile text hierarchy**: increase headline size, decrease subtitle size so headline dominates
+- **Rewrite subtitle**: outcome-focused, not technical. Something like: "Your pipeline, fully booked. Your leads, instantly handled. Your revenue, on autopilot." — no mention of Meta/AI/funnels
+- **Stronger text-shadow** on all hero text for contrast against any background
 
-### 2. Services — Complete visual redesign as "bento grid"
+## Part 2: Logo Marquee — Strip Down
 
-**`CapabilitiesSection.tsx`**: Replace the uniform 3x2 card grid with a **staggered bento-style layout**:
-- On mobile: full-width cards stacked vertically, each with a different visual treatment
-- Featured services (Paid Media, AI Automation, Lead Gen) get **large cards** with a gradient background, large icon, short punchy copy (no bullet lists)
-- Secondary services (Copywriting, Web Design, CRM) sit in a **2-column row** as smaller, tighter cards
-- Remove all bullet points — use 1-2 line descriptions only. Keep it concise and premium
-- Remove the "Save 70%", "No hires" badges and the `extraDetail` paragraph entirely
-- Each card gets a subtle gradient background (not just border-left) with the accent color fading to transparent
-- No bullet lists. Clean, minimal. Icon + title + one-line benefit
+`**LogoMarquee.tsx**`
 
-### 3. System Breakdown — Redesign as full-width immersive scroll sections
+- Remove all client logos (Amador, Script, Geo, PCA, CPIA)
+- Keep only: **Shopify Partner**, **Meta Partner**, **TikTok Partner**
+- Label it "Official Partners" or similar
 
-**`SystemBreakdownSection.tsx`**: Replace the alternating timeline with **stacked full-width sections**, each with:
-- A large step number as a watermark/background element (giant "01" at 10% opacity)
-- Icon + title + description in clean left-aligned layout
-- The 3 detail items displayed as horizontal pills/badges rather than a card
-- On mobile, each step takes up nearly the full viewport height for an immersive scroll feel
-- Subtle fade-in animations on scroll
-- Remove the vertical timeline line and circular step markers — they look template-y
+## Part 3: Services Section — Visual Redesign
 
-### 4. About Section — Replace stats with generated image
+`**CapabilitiesSection.tsx**`
 
-**`AboutSection.tsx`**:
-- Remove the 4-stat grid entirely (especially "$2M+ Ad Spend Managed")
-- Generate an AI image of a modern team working at computers in a Denver-style urban office/loft with city skyline visible — professional but not stocky
-- Place the image full-width above the text content, with rounded corners and a subtle overlay
-- Keep the text paragraphs but tighten copy slightly
+- Redesign as **larger, more visual cards** — each with a generated icon illustration or gradient visual element at the top, not just a small icon
+- Add **"Website Design & Development"** as a primary service (the user specializes in this)
+- Keep copy short and outcome-focused
+- On mobile: full-width stacked cards with more breathing room, each card should feel like its own moment
 
-### 5. New image asset
-- Generate 1 image: team working in a modern Denver office/loft with city views, natural lighting, laptops and screens — authentic, not stock-photo-y
-- Save as `src/assets/about-team.png`
+## Part 4: System Breakdown → Replace with AI Solutions Section
 
-### Files Modified
-- `src/components/ui/dotted-surface.tsx` — smaller, subtler particles
-- `src/components/HeroSection.tsx` — text effects, adjusted overlay
-- `src/index.css` — add text-shadow utility class
-- `src/components/CapabilitiesSection.tsx` — complete bento grid redesign
-- `src/components/SystemBreakdownSection.tsx` — immersive stacked sections
-- `src/components/AboutSection.tsx` — remove stats, add generated team image
-- New asset: `src/assets/about-team.png`
+`**SystemBreakdownSection.tsx**` — Complete rewrite as **"AI Solutions"** section
 
+- Focus entirely on AI capabilities: AI Voice Callers, AI SMS Agents, AI Chatbots, AI DM Automation
+- Explain how each saves time and money — no extra hires needed, trained on their industry
+- Works for home services, beauty, e-commerce, etc.
+- Design: clean cards or sections, not the watermark number layout
+- Keep it concise — not overwhelming
+
+## Part 5: About Section — New Image + Better Copy
+
+`**AboutSection.tsx**`
+
+- Generate a new image: Denver cityscape or modern team in urban loft
+- Rewrite copy to be more engaging, less wall-of-text
+- Mention experience across industries, design expertise, full-stack capabilities
+
+## Part 6: CTA Form — All CTAs Open a Contact Form
+
+**New: `ContactFormDialog.tsx**`
+
+- Create a dialog/modal with a contact form (name, email, phone, business type, message)
+- All CTA buttons across the site ("Book a Call", "Let's Talk", nav CTA) open this form dialog instead of scrolling to #contact
+- The FinalCTASection also shows the form inline or triggers the modal
+
+## Part 7: New Pages + Navigation
+
+**New routes and pages:**
+
+1. `**/work**` — Portfolio/Our Work page displaying website design projects as a beautiful grid (inspired by 3SidedCube and the Quixta reference). Use the uploaded reference images as project thumbnails (copy them to assets). Each project card shows: image, project name, industry tag
+2. `**/services**` — Dedicated services page with more detail on each service offering
+
+**Navigation updates:**
+
+- Change nav links: Services → `/services`, Work → `/work`, About → `#about`, Contact → opens form dialog
+- Mobile menu same treatment
+
+## Part 8: Generate New Logo
+
+- Generate a simple, clean "Frost Media" logo/wordmark using AI image generation
+- Save as `src/assets/logo-frost.png` and use in nav + footer
+
+## Files Modified
+
+- `src/components/HeroSection.tsx` — text fixes, remove pill, stronger contrast
+- `src/components/ui/dotted-surface.tsx` — increase particle size/opacity
+- `src/index.css` — stronger text-shadow utilities
+- `src/components/LogoMarquee.tsx` — strip to 3 partner logos only
+- `src/components/CapabilitiesSection.tsx` — visual redesign, add web design service
+- `src/components/SystemBreakdownSection.tsx` — complete rewrite as AI Solutions
+- `src/components/AboutSection.tsx` — new image, better copy
+- `src/components/FinalCTASection.tsx` — integrate with contact form
+- `src/components/Navigation.tsx` — update links, add form trigger
+- `src/components/Footer.tsx` — update links for new pages
+
+## New Files
+
+- `src/components/ContactFormDialog.tsx` — reusable contact form modal
+- `src/pages/Work.tsx` — portfolio page with project grid
+- `src/pages/Services.tsx` — dedicated services page
+- `src/App.tsx` — add new routes
+- `src/assets/logo-frost.png` — generated logo
+- `src/assets/about-denver.jpg` — new about section image
+- Copy uploaded reference images to `src/assets/` for the Work portfolio page
