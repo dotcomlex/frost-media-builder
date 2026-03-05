@@ -7,7 +7,7 @@ const HeroSection = () => {
   const { openForm } = useContactForm();
 
   return (
-    <DotGlobeHero rotationSpeed={0.003} globeRadius={2.2}>
+    <DotGlobeHero rotationSpeed={0.0015} globeRadius={2.2}>
       <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-8 py-20 md:py-28 w-full flex items-center min-h-[85vh]">
         <div>
           <motion.p
@@ -23,7 +23,8 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-text-on-dark max-w-4xl"
+            className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] text-text-on-dark max-w-4xl"
+            style={{ textShadow: '0 2px 20px rgba(0,0,0,0.7)' }}
           >
             We Build{" "}
             <span className="text-secondary">Growth Machines</span>{" "}
@@ -34,7 +35,8 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm md:text-base text-text-on-dark/70 max-w-lg mt-5 leading-relaxed"
+            className="text-base md:text-lg text-text-on-dark/70 max-w-lg mt-5 leading-relaxed"
+            style={{ textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}
           >
             Ads that convert. AI that responds. Systems that scale. Your entire revenue engine — designed, built, and managed.
           </motion.p>
@@ -53,7 +55,7 @@ const HeroSection = () => {
               Book a Free Strategy Call →
             </Button>
             <p className="font-mono-tech text-[10px] text-text-on-dark/40 tracking-wide">
-              150+ businesses scaled · Meta & Shopify Partner
+              Trusted by Colorado's fastest-growing brands
             </p>
           </motion.div>
         </div>
