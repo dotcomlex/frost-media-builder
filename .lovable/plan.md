@@ -1,59 +1,22 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Rebuild LogoMarquee to Match Cases-with-Infinite-Scroll Design
 
-## Changes Summary
+## Problem
+The current LogoMarquee uses a white background with small centered header text and tiny inline logo images. The reference design (screenshot + 21st.dev component) uses a completely different layout: dark background, large left-aligned heading, and square dark cards containing logos.
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+## Changes — `src/components/LogoMarquee.tsx` (full rewrite)
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+### Layout & Styling (matching the reference exactly):
+- **Dark background**: `bg-[#0a0a0a]` or similar near-black, full-width section with generous vertical padding (`py-14`)
+- **Large left-aligned heading**: "Trusted by thousands of businesses worldwide" — large font size (`text-3xl md:text-5xl`), light/white text, left-aligned (not centered, not small muted text)
+- **Logo cards**: Each logo sits inside a **square dark card** (`rounded-xl`, dark gray background like `bg-[#1a1a1a]` with subtle border), showing the actual logo image centered inside
+- **Carousel**: Same Embla auto-scroll logic (1s interval, loop), items sized as `basis-1/4 lg:basis-1/6` to show multiple cards
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
-
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
-
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
-
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
-
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### Content:
+- Only the 10 uploaded client logos (Divas, CertaPro, 360 Painting, T&S, Heart of FL, FL Southern, Texan, EHR Co, Cristobal, CA Pro)
+- Logos displayed with slight opacity/grayscale for the dark theme aesthetic
 
 ### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+- `src/components/LogoMarquee.tsx` — complete rewrite to match the dark card-based design
 
