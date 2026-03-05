@@ -1,139 +1,43 @@
 import { motion } from "framer-motion";
 import { useContactForm } from "@/components/ContactFormDialog";
 
-/* ── Mini JSX illustrations per service ── */
-const PhoneMockup = () => (
-  <div className="relative w-full h-full flex items-center justify-center">
-    <div className="w-10 h-16 rounded-lg border-2 border-white/30 bg-white/10 relative">
-      <div className="absolute top-1 left-1 right-1 space-y-0.5">
-        <div className="h-1 bg-white/30 rounded-full w-3/4" />
-        <div className="h-1 bg-white/20 rounded-full w-1/2" />
-      </div>
-      <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-red-400 border border-white/30" />
-      <div className="absolute -bottom-1 -left-1 w-3 h-3 rounded-full bg-green-400 border border-white/30" />
-    </div>
-    <div className="absolute top-2 right-3 w-2 h-2 rounded-full bg-secondary/60 animate-pulse" />
-  </div>
-);
-
-const BrowserMockup = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <div className="w-20 h-14 rounded border border-white/25 bg-white/5 overflow-hidden">
-      <div className="h-2.5 bg-white/10 flex items-center gap-0.5 px-1">
-        <div className="w-1 h-1 rounded-full bg-red-400/70" />
-        <div className="w-1 h-1 rounded-full bg-yellow-400/70" />
-        <div className="w-1 h-1 rounded-full bg-green-400/70" />
-      </div>
-      <div className="p-1 space-y-0.5">
-        <div className="h-3 bg-white/10 rounded-sm" />
-        <div className="flex gap-0.5">
-          <div className="h-2 flex-1 bg-white/8 rounded-sm" />
-          <div className="h-2 flex-1 bg-white/8 rounded-sm" />
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const ShoppingBagMockup = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <div className="relative">
-      <div className="w-11 h-12 rounded-b-lg border-2 border-white/25 bg-white/8 relative">
-        <div className="absolute -top-2 left-2 right-2 h-3 border-2 border-white/25 border-b-0 rounded-t-full" />
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border border-white/30 bg-secondary/20" />
-      </div>
-      <div className="absolute -right-2 -top-1 text-[8px] font-bold text-secondary bg-secondary/20 rounded-full w-4 h-4 flex items-center justify-center">3</div>
-    </div>
-  </div>
-);
-
-const FunnelMockup = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <div className="flex flex-col items-center gap-0.5">
-      <div className="w-16 h-2.5 bg-white/15 rounded-t" />
-      <div className="w-12 h-2.5 bg-white/20" />
-      <div className="w-8 h-2.5 bg-white/25" />
-      <div className="w-4 h-2.5 bg-secondary/40 rounded-b" />
-      <div className="w-1 h-3 bg-secondary/30" />
-      <div className="w-2 h-2 rounded-full bg-secondary/50 animate-pulse" />
-    </div>
-  </div>
-);
-
-const ChatBubbleMockup = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <div className="space-y-1.5 w-16">
-      <div className="flex justify-end">
-        <div className="h-2 w-10 bg-secondary/30 rounded-full rounded-br-sm" />
-      </div>
-      <div className="flex justify-start">
-        <div className="h-2 w-12 bg-white/15 rounded-full rounded-bl-sm" />
-      </div>
-      <div className="flex justify-end">
-        <div className="h-2 w-8 bg-secondary/30 rounded-full rounded-br-sm" />
-      </div>
-      <div className="flex justify-start">
-        <div className="h-2 w-11 bg-white/15 rounded-full rounded-bl-sm" />
-      </div>
-    </div>
-  </div>
-);
-
-const DashboardMockup = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <div className="w-20 h-12 rounded border border-white/20 bg-white/5 p-1 flex gap-0.5">
-      <div className="w-4 space-y-0.5">
-        <div className="h-1 bg-white/15 rounded-full" />
-        <div className="h-1 bg-white/10 rounded-full w-3" />
-        <div className="h-1 bg-secondary/30 rounded-full w-2" />
-      </div>
-      <div className="flex-1 flex items-end gap-0.5 pb-0.5">
-        <div className="w-1.5 bg-white/15 rounded-t h-3" />
-        <div className="w-1.5 bg-white/20 rounded-t h-5" />
-        <div className="w-1.5 bg-secondary/40 rounded-t h-7" />
-        <div className="w-1.5 bg-white/15 rounded-t h-4" />
-        <div className="w-1.5 bg-white/20 rounded-t h-6" />
-      </div>
-    </div>
-  </div>
-);
+import serviceSocialAds from "@/assets/service-social-ads.jpg";
+import serviceWebDesign from "@/assets/service-web-design.jpg";
+import serviceEcommerce from "@/assets/service-ecommerce.jpg";
+import serviceLeadGen from "@/assets/service-lead-gen.jpg";
+import serviceAi from "@/assets/service-ai.jpg";
+import serviceCrm from "@/assets/service-crm.jpg";
 
 const services = [
   {
     title: "Social Media Advertising",
     desc: "Strategic Meta, Instagram & TikTok campaigns that fill your pipeline with qualified leads daily.",
-    gradient: "from-[hsl(30,78%,53%)] to-[hsl(33,70%,58%)]",
-    Illustration: PhoneMockup,
+    image: serviceSocialAds,
   },
   {
     title: "Website Design & Dev",
     desc: "Premium, conversion-optimized websites that make your brand unforgettable on every device.",
-    gradient: "from-[hsl(213,80%,50%)] to-[hsl(213,60%,65%)]",
-    Illustration: BrowserMockup,
+    image: serviceWebDesign,
   },
   {
     title: "E-Commerce & Shopify",
     desc: "Full store buildouts — from product pages to checkout flows — designed to maximize revenue.",
-    gradient: "from-[hsl(160,84%,39%)] to-[hsl(160,60%,50%)]",
-    Illustration: ShoppingBagMockup,
+    image: serviceEcommerce,
   },
   {
     title: "Lead Generation",
     desc: "End-to-end pipeline management from first click to closed deal. Every lead tracked and nurtured.",
-    gradient: "from-[hsl(0,84%,60%)] to-[hsl(15,80%,55%)]",
-    Illustration: FunnelMockup,
+    image: serviceLeadGen,
   },
   {
     title: "Conversational AI",
     desc: "AI voice callers, SMS agents & chatbots that respond instantly — trained on your brand, 24/7.",
-    gradient: "from-[hsl(213,80%,50%)] to-[hsl(250,60%,60%)]",
-    Illustration: ChatBubbleMockup,
+    image: serviceAi,
   },
   {
     title: "CRM & Automation",
     desc: "All-in-one pipeline management with automated follow-ups, lead routing & full visibility.",
-    gradient: "from-[hsl(33,70%,58%)] to-[hsl(30,78%,53%)]",
-    Illustration: DashboardMockup,
+    image: serviceCrm,
   },
 ];
 
@@ -170,11 +74,14 @@ const CapabilitiesSection = () => {
               onClick={openForm}
               className="group relative rounded-xl overflow-hidden cursor-pointer bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-400"
             >
-              {/* Illustration header */}
-              <div className={`h-20 bg-gradient-to-br ${s.gradient} opacity-25 group-hover:opacity-35 transition-opacity duration-400 relative`}>
-                <div className="absolute inset-0 opacity-80">
-                  <s.Illustration />
-                </div>
+              {/* Image header */}
+              <div className="relative h-28 md:h-36 overflow-hidden">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/[0.03] to-transparent" />
               </div>
 
               <div className="px-5 pb-5 pt-4">
