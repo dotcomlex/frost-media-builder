@@ -1,59 +1,25 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Add AI-Generated Images to Service Cards
 
-## Changes Summary
+## What
+Generate 6 AI images (one per service card) and replace the JSX mockup illustrations with real images. Each image will be sized to fill the card header area perfectly.
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+## Image Prompts
+1. **Social Media Advertising** — abstract dark-themed composition with glowing social media ad interfaces, notification badges, mobile phone with Meta/Instagram UI elements
+2. **Website Design & Dev** — sleek dark-themed browser window showing a modern website design, clean UI mockup with gradient accents
+3. **E-Commerce & Shopify** — dark-themed e-commerce storefront with product cards, shopping cart icon, checkout flow visualization
+4. **Lead Generation** — dark-themed sales funnel visualization with glowing data points, pipeline stages, conversion metrics
+5. **Conversational AI** — dark-themed AI chatbot interface with glowing chat bubbles, voice wave visualization, futuristic AI elements
+6. **CRM & Automation** — dark-themed dashboard with analytics charts, pipeline view, automation workflow nodes
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+All images: 1024x512 (wide format to fit the card header), dark background tones to blend with the dark cards.
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+## Code Changes
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
-
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
-
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
-
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
-
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+**`CapabilitiesSection.tsx`**:
+- Remove all JSX mockup components (PhoneMockup, BrowserMockup, etc.)
+- Import 6 generated images from `src/assets/`
+- Replace the gradient+mockup header with an `<img>` tag using `object-cover` and fixed height (`h-36` on desktop, `h-28` on mobile) with a subtle gradient overlay for text contrast
+- Add a dark gradient overlay at the bottom of each image so the card text area blends smoothly
 
