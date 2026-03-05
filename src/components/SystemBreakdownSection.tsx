@@ -14,9 +14,9 @@ const industries = ["Home Services", "Beauty & Med Spa", "E-Commerce", "Insuranc
 
 const chatMessages = [
   { from: "customer", text: "Hi, I need a quote for a roof repair" },
-  { from: "ai", text: "Hey! I'd love to help. Can you tell me roughly how large the area is? And are you seeing any leaks currently?" },
+  { from: "ai", text: "Hey! I'd love to help. Can you tell me roughly how large the area is?" },
   { from: "customer", text: "About 200 sq ft, yes there's a small leak" },
-  { from: "ai", text: "Got it — I'm checking availability now. We can have someone out tomorrow between 9-11am. Want me to lock that in for you?" },
+  { from: "ai", text: "Got it — we can have someone out tomorrow 9-11am. Want me to lock that in?" },
 ];
 
 const SystemBreakdownSection = () => {
@@ -24,45 +24,42 @@ const SystemBreakdownSection = () => {
 
   return (
     <section className="bg-frost-light overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left — Mock Phone Chat */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="order-2 lg:order-1"
           >
-            <div className="mx-auto max-w-sm">
-              {/* Phone frame */}
-              <div className="rounded-[2rem] bg-alpine-dark p-2 shadow-2xl shadow-black/30">
-                <div className="rounded-[1.5rem] bg-alpine-dark overflow-hidden">
-                  {/* Status bar */}
-                  <div className="flex items-center justify-between px-5 pt-3 pb-2">
-                    <span className="text-[10px] text-text-on-dark/50 font-mono-tech">Frost AI Agent</span>
+            <div className="mx-auto max-w-[280px]">
+              <div className="rounded-[1.75rem] bg-alpine-dark p-1.5 shadow-xl shadow-black/20">
+                <div className="rounded-[1.25rem] bg-alpine-dark overflow-hidden">
+                  <div className="flex items-center justify-between px-4 pt-2.5 pb-1.5">
+                    <span className="text-[9px] text-text-on-dark/50 font-mono-tech">Frost AI Agent</span>
                     <div className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                      <span className="text-[10px] text-success font-mono-tech">Online</span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+                      <span className="text-[9px] text-success font-mono-tech">Online</span>
                     </div>
                   </div>
 
-                  {/* Chat area */}
-                  <div className="px-4 py-3 space-y-3 min-h-[320px]">
+                  <div className="px-3 py-2 space-y-2 min-h-[200px]">
                     {chatMessages.map((msg, i) => (
                       <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3 + i * 0.2 }}
+                        transition={{ delay: 0.2 + i * 0.15 }}
                         className={`flex ${msg.from === "customer" ? "justify-end" : "justify-start"}`}
                       >
                         <div
-                          className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-[13px] leading-relaxed ${
+                          className={`max-w-[80%] rounded-xl px-3 py-2 text-[11px] leading-relaxed ${
                             msg.from === "customer"
-                              ? "bg-secondary text-secondary-foreground rounded-br-md"
-                              : "bg-white/10 text-text-on-dark/90 rounded-bl-md"
+                              ? "bg-secondary text-secondary-foreground rounded-br-sm"
+                              : "bg-white/10 text-text-on-dark/85 rounded-bl-sm"
                           }`}
                         >
                           {msg.text}
@@ -71,10 +68,9 @@ const SystemBreakdownSection = () => {
                     ))}
                   </div>
 
-                  {/* Input area */}
-                  <div className="px-4 pb-4">
-                    <div className="rounded-full bg-white/5 border border-white/10 px-4 py-2.5 flex items-center gap-2">
-                      <span className="text-xs text-text-on-dark/30">Type a message...</span>
+                  <div className="px-3 pb-3">
+                    <div className="rounded-full bg-white/5 border border-white/10 px-3 py-2 flex items-center">
+                      <span className="text-[10px] text-text-on-dark/25">Type a message...</span>
                     </div>
                   </div>
                 </div>
@@ -84,50 +80,47 @@ const SystemBreakdownSection = () => {
 
           {/* Right — Copy & Stats */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="order-1 lg:order-2"
           >
-            <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">Conversational AI</p>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-foreground tracking-tight leading-tight">
+            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">Conversational AI</p>
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-[2.25rem] font-bold text-foreground tracking-tight leading-tight">
               Your AI Team That Never Sleeps
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg mt-5 leading-relaxed">
-              Our AI agents speak your brand, know your services, and engage every prospect the moment they reach out. Voice calls, texts, website chat, social DMs — one intelligent system, zero missed opportunities.
+            <p className="text-muted-foreground text-sm md:text-base mt-4 leading-relaxed">
+              Our AI agents speak your brand, know your services, and engage every prospect the moment they reach out. Voice, text, chat, DMs — one system, zero missed opportunities.
             </p>
 
-            {/* Stat callouts */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
-              <div className="text-center p-4 rounded-xl bg-white shadow-sm">
-                <p className="font-heading text-2xl md:text-3xl font-black text-ice-blue">&lt; 5s</p>
-                <p className="text-[11px] text-muted-foreground mt-1 font-medium">Response Time</p>
+            <div className="grid grid-cols-3 gap-3 mt-6">
+              <div className="text-center p-3 rounded-lg bg-white shadow-sm">
+                <p className="font-heading text-xl md:text-2xl font-black text-ice-blue">&lt; 5s</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5 font-medium">Response</p>
               </div>
-              <div className="text-center p-4 rounded-xl bg-white shadow-sm">
-                <p className="font-heading text-2xl md:text-3xl font-black text-secondary">24/7</p>
-                <p className="text-[11px] text-muted-foreground mt-1 font-medium">Availability</p>
+              <div className="text-center p-3 rounded-lg bg-white shadow-sm">
+                <p className="font-heading text-xl md:text-2xl font-black text-secondary">24/7</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5 font-medium">Availability</p>
               </div>
-              <div className="text-center p-4 rounded-xl bg-white shadow-sm">
-                <p className="font-heading text-2xl md:text-3xl font-black text-success">100%</p>
-                <p className="text-[11px] text-muted-foreground mt-1 font-medium">On-Brand</p>
+              <div className="text-center p-3 rounded-lg bg-white shadow-sm">
+                <p className="font-heading text-xl md:text-2xl font-black text-success">100%</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5 font-medium">On-Brand</p>
               </div>
             </div>
 
-            {/* Channel pills */}
-            <div className="flex flex-wrap gap-2 mt-6">
+            <div className="flex flex-wrap gap-1.5 mt-5">
               {channels.map((c) => (
-                <span key={c.label} className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/70 bg-ice-blue/[0.08] rounded-full px-3 py-1.5">
-                  <c.icon className="h-3.5 w-3.5 text-ice-blue" />
+                <span key={c.label} className="inline-flex items-center gap-1 text-[10px] font-medium text-foreground/70 bg-ice-blue/[0.08] rounded-full px-2.5 py-1">
+                  <c.icon className="h-3 w-3 text-ice-blue" />
                   {c.label}
                 </span>
               ))}
             </div>
 
-            {/* Industries */}
-            <div className="flex flex-wrap gap-2 mt-4">
+            <div className="flex flex-wrap gap-1.5 mt-3">
               {industries.map((ind) => (
-                <span key={ind} className="text-[11px] font-mono-tech tracking-wider text-muted-foreground bg-foreground/[0.04] rounded-full px-3 py-1">
+                <span key={ind} className="text-[10px] font-mono-tech tracking-wider text-muted-foreground bg-foreground/[0.04] rounded-full px-2.5 py-0.5">
                   {ind}
                 </span>
               ))}
@@ -135,7 +128,7 @@ const SystemBreakdownSection = () => {
 
             <Button
               onClick={openForm}
-              className="mt-8 bg-ice-blue hover:bg-deep-ice text-primary-foreground rounded-xl px-8 py-5 font-semibold shadow-lg shadow-ice-blue/20"
+              className="mt-6 bg-ice-blue hover:bg-deep-ice text-primary-foreground rounded-lg px-6 py-4 text-sm font-semibold shadow-lg shadow-ice-blue/20"
             >
               See It In Action →
             </Button>
