@@ -1,59 +1,74 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Comprehensive Homepage Redesign — Fix Contrast, Colors, Testimonials & Flow
 
-## Changes Summary
+## Problems Identified
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+1. **Testimonials invisible** — Cards use `text-text-on-dark` (white text) on `bg-frost-light` (light background). Completely unreadable.
+2. **Service card images** — Cut off and outsized for the card format. Need properly sized replacements.
+3. **Conversational AI section** — Too complex on mobile, doesn't look good.
+4. **Too many accent colors** — Blue headlines, orange CTAs, green stats, ice-blue labels. Overwhelming and inconsistent.
+5. **"150+ businesses scaled"** — Needs to be removed.
+6. **Section contrast/flow** — Multiple dark sections back-to-back (Capabilities → Testimonials used to be dark, About is dark). Need smoother transitions with lighter treatments.
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+## Section Flow Redesign
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+Current backgrounds and proposed changes:
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+```text
+SECTION              CURRENT BG         NEW BG
+─────────────────────────────────────────────────
+Hero                 alpine-black       (keep)
+Logo Marquee         white              (keep)
+Capabilities         alpine-dark        white (light cards)
+Testimonials         frost-light        soft gray (bg-gray-50)
+Conversational AI    frost-light        white
+About                alpine-dark        alpine-dark (keep one dark)
+FAQ                  frost-light        white
+Final CTA            alpine-black       (keep)
+```
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+This gives: Dark → White → White → Gray → White → Dark → White → Dark — much better rhythm with only 2 dark sections.
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+## Changes by File
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### 1. `src/components/ui/testimonial-cards.tsx`
+- Change all `text-text-on-dark` references to dark text colors (`text-foreground`, `text-muted-foreground`)
+- Change card background from `bg-white/[0.04]` to `bg-white` with subtle border and shadow
+- Fix avatar ring offset from `ring-offset-alpine-dark` to `ring-offset-white`
+- Ensure quote text, name, role are all dark and readable
 
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+### 2. `src/components/SystemDiagramSection.tsx` (Testimonials)
+- Change bg to `bg-gray-50` for subtle contrast
+- Remove the "150+ businesses scaled" subtitle
+- Update gradient fades to match `bg-gray-50`
+
+### 3. `src/components/CapabilitiesSection.tsx` (Services)
+- Switch from `bg-alpine-dark` to `bg-white` with dark text
+- Redesign cards: white cards with subtle border/shadow, no image header (remove the cut-off images entirely)
+- Use a small colored icon instead of full images — cleaner, no cut-off issues
+- Update all text colors from `text-text-on-dark` to `text-foreground`/`text-muted-foreground`
+
+### 4. `src/components/SystemBreakdownSection.tsx` (Conversational AI)
+- Change bg to `bg-white`
+- On mobile: show headline + description first, then phone mock below, then stats — simpler single-column flow
+- Consolidate accent colors: remove green from "100%" stat, use a consistent amber/foreground palette
+- Remove channel tags on mobile to reduce clutter
+
+### 5. Color Consistency Pass
+- **Primary accent**: Keep amber/secondary for CTAs only
+- **Section labels**: Use `text-muted-foreground` instead of `text-ice-blue` for the small uppercase labels across sections (Capabilities, Testimonials, Conversational AI, FAQ)
+- **Stats**: Use `text-foreground` instead of mixed blue/green/amber for the stat numbers in Conversational AI
+- This reduces the palette to essentially: black text, gray muted text, amber CTAs — clean and professional
+
+### 6. `src/components/FAQSection.tsx`
+- Change bg from `frost-light` to `bg-white`
+- Update label color from `text-ice-blue` to `text-muted-foreground`
+
+## Files Modified
+- `src/components/ui/testimonial-cards.tsx`
+- `src/components/SystemDiagramSection.tsx`
+- `src/components/CapabilitiesSection.tsx`
+- `src/components/SystemBreakdownSection.tsx`
+- `src/components/FAQSection.tsx`
 
