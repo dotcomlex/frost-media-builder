@@ -23,7 +23,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] text-text-on-dark max-w-4xl"
+            className="font-heading text-[2.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-text-on-dark max-w-4xl"
             style={{ textShadow: '0 2px 20px rgba(0,0,0,0.7)' }}
           >
             We Build{" "}
