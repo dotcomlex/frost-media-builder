@@ -5,17 +5,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { Users } from "lucide-react";
 
-import logoMeta from "@/assets/logo-meta.png";
-import logoTiktok from "@/assets/logo-tiktok.svg";
-import logoShopify from "@/assets/logo-shopify.svg";
-import logoCpia from "@/assets/logo-cpia.png";
-import logoFrost from "@/assets/logo-frost.png";
-import logoPca from "@/assets/logo-pca.png";
-import logoScript from "@/assets/logo-client-script.svg";
-import logoGeo from "@/assets/logo-client-geo.svg";
-import logoAmador from "@/assets/logo-client-amador.svg";
 import logoDivas from "@/assets/logo-client-divas.png";
 import logoCertapro from "@/assets/logo-client-certapro.png";
 import logo360 from "@/assets/logo-client-360painting.png";
@@ -28,15 +18,6 @@ import logoCristobal from "@/assets/logo-client-cristobal.png";
 import logoCapro from "@/assets/logo-client-capro.png";
 
 const logos = [
-  { src: logoMeta, alt: "Meta Business Partner" },
-  { src: logoTiktok, alt: "TikTok Partner" },
-  { src: logoShopify, alt: "Shopify Partner" },
-  { src: logoCpia, alt: "CPIA" },
-  { src: logoFrost, alt: "Frost" },
-  { src: logoPca, alt: "PCA" },
-  { src: logoScript, alt: "Client Script" },
-  { src: logoGeo, alt: "GeoSoftware" },
-  { src: logoAmador, alt: "Amador" },
   { src: logoDivas, alt: "Divas Beauty" },
   { src: logoCertapro, alt: "CertaPro Painters" },
   { src: logo360, alt: "360 Painting" },
@@ -64,46 +45,44 @@ const LogoMarquee = () => {
         api.scrollNext();
         setCurrent(current + 1);
       }
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [api, current]);
 
   return (
-    <section className="bg-background py-8 overflow-hidden border-y border-border">
-      <div className="flex items-center justify-center gap-3 mb-5">
-        <div className="h-9 w-9 rounded-full bg-secondary/10 flex items-center justify-center">
-          <Users className="h-4 w-4 text-secondary" />
-        </div>
-        <p className="font-mono-tech text-[11px] tracking-[0.15em] uppercase text-muted-foreground">
-          150+ Clients Served · Official Partners
-        </p>
-      </div>
-      <div className="w-full px-4">
-        <Carousel
-          setApi={setApi}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-        >
-          <CarouselContent>
-            {logos.map((logo, i) => (
-              <CarouselItem
-                key={i}
-                className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6"
+    <section className="py-10 w-full">
+      <div className="container mx-auto">
+        <div className="flex flex-col gap-6">
+          <h3 className="text-center text-sm font-medium text-muted-foreground">
+            Trusted by thousands of businesses worldwide
+          </h3>
+          <div className="relative">
+            <div className="flex justify-center">
+              <Carousel
+                setApi={setApi}
+                opts={{ align: "start", loop: true }}
               >
-                <div className="flex items-center justify-center h-16 p-2">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-10 md:h-12 w-auto max-w-[120px] object-contain opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                <CarouselContent>
+                  {logos.map((logo, i) => (
+                    <CarouselItem
+                      key={i}
+                      className="basis-1/3 md:basis-1/4 lg:basis-1/5"
+                    >
+                      <div className="flex items-center justify-center h-16 p-2">
+                        <img
+                          src={logo.src}
+                          alt={logo.alt}
+                          className="h-10 md:h-12 w-auto max-w-[120px] object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
