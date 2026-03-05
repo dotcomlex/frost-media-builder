@@ -3,6 +3,7 @@ import { PerspectiveCamera } from "@react-three/drei";
 import React, { useRef } from "react";
 import * as THREE from "three";
 import { cn } from "@/lib/utils";
+import heroMountains from "@/assets/hero-mountains.png";
 
 interface DotGlobeHeroProps {
   rotationSpeed?: number;
@@ -30,10 +31,10 @@ const Globe: React.FC<{
       <points>
         <icosahedronGeometry args={[radius, 8]} />
         <pointsMaterial
-          size={0.035}
-          color="#D4A843"
+          size={0.015}
+          color="#E8E8E8"
           transparent
-          opacity={0.8}
+          opacity={0.45}
           sizeAttenuation
         />
       </points>
@@ -61,12 +62,18 @@ const DotGlobeHero = React.forwardRef<HTMLDivElement, DotGlobeHeroProps>(
         )}
         {...props}
       >
-        {/* Ambient glow effects */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-secondary/5 blur-3xl animate-pulse z-[1]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-secondary/3 blur-2xl z-[1]" />
+        {/* Mountain background */}
+        <img
+          src={heroMountains}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover z-[1]"
+        />
 
-        {/* Globe canvas — centered */}
-        <div className="absolute inset-0 z-[2]">
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 z-[2] bg-black/50" />
+
+        {/* Globe canvas */}
+        <div className="absolute inset-0 z-[3]">
           <Canvas
             gl={{ alpha: true, antialias: true }}
             style={{ background: "transparent" }}
@@ -79,8 +86,8 @@ const DotGlobeHero = React.forwardRef<HTMLDivElement, DotGlobeHeroProps>(
         </div>
 
         {/* Subtle gradient overlays for text readability */}
-        <div className="absolute inset-0 z-[3] bg-gradient-to-r from-black/60 via-transparent to-transparent" />
-        <div className="absolute inset-0 z-[4] bg-gradient-to-t from-alpine-black/50 via-transparent to-alpine-black/30" />
+        <div className="absolute inset-0 z-[4] bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 z-[5] bg-gradient-to-t from-alpine-black/50 via-transparent to-alpine-black/30" />
 
         {/* Content overlay */}
         <div className="relative z-10 h-full w-full">{children}</div>
