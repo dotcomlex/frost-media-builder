@@ -1,34 +1,59 @@
 
 
-# Replace Hero with Rotating Dot Globe Background
+# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
 
-## What
-Replace the current mountain image + DottedSurface hero with a Three.js rotating dot globe as the background, keeping Frost Media's existing headline, CTA, and branding. The globe replaces both the mountain image and the dotted particle surface.
+## Changes Summary
 
-## Dependencies
-- Install `@react-three/fiber@^8.18` and `@react-three/drei@^9.122.0` (already have `three`)
+### 1. Navigation Overhaul
+**`Navigation.tsx`**
+- Remove "About" link (it just scrolls to homepage section)
+- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
+- Rename "Work" to "Our Work" or "Website Designs"
+- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
+- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
 
-## Changes
+### 2. Remove ProcessSection from Homepage
+**`Index.tsx`**
+- Remove `<ProcessSection />` from the homepage entirely
 
-### 1. Create `src/components/ui/globe-hero.tsx`
-- Build the DotGlobeHero component from scratch (the registry JSX was stripped in transit)
-- Three.js `<Canvas>` with a `<points>` mesh using `icosahedronGeometry` (detail 8) rendered as dots
-- Slow auto-rotation via `useFrame`
-- Component accepts `children` as overlay content
-- Dark background, amber/gold-tinted dots to match brand
-- Positioned to the right side of the viewport so it doesn't clash with left-aligned text
+### 3. Services Section Redesign (Homepage)
+**`CapabilitiesSection.tsx`**
+- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
+- On mobile: full-width stacked cards remain
+- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
+- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
 
-### 2. Rewrite `src/components/HeroSection.tsx`
-- Remove mountain image import and `<DottedSurface>` usage
-- Wrap the hero content inside `<DotGlobeHero>` as children
-- Keep all existing content: location tag, headline ("We Build Growth Machines"), description, CTA button, social proof line
-- Globe sits as a background/ambient element behind the text
-- Dark gradient overlay to ensure text readability over the globe
+### 4. AI Solutions Section — Rewrite as "Conversational AI"
+**`SystemBreakdownSection.tsx`**
+- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
+- Rename to "Conversational AI" inspired by the NineTwoThree reference
+- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
+- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
+- Keep it concise — one section, not 4 nearly-identical cards
 
-### 3. Remove `src/components/ui/dotted-surface.tsx` dependency from hero
-- The DottedSurface is only used in HeroSection; removing it from there (keep the file in case other sections use it)
+### 5. Services Page Redesign
+**`Services.tsx`**
+- Complete redesign — move away from dark stacked cards
+- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
+- Not just dark square cards — varied layouts, breathing room, premium feel
 
-## Files Modified
-- `src/components/ui/globe-hero.tsx` — new file
-- `src/components/HeroSection.tsx` — use globe as background instead of mountain + particles
+### 6. Work Page Enhancements
+**`Work.tsx`**
+- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
+- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
+- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
+- Ensure images display well on mobile at full width
+
+### 7. Footer Updates
+**`Footer.tsx`**
+- Remove "About" link, update "Our Work" label to match nav
+
+### Files Modified
+- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
+- `src/pages/Index.tsx` — remove ProcessSection
+- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
+- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
+- `src/pages/Services.tsx` — bright, varied layout redesign
+- `src/pages/Work.tsx` — square images, better background, renamed title
+- `src/components/Footer.tsx` — updated links
 
