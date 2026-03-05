@@ -11,11 +11,11 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ avatarUrl, name, role, location, tag, quote }: TestimonialCardProps) {
   return (
-    <div className="w-[270px] md:w-[300px] flex-shrink-0 snap-start rounded-xl border border-white/[0.06] bg-white/[0.04] p-5 backdrop-blur-md flex flex-col gap-3">
+    <div className="w-[270px] md:w-[300px] flex-shrink-0 snap-start rounded-xl border border-border bg-white p-5 shadow-sm flex flex-col gap-3">
       <img
         src={avatarUrl}
         alt={`Photo of ${name}`}
-        className="mx-auto h-14 w-14 rounded-full border-2 border-secondary/30 object-cover ring-2 ring-secondary/10 ring-offset-2 ring-offset-alpine-dark"
+        className="mx-auto h-14 w-14 rounded-full border-2 border-secondary/30 object-cover ring-2 ring-secondary/10 ring-offset-2 ring-offset-white"
       />
 
       <div className="flex justify-center gap-0.5">
@@ -24,13 +24,13 @@ export function TestimonialCard({ avatarUrl, name, role, location, tag, quote }:
         ))}
       </div>
 
-      <p className="text-center text-xs md:text-[13px] italic leading-relaxed text-text-on-dark/80">
+      <p className="text-center text-xs md:text-[13px] italic leading-relaxed text-muted-foreground">
         "{quote}"
       </p>
 
       <div className="text-center mt-auto">
-        <p className="font-heading text-xs font-bold text-text-on-dark">{name}</p>
-        <p className="text-[10px] text-text-on-dark/45">{role} · {location}</p>
+        <p className="font-heading text-xs font-bold text-foreground">{name}</p>
+        <p className="text-[10px] text-muted-foreground">{role} · {location}</p>
       </div>
 
       <div className="flex justify-center">
