@@ -1,43 +1,37 @@
 import { motion } from "framer-motion";
 import { useContactForm } from "@/components/ContactFormDialog";
-
-import serviceSocialAds from "@/assets/service-social-ads.jpg";
-import serviceWebDesign from "@/assets/service-web-design.jpg";
-import serviceEcommerce from "@/assets/service-ecommerce.jpg";
-import serviceLeadGen from "@/assets/service-lead-gen.jpg";
-import serviceAi from "@/assets/service-ai.jpg";
-import serviceCrm from "@/assets/service-crm.jpg";
+import { Megaphone, Globe, ShoppingCart, Target, Bot, Settings } from "lucide-react";
 
 const services = [
   {
     title: "Social Media Advertising",
     desc: "Strategic Meta, Instagram & TikTok campaigns that fill your pipeline with qualified leads daily.",
-    image: serviceSocialAds,
+    icon: Megaphone,
   },
   {
     title: "Website Design & Dev",
     desc: "Premium, conversion-optimized websites that make your brand unforgettable on every device.",
-    image: serviceWebDesign,
+    icon: Globe,
   },
   {
     title: "E-Commerce & Shopify",
     desc: "Full store buildouts — from product pages to checkout flows — designed to maximize revenue.",
-    image: serviceEcommerce,
+    icon: ShoppingCart,
   },
   {
     title: "Lead Generation",
     desc: "End-to-end pipeline management from first click to closed deal. Every lead tracked and nurtured.",
-    image: serviceLeadGen,
+    icon: Target,
   },
   {
     title: "Conversational AI",
     desc: "AI voice callers, SMS agents & chatbots that respond instantly — trained on your brand, 24/7.",
-    image: serviceAi,
+    icon: Bot,
   },
   {
     title: "CRM & Automation",
     desc: "All-in-one pipeline management with automated follow-ups, lead routing & full visibility.",
-    image: serviceCrm,
+    icon: Settings,
   },
 ];
 
@@ -45,7 +39,7 @@ const CapabilitiesSection = () => {
   const { openForm } = useContactForm();
 
   return (
-    <section id="services" className="py-14 md:py-20 bg-alpine-dark">
+    <section id="services" className="py-14 md:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -54,11 +48,11 @@ const CapabilitiesSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <p className="font-mono-tech text-[10px] tracking-widest uppercase text-secondary mb-2">What We Do</p>
-          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-text-on-dark tracking-tight">
+          <p className="font-mono-tech text-[10px] tracking-widest uppercase text-muted-foreground mb-2">What We Do</p>
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
             Full-Stack Growth Infrastructure
           </h2>
-          <p className="text-text-on-dark/45 text-sm mt-3 max-w-xl mx-auto">
+          <p className="text-muted-foreground text-sm mt-3 max-w-xl mx-auto">
             Everything your business needs to dominate — from ads to AI to automation.
           </p>
         </motion.div>
@@ -72,26 +66,17 @@ const CapabilitiesSection = () => {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               onClick={openForm}
-              className="group relative rounded-xl overflow-hidden cursor-pointer bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-400"
+              className="group rounded-xl border border-border bg-white p-6 cursor-pointer hover:shadow-md hover:border-secondary/30 transition-all duration-300"
             >
-              {/* Image header */}
-              <div className="relative h-28 md:h-36 overflow-hidden">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-full object-cover brightness-75 saturate-50 group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/[0.03] to-transparent" />
+              <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                <s.icon className="h-5 w-5 text-secondary" />
               </div>
-
-              <div className="px-5 pb-5 pt-4">
-                <h3 className="text-sm font-bold text-text-on-dark font-heading mb-1.5">{s.title}</h3>
-                <p className="text-text-on-dark/45 text-xs leading-relaxed">{s.desc}</p>
-                <div className="mt-3 flex justify-end">
-                  <span className="text-text-on-dark/20 group-hover:text-secondary transition-colors text-[10px] font-mono-tech tracking-wider uppercase">
-                    Learn more →
-                  </span>
-                </div>
+              <h3 className="text-sm font-bold text-foreground font-heading mb-1.5">{s.title}</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
+              <div className="mt-3 flex justify-end">
+                <span className="text-muted-foreground/40 group-hover:text-secondary transition-colors text-[10px] font-mono-tech tracking-wider uppercase">
+                  Learn more →
+                </span>
               </div>
             </motion.div>
           ))}

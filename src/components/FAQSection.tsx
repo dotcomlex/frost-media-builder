@@ -37,12 +37,12 @@ const faqs = [
   },
   {
     q: "Can you guarantee results?",
-    a: "We don't make empty promises. What we can guarantee is a battle-tested system, weekly optimization, and full transparency. Our track record speaks for itself — 150+ clients and counting.",
+    a: "We don't make empty promises. What we can guarantee is a battle-tested system, weekly optimization, and full transparency. Our track record speaks for itself.",
   },
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-12 md:py-18 bg-frost-light">
+  <section id="faq" className="py-12 md:py-18 bg-white">
     <div className="max-w-2xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
@@ -51,7 +51,7 @@ const FAQSection = () => (
         transition={{ duration: 0.5 }}
         className="mb-8"
       >
-        <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">FAQ</p>
+        <p className="font-mono-tech text-[10px] tracking-widest uppercase text-muted-foreground mb-2">FAQ</p>
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
           Common Questions
         </h2>
@@ -62,9 +62,9 @@ const FAQSection = () => (
           <AccordionItem
             key={i}
             value={`item-${i}`}
-            className="border border-border rounded-lg px-5 bg-white data-[state=open]:border-ice-blue/30"
+            className="border border-border rounded-lg px-5 bg-white data-[state=open]:border-secondary/30"
           >
-            <AccordionTrigger className="text-foreground hover:text-ice-blue hover:no-underline text-left py-4 text-sm font-semibold">
+            <AccordionTrigger className="text-foreground hover:text-secondary hover:no-underline text-left py-4 text-sm font-semibold">
               {faq.q}
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
