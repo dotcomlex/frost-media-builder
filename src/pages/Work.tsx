@@ -30,30 +30,31 @@ const Work = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navigation />
 
-      {/* Hero */}
-      <section className="bg-alpine-dark pt-28 pb-16 md:pt-36 md:pb-20 px-5 md:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-transparent to-primary/[0.04]" />
+      {/* Hero — bright */}
+      <section className="bg-gradient-to-b from-frost-light to-background pt-28 pb-14 md:pt-36 md:pb-20 px-5 md:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-frost-pattern opacity-30" />
         <div className="max-w-6xl mx-auto relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="text-center"
           >
-            <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">Portfolio</p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-text-on-dark tracking-tight max-w-3xl">
+            <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-4">Portfolio</p>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight max-w-3xl mx-auto">
               Recent Website Designs
             </h1>
-            <p className="text-text-on-dark/50 text-base mt-4 max-w-xl">
+            <p className="text-muted-foreground text-base mt-4 max-w-xl mx-auto">
               Premium websites built for businesses across every industry — designed to convert and built to last.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Projects grid — light background */}
-      <section className="bg-frost-light py-16 md:py-24 px-5 md:px-8">
+      {/* Projects grid */}
+      <section className="bg-background py-10 md:py-16 px-5 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
             {projects.map((p, i) => (
               <motion.div
                 key={p.name}
@@ -61,7 +62,7 @@ const Work = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="group rounded-2xl overflow-hidden bg-background border border-border hover:shadow-xl hover:shadow-primary/[0.08] transition-all duration-500"
+                className="group rounded-2xl overflow-hidden bg-white shadow-lg shadow-black/[0.06] hover:shadow-xl hover:shadow-black/[0.12] transition-all duration-500"
               >
                 <div className="aspect-square overflow-hidden bg-muted">
                   <img
@@ -70,10 +71,10 @@ const Work = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="p-4 md:p-5">
+                <div className="p-5">
                   <div className="flex items-center justify-between">
                     <h3 className="font-heading text-base font-bold text-foreground">{p.name}</h3>
-                    <span className="text-[10px] font-mono-tech tracking-widest uppercase text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-mono-tech tracking-widest uppercase text-muted-foreground bg-frost-light px-2.5 py-1 rounded-full">
                       {p.tag}
                     </span>
                   </div>
