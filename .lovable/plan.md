@@ -1,39 +1,59 @@
 
 
-# Replace Logo Marquee with Infinite Scroll Carousel + New Client Logos
+# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
 
-## What We're Doing
-Replace the current CSS-animated logo marquee with the `cases-with-infinite-scroll` component pattern (Embla Carousel-based auto-scrolling), and add all the uploaded client logos.
+## Changes Summary
 
-## Changes
+### 1. Navigation Overhaul
+**`Navigation.tsx`**
+- Remove "About" link (it just scrolls to homepage section)
+- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
+- Rename "Work" to "Our Work" or "Website Designs"
+- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
+- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
 
-### 1. Copy uploaded logos to `src/assets/`
-Copy all 10 uploaded logo files:
-- `logo-client-divas.png` (Divas Beauty)
-- `logo-client-certapro.png` (CertaPro Painters)
-- `logo-client-360painting.png` (360 Painting)
-- `logo-client-ts.svg` (T&S)
-- `logo-client-heartfl.png` (Heart of Florida Roofing)
-- `logo-client-flsouthern.png` (Florida Southern Roofing)
-- `logo-client-texan.png` (Texan Remodeling)
-- `logo-client-ehrco.png` (EHR Co)
-- `logo-client-cristobal.png` (Cristobal Concrete)
-- `logo-client-capro.png` (CA Pro Concrete)
+### 2. Remove ProcessSection from Homepage
+**`Index.tsx`**
+- Remove `<ProcessSection />` from the homepage entirely
 
-### 2. Rewrite `src/components/LogoMarquee.tsx`
-- Use the Embla Carousel (`Carousel`, `CarouselContent`, `CarouselItem`) with auto-advancing via `useEffect` + `setTimeout` pattern from the `cases-with-infinite-scroll` component
-- Import all uploaded logos plus existing ones (GeoSoftware, Amador, Meta, Shopify, TikTok, CPIA, Frost, PCA, Script)
-- Each `CarouselItem` renders a logo image with consistent sizing (`h-10 md:h-12`, `object-contain`, grayscale filter with hover color)
-- Header text: "Trusted by businesses across the nation"
-- Set carousel to loop, show multiple items per view (`basis-1/4 md:basis-1/6`), auto-scroll every 2 seconds
-- Keep the `bg-white py-8 border-y border-border` styling
+### 3. Services Section Redesign (Homepage)
+**`CapabilitiesSection.tsx`**
+- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
+- On mobile: full-width stacked cards remain
+- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
+- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
 
-### 3. No changes to `Index.tsx`
-The `<LogoMarquee />` import stays the same.
+### 4. AI Solutions Section — Rewrite as "Conversational AI"
+**`SystemBreakdownSection.tsx`**
+- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
+- Rename to "Conversational AI" inspired by the NineTwoThree reference
+- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
+- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
+- Keep it concise — one section, not 4 nearly-identical cards
 
-## Files Modified
-- `src/components/LogoMarquee.tsx` (rewrite)
+### 5. Services Page Redesign
+**`Services.tsx`**
+- Complete redesign — move away from dark stacked cards
+- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
+- Not just dark square cards — varied layouts, breathing room, premium feel
 
-## Files Created
-- 10 logo assets copied to `src/assets/`
+### 6. Work Page Enhancements
+**`Work.tsx`**
+- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
+- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
+- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
+- Ensure images display well on mobile at full width
+
+### 7. Footer Updates
+**`Footer.tsx`**
+- Remove "About" link, update "Our Work" label to match nav
+
+### Files Modified
+- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
+- `src/pages/Index.tsx` — remove ProcessSection
+- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
+- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
+- `src/pages/Services.tsx` — bright, varied layout redesign
+- `src/pages/Work.tsx` — square images, better background, renamed title
+- `src/components/Footer.tsx` — updated links
 
