@@ -90,9 +90,10 @@ const ContactFormDialog = ({ open, onOpenChange }: { open: boolean; onOpenChange
               <SelectContent>
                 <SelectItem value="home-services">Home Services</SelectItem>
                 <SelectItem value="beauty">Beauty & Med Spa</SelectItem>
-                <SelectItem value="ecommerce">E-Commerce</SelectItem>
+                <SelectItem value="ecommerce">E-Commerce / Shopify</SelectItem>
                 <SelectItem value="real-estate">Real Estate</SelectItem>
                 <SelectItem value="insurance">Insurance</SelectItem>
+                <SelectItem value="fitness">Fitness & Wellness</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>

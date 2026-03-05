@@ -37,20 +37,19 @@ const SystemDiagramSection = () => {
 
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
-    const amount = dir === "left" ? -340 : 340;
+    const amount = dir === "left" ? -380 : 380;
     scrollRef.current.scrollBy({ left: amount, behavior: "smooth" });
   };
 
   return (
-    <section id="work" className="relative py-16 md:py-24 overflow-hidden">
-      {/* Mountain background */}
+    <section id="work" className="relative py-20 md:py-28 overflow-hidden">
       <img
         src={heroMountains}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/85 via-black/75 to-black/85" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-alpine-dark/90 via-alpine-dark/80 to-alpine-dark/90" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
         <motion.div
@@ -58,28 +57,28 @@ const SystemDiagramSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">Social Proof</p>
+          <p className="font-mono-tech text-xs tracking-widest uppercase text-secondary mb-3">Client Results</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark tracking-tight">
-            What Our Clients Say
+            Real Businesses. Real Growth.
           </h2>
-          <p className="text-text-on-dark/60 text-lg mt-4 max-w-lg mx-auto">
-            Real results from real businesses we've helped scale.
+          <p className="text-text-on-dark/50 text-lg mt-4 max-w-lg mx-auto">
+            150+ businesses scaled across every industry.
           </p>
         </motion.div>
 
-        <div className="hidden md:flex justify-end gap-2 mb-4">
+        <div className="hidden md:flex justify-end gap-2 mb-5">
           <button
             onClick={() => scroll("left")}
-            className="rounded-full border border-white/10 bg-white/5 p-2 text-text-on-dark/70 hover:bg-white/10 transition-colors"
+            className="rounded-full border border-white/10 bg-white/5 p-2.5 text-text-on-dark/70 hover:bg-white/10 transition-colors"
             aria-label="Scroll left"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="rounded-full border border-white/10 bg-white/5 p-2 text-text-on-dark/70 hover:bg-white/10 transition-colors"
+            className="rounded-full border border-white/10 bg-white/5 p-2.5 text-text-on-dark/70 hover:bg-white/10 transition-colors"
             aria-label="Scroll right"
           >
             <ChevronRight className="h-5 w-5" />
@@ -87,11 +86,11 @@ const SystemDiagramSection = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-alpine-dark/90 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-alpine-dark/90 to-transparent z-10 pointer-events-none" />
           <div
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0"
+            className="flex gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0"
           >
             {reviews.map((r) => (
               <TestimonialCard
