@@ -7,7 +7,7 @@ const HeroSection = () => {
   const { openForm } = useContactForm();
 
   return (
-    <DotGlobeHero rotationSpeed={0.003} globeRadius={1.8}>
+    <DotGlobeHero rotationSpeed={0.003} globeRadius={2.2}>
       <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-8 py-20 md:py-28 w-full flex items-center min-h-[85vh]">
         <div>
           <motion.p
