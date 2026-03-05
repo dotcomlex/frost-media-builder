@@ -38,7 +38,7 @@ const AboutSection = () => (
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <p className="font-mono-tech text-[10px] tracking-widest uppercase text-secondary mb-2">About Us</p>
+          <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">About Us</p>
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark tracking-tight mb-4">
             Denver-Based. Design-Obsessed. Results-Driven.
           </h2>
@@ -61,8 +61,8 @@ const AboutSection = () => (
             transition={{ duration: 0.4, delay: i * 0.08 }}
             className="flex items-start gap-3 p-4 rounded-lg bg-white/[0.03] border border-white/[0.06]"
           >
-            <div className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
-              <d.icon className="h-4 w-4 text-secondary" />
+            <div className="w-8 h-8 rounded-lg bg-ice-blue/10 flex items-center justify-center shrink-0">
+              <d.icon className="h-4 w-4 text-ice-blue" />
             </div>
             <div>
               <h4 className="font-heading text-xs font-bold text-text-on-dark mb-0.5">{d.title}</h4>

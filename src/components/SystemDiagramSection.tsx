@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TestimonialCard } from "@/components/ui/testimonial-cards";
+import heroMountains from "@/assets/hero-mountains.png";
 
 import avatarMarcus from "@/assets/avatar-marcus.jpg";
 import avatarSarah from "@/assets/avatar-sarah.jpg";
@@ -41,7 +42,13 @@ const SystemDiagramSection = () => {
   };
 
   return (
-    <section id="work" className="relative py-14 md:py-20 bg-muted/50 overflow-hidden">
+    <section id="work" className="relative py-14 md:py-20 bg-alpine-dark overflow-hidden">
+      {/* Mountain background overlay */}
+      <div className="absolute inset-0 z-0">
+        <img src={heroMountains} alt="" className="w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-alpine-dark via-alpine-dark/80 to-alpine-dark" />
+      </div>
+
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -50,8 +57,8 @@ const SystemDiagramSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <p className="font-mono-tech text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Client Results</p>
-          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
+          <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">Client Results</p>
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-text-on-dark tracking-tight">
             Real Businesses. Real Growth.
           </h2>
         </motion.div>
@@ -59,14 +66,14 @@ const SystemDiagramSection = () => {
         <div className="hidden md:flex justify-end gap-2 mb-4">
           <button
             onClick={() => scroll("left")}
-            className="rounded-full border border-border bg-white p-2 text-muted-foreground hover:bg-muted transition-colors"
+            className="rounded-full border border-white/10 bg-white/5 p-2 text-text-on-dark/60 hover:bg-white/10 transition-colors"
             aria-label="Scroll left"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="rounded-full border border-border bg-white p-2 text-muted-foreground hover:bg-muted transition-colors"
+            className="rounded-full border border-white/10 bg-white/5 p-2 text-text-on-dark/60 hover:bg-white/10 transition-colors"
             aria-label="Scroll right"
           >
             <ChevronRight className="h-4 w-4" />
@@ -74,8 +81,8 @@ const SystemDiagramSection = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-muted/50 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-muted/50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-alpine-dark to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-alpine-dark to-transparent z-10 pointer-events-none" />
           <div
             ref={scrollRef}
             className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-3 -mx-4 px-4 md:mx-0 md:px-0"

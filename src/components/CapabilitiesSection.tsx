@@ -1,37 +1,43 @@
 import { motion } from "framer-motion";
 import { useContactForm } from "@/components/ContactFormDialog";
-import { Megaphone, Globe, ShoppingCart, Target, Bot, Settings } from "lucide-react";
+
+import serviceSocialAds from "@/assets/service-social-ads.jpg";
+import serviceWebDesign from "@/assets/service-web-design.jpg";
+import serviceEcommerce from "@/assets/service-ecommerce.jpg";
+import serviceLeadGen from "@/assets/service-lead-gen.jpg";
+import serviceAi from "@/assets/service-ai.jpg";
+import serviceCrm from "@/assets/service-crm.jpg";
 
 const services = [
   {
     title: "Social Media Advertising",
     desc: "Strategic Meta, Instagram & TikTok campaigns that fill your pipeline with qualified leads daily.",
-    icon: Megaphone,
+    image: serviceSocialAds,
   },
   {
     title: "Website Design & Dev",
     desc: "Premium, conversion-optimized websites that make your brand unforgettable on every device.",
-    icon: Globe,
+    image: serviceWebDesign,
   },
   {
     title: "E-Commerce & Shopify",
     desc: "Full store buildouts — from product pages to checkout flows — designed to maximize revenue.",
-    icon: ShoppingCart,
+    image: serviceEcommerce,
   },
   {
     title: "Lead Generation",
     desc: "End-to-end pipeline management from first click to closed deal. Every lead tracked and nurtured.",
-    icon: Target,
+    image: serviceLeadGen,
   },
   {
     title: "Conversational AI",
     desc: "AI voice callers, SMS agents & chatbots that respond instantly — trained on your brand, 24/7.",
-    icon: Bot,
+    image: serviceAi,
   },
   {
     title: "CRM & Automation",
     desc: "All-in-one pipeline management with automated follow-ups, lead routing & full visibility.",
-    icon: Settings,
+    image: serviceCrm,
   },
 ];
 
@@ -39,7 +45,7 @@ const CapabilitiesSection = () => {
   const { openForm } = useContactForm();
 
   return (
-    <section id="services" className="py-14 md:py-20 bg-white">
+    <section id="services" className="py-14 md:py-20 bg-muted">
       <div className="max-w-5xl mx-auto px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -66,17 +72,23 @@ const CapabilitiesSection = () => {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               onClick={openForm}
-              className="group rounded-xl border border-border bg-white p-6 cursor-pointer hover:shadow-md hover:border-secondary/30 transition-all duration-300"
+              className="group rounded-xl border border-border bg-card overflow-hidden cursor-pointer hover:shadow-lg hover:border-ice-blue/30 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-                <s.icon className="h-5 w-5 text-secondary" />
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
-              <h3 className="text-sm font-bold text-foreground font-heading mb-1.5">{s.title}</h3>
-              <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
-              <div className="mt-3 flex justify-end">
-                <span className="text-muted-foreground/40 group-hover:text-secondary transition-colors text-[10px] font-mono-tech tracking-wider uppercase">
-                  Learn more →
-                </span>
+              <div className="p-5">
+                <h3 className="text-sm font-bold text-foreground font-heading mb-1.5">{s.title}</h3>
+                <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
+                <div className="mt-3 flex justify-end">
+                  <span className="text-muted-foreground/40 group-hover:text-ice-blue transition-colors text-[10px] font-mono-tech tracking-wider uppercase">
+                    Learn more →
+                  </span>
+                </div>
               </div>
             </motion.div>
           ))}
