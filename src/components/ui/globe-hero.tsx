@@ -31,7 +31,7 @@ const Globe: React.FC<{
       <points>
         <icosahedronGeometry args={[radius, 8]} />
         <pointsMaterial
-          size={0.015}
+          size={0.008}
           color="#E8E8E8"
           transparent
           opacity={0.45}
@@ -45,7 +45,7 @@ const Globe: React.FC<{
 const DotGlobeHero = React.forwardRef<HTMLDivElement, DotGlobeHeroProps>(
   (
     {
-      rotationSpeed = 0.003,
+      rotationSpeed = 0.0015,
       globeRadius = 2.2,
       className,
       children,
@@ -78,7 +78,7 @@ const DotGlobeHero = React.forwardRef<HTMLDivElement, DotGlobeHeroProps>(
             gl={{ alpha: true, antialias: true }}
             style={{ background: "transparent" }}
           >
-            <PerspectiveCamera makeDefault position={[0, 0, 3.5]} fov={45} />
+            <PerspectiveCamera makeDefault position={[0, 0.5, 4.5]} fov={45} />
             <ambientLight intensity={0.3} />
             <pointLight position={[10, 10, 10]} intensity={0.5} />
             <Globe rotationSpeed={rotationSpeed} radius={globeRadius} />
