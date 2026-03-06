@@ -1,59 +1,41 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Remove Redundant Pages, Nav Items, and Sections
 
-## Changes Summary
+## Redundancies Found
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+1. **Nav "Contact" link + "Book a Call" button** — both trigger `openForm()`. Remove the "Contact" text link.
+2. **Industries dropdown** — 5 of 6 links (Plumbing, Concrete, Electrical, Roofing, Painting) go to pages that don't exist (404). Only HVAC has a route. Remove the entire Industries dropdown until those pages are built.
+3. **Homepage `AboutSection`** vs **`/about` page** — duplicate "about" content. Remove the homepage AboutSection since there's a dedicated About page.
+4. **Homepage `CapabilitiesSection`** (6 service cards) vs **`/services` page** — nearly identical content. Keep CapabilitiesSection on homepage as a preview, but remove the standalone `/services` route and page since the nav dropdown already links to individual service pages.
+5. **"Lead Generation" service link** in nav dropdown points to `/services` which we're removing. Replace with a direct link or remove it.
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+## Changes
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+### `src/components/Navigation.tsx`
+- Remove "Contact" text link (keep "Book a Call" CTA button)
+- Remove entire Industries dropdown (desktop + mobile expandable)
+- Change "Lead Generation" service link to point to `/services/meta-ads` or remove it (since there's no dedicated page)
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+### `src/pages/Index.tsx`
+- Remove `AboutSection` import and `<AboutSection />`
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+### `src/App.tsx`
+- Remove `/services` route and `Services` import
+- Remove `/industries/hvac` route and `IndustryHVAC` import
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+### `src/components/Footer.tsx`
+- Remove "Industries" link
+- Remove "All Services" link (page no longer exists)
+- Remove "About" link redundancy check — keep it since `/about` page still exists
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### Delete files
+- `src/pages/Services.tsx`
+- `src/pages/IndustryHVAC.tsx`
 
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+### Keep
+- `/services/ai-automation` and `/services/meta-ads` — these are distinct, useful pages
+- `/case-studies` and `/about` — standalone pages with unique content
+- `/work` — portfolio page
+- Homepage sections: Hero, LogoMarquee, Capabilities, SystemDiagram (testimonials), SystemBreakdown (AI demo), FAQ, FinalCTA, Footer
 
