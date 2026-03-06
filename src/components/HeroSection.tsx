@@ -10,14 +10,6 @@ const HeroSection = () => {
     <DotGlobeHero rotationSpeed={0.0015} globeRadius={2.2}>
       <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-8 py-20 md:py-28 w-full flex items-center min-h-[85vh]">
         <div>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="font-mono-tech text-[10px] md:text-xs tracking-widest uppercase text-ice-blue mb-4"
-          >
-            📍 Denver, Colorado
-          </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
@@ -54,9 +46,6 @@ const HeroSection = () => {
             >
               Book a Free Strategy Call →
             </Button>
-            <p className="font-mono-tech text-[10px] text-text-on-dark/40 tracking-wide">
-              Trusted by Colorado's fastest-growing brands
-            </p>
           </motion.div>
         </div>
       </div>

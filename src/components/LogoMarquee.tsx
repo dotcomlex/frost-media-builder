@@ -29,7 +29,7 @@ const LogoMarquee = () => {
     <div className="w-full py-14 bg-background overflow-hidden">
       <div className="container mx-auto mb-10">
         <h2 className="text-xl md:text-2xl tracking-tight font-heading text-foreground">
-          Trusted by businesses across the U.S.
+          Brands That Trust Us
         </h2>
       </div>
 
@@ -49,7 +49,6 @@ const LogoMarquee = () => {
                 src={logo.src}
                 alt={logo.alt}
                 className="h-14 md:h-16 w-auto max-w-[160px] object-contain"
-                style={{ filter: 'grayscale(100%) contrast(0) brightness(0.4)' }}
               />
             </div>
           ))}
