@@ -15,7 +15,6 @@ const Navigation = () => {
   const { openForm } = useContactForm();
   const location = useLocation();
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -29,21 +28,22 @@ const Navigation = () => {
             <img src={logoFrost} alt="Frost Media" className="h-7 md:h-8 w-auto" />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          {/* Glassmorphic pill nav */}
+          <div className="hidden md:flex items-center gap-1 bg-white/[0.06] backdrop-blur-md border border-white/[0.1] rounded-full px-1.5 py-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-sm font-medium text-text-on-dark/70 hover:text-text-on-dark transition-colors"
+                className="text-sm font-medium text-text-on-dark/70 hover:text-text-on-dark hover:bg-white/[0.08] rounded-full px-4 py-1.5 transition-all"
               >
                 {link.label}
               </Link>
             ))}
             <button
               onClick={openForm}
-              className="text-sm font-semibold text-secondary hover:text-amber-gold transition-colors"
+              className="text-sm font-semibold text-primary-foreground bg-primary hover:bg-ice-blue rounded-full px-4 py-1.5 transition-all ml-0.5"
             >
-              Contact
+              Book a Call
             </button>
           </div>
 

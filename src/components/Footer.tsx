@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import { useContactForm } from "@/components/ContactFormDialog";
 import { Button } from "@/components/ui/button";
 import logoFrost from "@/assets/logo-frost.png";
+import heroMountains from "@/assets/hero-mountains.png";
 
 const Footer = () => {
   const { openForm } = useContactForm();
 
   return (
-    <footer className="bg-alpine-dark border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+    <footer className="bg-alpine-dark border-t border-white/10 relative overflow-hidden">
+      {/* Mountain silhouette background */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 opacity-[0.04] pointer-events-none">
+        <img src={heroMountains} alt="" className="w-full h-full object-cover object-top" aria-hidden="true" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Brand */}
           <div>
             <Link to="/">
               <img src={logoFrost} alt="Frost Media" className="h-7 w-auto" />
@@ -26,7 +31,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-sm font-semibold text-text-on-dark uppercase tracking-wider mb-4">Quick Links</h4>
             <ul className="space-y-2.5 text-sm text-text-on-dark/50">
@@ -37,7 +41,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact & CTA */}
           <div>
             <h4 className="text-sm font-semibold text-text-on-dark uppercase tracking-wider mb-4">Get Started</h4>
             <p className="text-sm text-text-on-dark/50 leading-relaxed mb-4">
