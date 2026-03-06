@@ -57,7 +57,7 @@ const AboutPage = () => {
               Hey, we're Frost Media.
             </h1>
             <p className="text-text-on-dark/70 text-lg md:text-xl max-w-xl leading-relaxed">
-              A small team of designers, marketers, and engineers in Denver building growth systems for contractors who are done wasting money.
+              A small team of designers and marketers building growth systems for home service businesses who are done wasting money.
             </p>
           </motion.div>
         </div>
