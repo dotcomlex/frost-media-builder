@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import Work from "./pages/Work";
 import AIAutomation from "./pages/AIAutomation";
 import MetaAds from "./pages/MetaAds";
-import CaseStudies from "./pages/CaseStudies";
+
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 

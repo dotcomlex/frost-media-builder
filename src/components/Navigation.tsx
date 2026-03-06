@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const serviceLinks = [
   { label: "AI Automation", href: "/services/ai-automation" },
-  { label: "Meta Ads", href: "/services/meta-ads" },
+  { label: "Social Media Ads", href: "/services/meta-ads" },
   { label: "Web Design", href: "/work" },
 ];
 
@@ -49,9 +49,6 @@ const Navigation = () => {
               </div>
             </div>
 
-            <Link to="/case-studies" className="text-slate-300 hover:text-white font-medium transition-colors">
-              Case Studies
-            </Link>
             <Link to="/about" className="text-slate-300 hover:text-white font-medium transition-colors">
               About
             </Link>
@@ -67,10 +64,11 @@ const Navigation = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-white p-2 z-[60]"
+            className="md:hidden text-white p-2"
             onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? null : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </nav>
@@ -83,14 +81,26 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[55] bg-slate-900/98 backdrop-blur-2xl md:hidden flex flex-col"
+            className="fixed inset-0 z-[60] bg-alpine-dark/98 backdrop-blur-2xl md:hidden flex flex-col"
           >
-            <div className="pt-20 px-8 flex flex-col flex-1 overflow-y-auto">
-              <div className="mb-8">
-                <img src={logoFrost} alt="Frost Media" className="h-10 w-auto opacity-60" />
-              </div>
+            {/* Close button inside the overlay */}
+            <div className="flex items-center justify-between px-4 h-20">
+              <img src={logoFrost} alt="Frost Media" className="h-10 w-auto opacity-60" />
+              <button
+                className="text-white p-2"
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
 
+            <div className="px-8 flex flex-col flex-1 overflow-y-auto">
               <div className="flex flex-col gap-1">
+                <Link to="/" onClick={() => setOpen(false)} className="text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50">
+                  Home
+                </Link>
+
                 {/* Services Expandable */}
                 <div>
                   <button
@@ -122,9 +132,6 @@ const Navigation = () => {
                   </AnimatePresence>
                 </div>
 
-                <Link to="/case-studies" onClick={() => setOpen(false)} className="text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50">
-                  Case Studies
-                </Link>
                 <Link to="/about" onClick={() => setOpen(false)} className="text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50">
                   About
                 </Link>
