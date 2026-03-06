@@ -1,39 +1,59 @@
 
 
-# Logo Marquee Fix, New Logos, and About Page Redesign
+# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
 
-## 1. Logo Marquee — Remove White Logo + Add New Ones
+## Changes Summary
 
-**`src/components/LogoMarquee.tsx`**
-- Remove `logoHeartfl` (Heart of Florida) from imports and the logos array — it has white text invisible on white background
-- Add two new client logos:
-  - Copy `user-uploads://image-24.png` → `src/assets/logo-client-phoenix.png` (Phoenix Concrete Company)
-  - Copy `user-uploads://image-25.png` → `src/assets/logo-client-azpremier.png` (Arizona Premier Concrete)
-- Import and add both to the logos array
+### 1. Navigation Overhaul
+**`Navigation.tsx`**
+- Remove "About" link (it just scrolls to homepage section)
+- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
+- Rename "Work" to "Our Work" or "Website Designs"
+- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
+- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
 
-## 2. About Page Redesign
+### 2. Remove ProcessSection from Homepage
+**`Index.tsx`**
+- Remove `<ProcessSection />` from the homepage entirely
 
-**`src/pages/AboutPage.tsx`** — Complete redesign, mobile-optimized, visual and engaging.
+### 3. Services Section Redesign (Homepage)
+**`CapabilitiesSection.tsx`**
+- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
+- On mobile: full-width stacked cards remain
+- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
+- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
 
-Structure:
-1. **Hero** — Full-width image (Denver skyline/office using `about-denver.jpg`) with overlay text: "Hey, we're Frost Media." casual tagline below
-2. **Story section** — Two-column on desktop (text left, image right using `about-team.jpg`). Casual, friendly copy about starting in Denver, helping contractors. Mobile: stacked, image on top
-3. **Working section** — Image grid showing office/work life (use `about-denver.jpg`, `about-team.jpg`, plus stock-style Unsplash images via URLs for computer screen / workspace vibes). Could be a 2x2 bento grid on desktop, stacked on mobile
-4. **Values/approach** — 3 cards similar to homepage differentiators but expanded. Clean white/light background for contrast
-5. **CTA** — "Let's build something" with contact form button
+### 4. AI Solutions Section — Rewrite as "Conversational AI"
+**`SystemBreakdownSection.tsx`**
+- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
+- Rename to "Conversational AI" inspired by the NineTwoThree reference
+- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
+- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
+- Keep it concise — one section, not 4 nearly-identical cards
 
-Design approach:
-- Mix of light and dark sections for visual variety
-- Rounded images with subtle shadows
-- Framer Motion fade-in animations
-- Mobile-first: all grids collapse to single column
-- Casual, friendly tone throughout copy
-- Use existing assets: `about-denver.jpg`, `about-team.jpg`
-- For additional imagery (workspace, computer screen, Denver cityscape): use high-quality Unsplash placeholder URLs
+### 5. Services Page Redesign
+**`Services.tsx`**
+- Complete redesign — move away from dark stacked cards
+- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
+- Not just dark square cards — varied layouts, breathing room, premium feel
 
-**Files modified:**
-- `src/assets/logo-client-phoenix.png` (new — copied from upload)
-- `src/assets/logo-client-azpremier.png` (new — copied from upload)
-- `src/components/LogoMarquee.tsx` — remove Heart of FL, add 2 new logos
-- `src/pages/AboutPage.tsx` — full redesign
+### 6. Work Page Enhancements
+**`Work.tsx`**
+- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
+- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
+- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
+- Ensure images display well on mobile at full width
+
+### 7. Footer Updates
+**`Footer.tsx`**
+- Remove "About" link, update "Our Work" label to match nav
+
+### Files Modified
+- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
+- `src/pages/Index.tsx` — remove ProcessSection
+- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
+- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
+- `src/pages/Services.tsx` — bright, varied layout redesign
+- `src/pages/Work.tsx` — square images, better background, renamed title
+- `src/components/Footer.tsx` — updated links
 
