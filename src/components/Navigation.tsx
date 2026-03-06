@@ -26,7 +26,7 @@ const Navigation = () => {
       <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            <img src={frostmediaLogo} alt="Frost Media" className="h-[124px] w-auto mt-4" />
+            <img src={frostmediaLogo} alt="Frost Media" className="h-[120px] w-auto mt-4" />
           </Link>
 
           {/* Desktop Menu */}
