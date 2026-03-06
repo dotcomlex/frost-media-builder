@@ -30,8 +30,8 @@ const LogoMarquee = () => {
   return (
     <div className="w-full py-10 md:py-14 bg-background overflow-hidden">
       <div className="container mx-auto mb-8">
-        <h2 className="text-xl md:text-2xl tracking-tight font-heading text-foreground">
-          Trusted by businesses across the U.S.
+        <h2 className="text-xl md:text-2xl tracking-tight font-mono-tech text-foreground uppercase">
+          Who we work with
         </h2>
       </div>
 
