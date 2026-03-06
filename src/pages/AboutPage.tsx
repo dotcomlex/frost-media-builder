@@ -41,7 +41,7 @@ const AboutPage = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[480px] overflow-hidden">
+      <section className="relative h-[55vh] min-h-[400px] overflow-hidden">
         <img
           src={aboutDenver}
           alt="Denver Colorado skyline"
@@ -69,7 +69,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center">
             <motion.div {...fadeUp} className="order-2 lg:order-1">
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground tracking-tight mb-5">
-                We started because contractors kept getting ripped off.
+                We started because businesses kept getting ripped off.
               </h2>
               <div className="text-muted-foreground text-[15px] leading-relaxed space-y-4">
                 <p>
@@ -79,7 +79,7 @@ const AboutPage = () => {
                   We thought that was broken. So we built a better way: exclusive leads through Meta ads, AI that responds instantly, and CRM automation that keeps your pipeline full without you lifting a finger.
                 </p>
                 <p className="font-medium text-foreground">
-                  No shared leads. No wasted ad spend. Just a system that works while you're on the job site.
+                  No shared leads. No wasted ad spend. Just a system that works while you're running your business.
                 </p>
               </div>
             </motion.div>
@@ -98,67 +98,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Bento Image Grid */}
-      <section className="py-16 md:py-24 bg-alpine-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-frost-pattern opacity-30 pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <motion.div {...fadeUp} className="mb-10">
-            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">
-              Behind the Scenes
-            </p>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark tracking-tight">
-              Where the work happens.
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.4, delay: 0 }}
-              className="col-span-2 row-span-2"
-            >
-              <img
-                src={aboutWorking}
-                alt="Working on client campaigns in our Denver office"
-                className="w-full h-full min-h-[240px] md:min-h-[360px] object-cover rounded-xl"
-              />
-            </motion.div>
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.4, delay: 0.08 }}
-              className="col-span-2 md:col-span-2"
-            >
-              <img
-                src={aboutWorkspace}
-                alt="Clean workspace with marketing analytics dashboard"
-                className="w-full h-40 md:h-44 object-cover rounded-xl"
-              />
-            </motion.div>
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.4, delay: 0.16 }}
-              className="col-span-1"
-            >
-              <img
-                src={aboutDenver}
-                alt="Denver Colorado"
-                className="w-full h-40 md:h-44 object-cover rounded-xl"
-              />
-            </motion.div>
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.4, delay: 0.24 }}
-              className="col-span-1"
-            >
-              <img
-                src={aboutTeam}
-                alt="Team collaboration"
-                className="w-full h-40 md:h-44 object-cover rounded-xl"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Values */}
       <section className="py-16 md:py-24 bg-background">
@@ -197,22 +136,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Denver */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div {...fadeUp} className="max-w-2xl">
-            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">
-              📍 Commerce City, Colorado
-            </p>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground tracking-tight mb-4">
-              Denver born and raised.
-            </h2>
-            <p className="text-muted-foreground text-[15px] leading-relaxed">
-              We're based in Commerce City because we know the Denver market inside and out. The competition, the seasonality, what works for Colorado contractors. We're not a remote agency guessing from across the country — we're right here, invested in helping local businesses win.
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-20 md:py-28 bg-alpine-dark relative overflow-hidden">
