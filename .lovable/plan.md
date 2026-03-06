@@ -1,59 +1,32 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Redesign Work/Portfolio Page — Bold, Premium, Creative
 
-## Changes Summary
+The current page is flat slate boxes on a slate background. Here's the plan to make it feel like a high-end creative agency portfolio.
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+## Hero Section
+- Use the mountain background image (like FinalCTA/homepage hero) with a dark overlay and the frost-pattern SVG texture
+- Large, bold headline with a gradient text effect (white to ice-blue) instead of plain white
+- Animated accent line or decorative element beneath the heading
+- Increase heading size to `text-5xl md:text-6xl lg:text-7xl` with tight leading
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+## Project Grid — Complete Restyle
+- **Alternating large/small layout**: First project spans full width (2 columns) with a cinematic aspect ratio, next two are side-by-side, then repeat. This breaks the boring uniform grid.
+- **Glassmorphism cards**: `backdrop-blur-xl bg-white/5 border border-white/10` instead of solid slate boxes — gives depth and sophistication
+- **Hover reveal overlay**: On hover, a gradient overlay (from transparent to dark) slides up from the bottom revealing the project name, tag, and description with a subtle glow effect
+- **Project number**: Small mono-tech `01`, `02`, `03` index in the corner for editorial feel
+- **Image aspect ratio**: Use `aspect-[16/10]` for wider, more cinematic screenshots instead of square
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+## Background
+- Use a deep gradient: `bg-gradient-to-b from-[#0a0f1a] via-[#0d1829] to-[#0a0f1a]` — rich, deep navy-black instead of flat slate
+- Subtle animated radial glow behind the grid (ice-blue at ~3% opacity) for atmosphere
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+## CTA Section
+- Larger, more prominent with the mountain bg treatment matching the hero
+- Bolder copy
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
-
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
-
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
-
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+## Technical Changes
+- **File**: `src/pages/Work.tsx` — full restyle
+- Uses existing dependencies only (framer-motion, tailwind, lucide)
+- No new packages needed
 
