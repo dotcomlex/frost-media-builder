@@ -1,105 +1,59 @@
 
 
-# Three-Part Update: Navigation Fix, Remove Case Studies, Meta Ads Full Redesign
+# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
 
-## 1. Navigation Fix (Mobile)
+## Changes Summary
 
-**File: `src/components/Navigation.tsx`**
+### 1. Navigation Overhaul
+**`Navigation.tsx`**
+- Remove "About" link (it just scrolls to homepage section)
+- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
+- Rename "Work" to "Our Work" or "Website Designs"
+- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
+- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
 
-- Fix the mobile menu X button: the toggle button has `z-[60]` but the menu overlay is `z-[55]` — the X button is behind the nav bar. Move the X button inside the mobile overlay or raise the overlay z-index so the X is clickable
-- Add a "Home" link (to `/`) as the first item in mobile menu
-- Remove "Case Studies" link from both desktop and mobile menus
-- Keep: Home, Services (expandable), About, and the amber "Book a Call" CTA
+### 2. Remove ProcessSection from Homepage
+**`Index.tsx`**
+- Remove `<ProcessSection />` from the homepage entirely
 
-## 2. Remove All Case Studies References
+### 3. Services Section Redesign (Homepage)
+**`CapabilitiesSection.tsx`**
+- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
+- On mobile: full-width stacked cards remain
+- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
+- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
 
-**Files: `src/components/Navigation.tsx`, `src/components/Footer.tsx`, `src/App.tsx`**
+### 4. AI Solutions Section — Rewrite as "Conversational AI"
+**`SystemBreakdownSection.tsx`**
+- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
+- Rename to "Conversational AI" inspired by the NineTwoThree reference
+- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
+- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
+- Keep it concise — one section, not 4 nearly-identical cards
 
-- Navigation: remove Case Studies link from desktop nav and mobile menu
-- Footer: remove both Case Studies links (from Services column and Company column)
-- App.tsx: remove the `/case-studies` route and CaseStudies import
+### 5. Services Page Redesign
+**`Services.tsx`**
+- Complete redesign — move away from dark stacked cards
+- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
+- Not just dark square cards — varied layouts, breathing room, premium feel
 
-## 3. Meta Ads Page — Full Premium Redesign
+### 6. Work Page Enhancements
+**`Work.tsx`**
+- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
+- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
+- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
+- Ensure images display well on mobile at full width
 
-**File: `src/pages/MetaAds.tsx`** — complete rewrite, ~600-700 lines
+### 7. Footer Updates
+**`Footer.tsx`**
+- Remove "About" link, update "Our Work" label to match nav
 
-Inspired by Flighted, GrowthRoom, and the user's Upwork portfolio. Educational, authoritative, and conversion-focused.
-
-### Page Structure (top to bottom):
-
-**A. Hero Section (alpine-dark, mountain bg)**
-- `font-mono-tech` label: "SOCIAL MEDIA ADVERTISING"
-- Bold headline: "Expert Facebook & Instagram Ad Campaigns That Generate Real Leads"
-- Subtitle about exclusive leads, tested strategies, real results
-- Amber CTA + stats row: "100+ Campaigns Launched" / "Years of Experience" / "Multi-Industry Expertise"
-
-**B. Why Social Media Ads Section (bg-muted, light)**
-- Educational section: why Facebook/Instagram ads are still the most powerful acquisition channel
-- 3 key points with icons: Lowest cost per lead, Precision targeting, Scalable results
-- Inspired by GrowthRoom's "Why Facebook Ads?" section
-
-**C. Platforms We Advertise On (bg-background, white)**
-- Grid of platform logos/icons with names: Facebook, Instagram, TikTok, Snapchat, Pinterest, Messenger
-- Clean horizontal strip showing multi-platform capability
-- No Google mention
-
-**D. Our Process — How We Work (bg-muted, light)**
-- 4-step horizontal flow with numbered cards:
-  1. Strategy & Research — Audit your market, competitors, audience
-  2. Creative Development — Scroll-stopping ad creative and copy
-  3. Launch & Test — A/B test audiences, placements, messaging
-  4. Optimize & Scale — Lower CPA, increase ROAS, scale winners
-
-**E. Industries We've Helped (alpine-dark, dark)**
-- 2x3 or 3x3 grid of industry cards showing breadth of experience (from Upwork portfolio):
-  - Contractors & Home Services
-  - Beauty & Med Spas
-  - Real Estate
-  - E-commerce & DTC
-  - Insurance & Finance
-  - Local Services
-- Each card: icon + industry + one-line result example
-- Demonstrates the "not your traditional agency" angle
-
-**F. Results Dashboard Section (bg-background, white)**
-- AI-generated mockup images of Facebook Ads Manager dashboards showing positive results (use the Nano image generation API to create 2-3 dashboard screenshots)
-- Actually, since we can't easily embed AI-generated images at build time, we'll use **styled metric cards** instead — designed to look like a dashboard:
-  - Row of 3 large stat cards: "+32% Conversion Rate" / "-40% Cost Per Lead" / "3.2x ROAS Average"
-  - Below: a visual "campaign performance" chart-style display using styled divs (bar charts or progress bars) showing sample campaign metrics
-- This gives the dashboard feel without needing actual screenshots
-
-**G. What Makes Us Different (bg-muted, light)**
-- Two-column comparison: "Traditional Agency" vs "Frost Media"
-- Left (muted/red): cookie-cutter campaigns, locked accounts, no transparency, slow communication
-- Right (ice-blue/green): custom strategy, you own your account, full transparency, direct communication, AI-powered follow-up with FrostBot
-
-**H. The Problem with Lead Marketplaces (bg-background, white)**
-- Keep the existing competitor comparison (HomeAdvisor vs Thumbtack vs Frost) but restyle to match the new design language
-
-**I. Testimonial Strip (alpine-dark, dark)**
-- Horizontal scrolling testimonial cards (reuse TestimonialCard component pattern)
-- 4-6 testimonials from happy clients about ad results
-
-**J. FAQ Section (bg-background, white)**
-- Accordion FAQs specific to social media advertising:
-  - "How much should I budget for Facebook ads?"
-  - "How long before I see results?"
-  - "Do I own my ad account?"
-  - "What industries do you work with?"
-  - "How is this different from boosting posts?"
-  - "What platforms do you advertise on?"
-  - "Can you help with e-commerce ads?"
-  - "How do you measure success?"
-
-**K. Final CTA (mountain bg, dark)**
-- Reuse FinalCTASection pattern: "Ready to Start Generating Real Leads?"
-- Amber CTA button
-
-### Technical Details
-
-- Uses existing design tokens: `alpine-dark`, `ice-blue`, `font-heading`, `font-mono-tech`, `bg-muted`
-- `framer-motion` scroll animations throughout
-- Radix Accordion for FAQ
-- Responsive: all sections mobile-optimized with single-column stacking
-- Imports: `heroMountains`, `useContactForm`, `framer-motion`, lucide icons, Accordion components
+### Files Modified
+- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
+- `src/pages/Index.tsx` — remove ProcessSection
+- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
+- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
+- `src/pages/Services.tsx` — bright, varied layout redesign
+- `src/pages/Work.tsx` — square images, better background, renamed title
+- `src/components/Footer.tsx` — updated links
 

@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import Work from "./pages/Work";
 import AIAutomation from "./pages/AIAutomation";
 import MetaAds from "./pages/MetaAds";
-import CaseStudies from "./pages/CaseStudies";
+
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 
@@ -26,7 +26,7 @@ const App = () => (
             <Route path="/work" element={<Work />} />
             <Route path="/services/ai-automation" element={<AIAutomation />} />
             <Route path="/services/meta-ads" element={<MetaAds />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
+            
             <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

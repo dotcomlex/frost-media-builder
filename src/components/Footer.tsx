@@ -29,16 +29,14 @@ const Footer = () => {
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Services</h4>
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li><Link to="/services/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
-              <li><Link to="/services/meta-ads" className="hover:text-white transition-colors">Meta Ads</Link></li>
+              <li><Link to="/services/meta-ads" className="hover:text-white transition-colors">Social Media Ads</Link></li>
               <li><Link to="/work" className="hover:text-white transition-colors">Web Design</Link></li>
-              <li><Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-2.5 text-sm text-slate-400">
-              <li><Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
               <li><button onClick={openForm} className="hover:text-white transition-colors">Contact</button></li>
             </ul>
