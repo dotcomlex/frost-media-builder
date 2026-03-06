@@ -1,66 +1,67 @@
-import { Instagram, Linkedin, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useContactForm } from "@/components/ContactFormDialog";
 import { Button } from "@/components/ui/button";
-import logoFrost from "@/assets/logo-frost.png";
+import frostmediaLogo from "@/assets/frostmedia-logo.webp";
 
 const Footer = () => {
   const { openForm } = useContactForm();
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-700">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div>
+    <footer className="relative bg-gradient-to-b from-slate-900 to-slate-950 border-t border-slate-800/60">
+      {/* Main content */}
+      <div className="max-w-6xl mx-auto px-6 md:px-8 pt-16 pb-10">
+        {/* Top: Logo + Nav */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+          {/* Brand */}
+          <div className="max-w-sm">
             <Link to="/">
-              <img src={logoFrost} alt="Frost Media" className="h-7 w-auto" />
+              <img src={frostmediaLogo} alt="Frost Media" className="h-14 w-auto" />
             </Link>
-            <p className="text-sm text-slate-400 mt-3 leading-relaxed">
-              AI-powered marketing systems for home service contractors.
+            <p className="text-sm text-slate-400 mt-4 leading-relaxed">
+              Growth systems for home service businesses. Ads, AI, and websites that actually convert.
             </p>
-            <div className="flex gap-3 mt-5">
-              <a href="#" className="text-slate-500 hover:text-sky-400 transition-colors" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
-              <a href="#" className="text-slate-500 hover:text-sky-400 transition-colors" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
-              <a href="#" className="text-slate-500 hover:text-sky-400 transition-colors" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
+          </div>
+
+          {/* Nav columns */}
+          <div className="flex gap-16">
+            <div>
+              <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Services</h4>
+              <ul className="space-y-2.5 text-sm text-slate-400">
+                <li><Link to="/services/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
+                <li><Link to="/services/meta-ads" className="hover:text-white transition-colors">Social Media Ads</Link></li>
+                <li><Link to="/work" className="hover:text-white transition-colors">Web Design</Link></li>
+              </ul>
             </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Services</h4>
-            <ul className="space-y-2.5 text-sm text-slate-400">
-              <li><Link to="/services/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
-              <li><Link to="/services/meta-ads" className="hover:text-white transition-colors">Social Media Ads</Link></li>
-              <li><Link to="/work" className="hover:text-white transition-colors">Web Design</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
-            <ul className="space-y-2.5 text-sm text-slate-400">
-              <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><button onClick={openForm} className="hover:text-white transition-colors">Contact</button></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Get Started</h4>
-            <p className="text-sm text-slate-400 leading-relaxed mb-4">
-              Ready to scale? Book a free strategy call and let's build your growth engine.
-            </p>
-            <Button
-              onClick={openForm}
-              className="bg-amber-500 hover:bg-amber-600 text-white rounded-lg px-6 py-2.5 text-sm font-bold shadow-lg transition-all"
-            >
-              Book a Call →
-            </Button>
-            <p className="text-xs text-slate-500 mt-4 tracking-wide">
-              📍 Denver, Colorado
-            </p>
+            <div>
+              <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Company</h4>
+              <ul className="space-y-2.5 text-sm text-slate-400">
+                <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
+                <li><button onClick={openForm} className="hover:text-white transition-colors">Contact</button></li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-slate-700 pt-8 mt-12 text-center">
-          <p className="text-xs text-slate-500">© 2026 Frost Media. Denver, Colorado.</p>
+        {/* CTA Banner */}
+        <div className="mt-14 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm px-8 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <h3 className="text-lg font-heading font-bold text-white">Ready to grow?</h3>
+            <p className="text-sm text-slate-400 mt-1">Book a free strategy call and let's build your growth engine.</p>
+          </div>
+          <Button
+            onClick={openForm}
+            className="bg-amber hover:bg-amber/90 text-white rounded-lg px-8 py-3 text-sm font-bold shadow-lg transition-all whitespace-nowrap"
+          >
+            Book a Call →
+          </Button>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-slate-800/60">
+        <div className="max-w-6xl mx-auto px-6 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-xs text-slate-600">© 2026 Frost Media. All rights reserved.</p>
+          <p className="text-xs text-slate-600">📍 Denver, Colorado</p>
         </div>
       </div>
     </footer>
