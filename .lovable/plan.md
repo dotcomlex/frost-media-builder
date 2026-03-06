@@ -1,59 +1,74 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Navigation Overhaul + 5 New Pages
 
-## Changes Summary
+## Summary
+Rebuild the navigation with sticky header, hover dropdowns, and expanded menu items. Create 5 new pages: AI Automation, Meta Ads, HVAC (industry template), Case Studies, and About. All pages use Navigation + Footer, all CTAs trigger the contact form dialog.
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+## 1. Navigation Rewrite (`src/components/Navigation.tsx`)
+- Change from `absolute bg-transparent` to `sticky top-0 bg-slate-900 border-b border-slate-700`
+- Replace glassmorphic pill with flat menu items: Services (dropdown), Industries (dropdown), Case Studies, About, Contact
+- **Hover dropdowns** using CSS `group-hover` pattern (opacity/visibility transition, no click needed)
+  - Services dropdown: AI Automation, Meta Ads, Web Design, Lead Generation
+  - Industries dropdown: HVAC, Plumbing, Concrete, Electrical, Roofing, Painting
+- Amber "Book a Call" CTA button on right (triggers `openForm()`)
+- Keep existing mobile hamburger + full-screen overlay, updated with new links + expandable sections for Services/Industries
+- Use `Link` from react-router-dom for all internal links
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+## 2. New Pages (all follow same pattern: Navigation + content sections + Footer)
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+### `src/pages/AIAutomation.tsx` — `/services/ai-automation`
+- Hero: "AI Lead Automation" headline + subtext + CTA
+- How It Works: 3-step grid (Lead Comes In → AI Responds → You Get Qualified Lead)
+- Features: 4 checkmark items (24/7 Response, Smart Qualification, Appointment Booking, CRM Integration)
+- Final CTA
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+### `src/pages/MetaAds.tsx` — `/services/meta-ads`
+- Hero: "Facebook & Instagram Advertising" + exclusive leads pitch
+- Problem comparison: 3-card grid (HomeAdvisor vs Thumbtack vs Frost Media) — red borders for competitors, green for Frost
+- What's Included: 4 checkmark features
+- Final CTA
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+### `src/pages/IndustryHVAC.tsx` — `/industries/hvac`
+- Hero: "HVAC Marketing That Actually Works"
+- Pain Points: 3-card grid (Shared Leads, Seasonal Slowdowns, Price Shoppers)
+- Solutions: 3 checkmark items (Exclusive Leads, AI Response, Pre-Qualified)
+- Final CTA
+- *This serves as template; future industry pages can reuse the pattern*
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+### `src/pages/CaseStudies.tsx` — `/case-studies`
+- Hero: "Real Results from Real Businesses"
+- 2-column grid with 3 case study cards (Beauty Studio: 1,900 leads; Concrete: revenue increase headline without dollar figure per user constraint; Painting: 78% close rate)
+- Each card has metrics table in slate-800 box + "Get Similar Results →" link
+- Final CTA
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### `src/pages/About.tsx` — `/about`
+- Hero: "About Frost Media"
+- Story section: multi-paragraph narrative about the company origin
+- Why Denver section
+- Final CTA
 
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+## 3. Router Update (`src/App.tsx`)
+Add routes:
+- `/services/ai-automation` → AIAutomation
+- `/services/meta-ads` → MetaAds
+- `/industries/hvac` → IndustryHVAC
+- `/case-studies` → CaseStudies
+- `/about` → About
+- Keep existing `/`, `/work`, `/services`, `*` routes
+
+## 4. Footer Update (`src/components/Footer.tsx`)
+- Add links for Case Studies, About, and key service/industry pages in Quick Links
+
+## Design Consistency
+- All backgrounds: `bg-slate-900` / `bg-slate-800` alternating
+- Headings: `text-white`, body: `text-slate-300`
+- CTAs: `bg-amber-500 hover:bg-amber-600` — all trigger `openForm()`
+- Links: `text-sky-400 hover:text-sky-300`
+- Borders: `border-slate-700`
+- No dollar amounts per user constraint (case study metrics will use lead counts, close rates, time periods — not revenue figures)
+
+## Files
+- **Modified**: `Navigation.tsx`, `App.tsx`, `Footer.tsx`
+- **Created**: `AIAutomation.tsx`, `MetaAds.tsx`, `IndustryHVAC.tsx`, `CaseStudies.tsx`, `About.tsx` (all in `src/pages/`)
 
