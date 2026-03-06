@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useContactForm } from "@/components/ContactFormDialog";
 import heroMountains from "@/assets/hero-mountains.png";
+import frostmediaLogo from "@/assets/frostmedia-logo.webp";
 import dashboardMeta1 from "@/assets/dashboard-meta-1.jpg";
 import dashboardMeta2 from "@/assets/dashboard-meta-2.jpg";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
@@ -141,6 +142,10 @@ const MetaAds = () => {
         <div className="absolute inset-0 bg-frost-pattern opacity-30" />
 
         <div className="relative z-10 px-5 max-w-5xl mx-auto">
+          {/* Frost Media Logo */}
+          <motion.img variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            src={frostmediaLogo} alt="Frost Media" className="h-16 md:h-20 w-auto mb-8" />
+
           {/* Meta partner badge */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-4 py-1.5 mb-6">
@@ -185,21 +190,18 @@ const MetaAds = () => {
       </section>
 
       {/* ═══════════════════════════════════════════
-          B. PLATFORMS — auto-scrolling marquee
+          B. PLATFORMS — static grid on white bg
       ═══════════════════════════════════════════ */}
-      <section className="py-8 bg-alpine-dark border-t border-b border-white/5">
-        <div className="px-5 mb-5">
-          <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-white/40 text-center">Platforms We Advertise On</p>
-        </div>
-        <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-alpine-dark to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-alpine-dark to-transparent z-10" />
-          <div className="flex animate-marquee w-max">
-            {[...platformLogos, ...platformLogos, ...platformLogos].map((p, i) => (
-              <div key={i} className="flex items-center gap-2.5 px-6 md:px-8">
+      <section className="py-12 md:py-16 bg-background">
+        <div className="px-5 max-w-4xl mx-auto">
+          <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-muted-foreground text-center mb-8">Platforms We Advertise On</p>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+            {platformLogos.map((p, i) => (
+              <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" custom={i} viewport={{ once: true }}
+                className="flex flex-col items-center gap-2 bg-muted/50 border border-border rounded-xl py-5 px-3 hover:shadow-md transition-shadow">
                 {p.icon}
-                <span className="text-sm font-medium text-text-on-dark/70 whitespace-nowrap">{p.name}</span>
-              </div>
+                <span className="text-xs font-medium text-foreground">{p.name}</span>
+              </motion.div>
             ))}
           </div>
         </div>
