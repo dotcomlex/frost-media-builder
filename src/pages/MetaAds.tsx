@@ -19,12 +19,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { TestimonialCard } from "@/components/ui/testimonial-cards";
-import avatarSarah from "@/assets/avatar-sarah.jpg";
-import avatarMarcus from "@/assets/avatar-marcus.jpg";
-import avatarJennifer from "@/assets/avatar-jennifer.jpg";
-import avatarCarlos from "@/assets/avatar-carlos.jpg";
-import avatarAmanda from "@/assets/avatar-amanda.jpg";
-import avatarDavid from "@/assets/avatar-david.jpg";
+import avatarPriya from "@/assets/avatar-priya.jpg";
+import avatarBrian from "@/assets/avatar-brian.jpg";
+import avatarMaria from "@/assets/avatar-maria.jpg";
+import avatarTyler from "@/assets/avatar-tyler.jpg";
+import avatarJason from "@/assets/avatar-jason.jpg";
+import avatarMike from "@/assets/avatar-mike.jpg";
 
 /* ── Animated counter component ── */
 function AnimatedCounter({ value, suffix = "", prefix = "" }: { value: number; suffix?: string; prefix?: string }) {
@@ -100,18 +100,17 @@ const fadeUp = {
 };
 
 const testimonials = [
-  { avatarUrl: avatarSarah, name: "Sarah Mitchell", role: "Owner", location: "Denver, CO", tag: "Painting Contractor", quote: "We went from 5 leads a month to over 40. The quality is insane — these people are ready to buy." },
-  { avatarUrl: avatarMarcus, name: "Marcus Johnson", role: "Founder", location: "Austin, TX", tag: "Concrete & Masonry", quote: "Best ROI we've ever seen from any marketing. $12 per lead and they actually answer the phone." },
-  { avatarUrl: avatarJennifer, name: "Jennifer Park", role: "Marketing Dir.", location: "Miami, FL", tag: "Med Spa", quote: "Our booking rate tripled in 60 days. The ad creative they produce is on another level." },
-  { avatarUrl: avatarCarlos, name: "Carlos Rivera", role: "CEO", location: "Phoenix, AZ", tag: "Roofing Company", quote: "Finally an agency that actually knows what they're doing. Transparent, fast, and results-driven." },
-  { avatarUrl: avatarAmanda, name: "Amanda Chen", role: "Owner", location: "Portland, OR", tag: "E-commerce", quote: "3.2x ROAS on our first campaign. They scaled us from $50/day to $500/day profitably." },
-  { avatarUrl: avatarDavid, name: "David Thompson", role: "Agent", location: "Dallas, TX", tag: "Real Estate", quote: "The leads are exclusive and the AI follow-up closes deals while I sleep. Game changer." },
+  { avatarUrl: avatarPriya, name: "Priya Sharma", role: "Owner", location: "Charlotte, NC", tag: "HVAC Services", quote: "We booked 38 installs in our first month with Frost. The leads were pre-qualified and ready to schedule." },
+  { avatarUrl: avatarBrian, name: "Brian O'Neill", role: "Founder", location: "Tampa, FL", tag: "Pressure Washing", quote: "Cut our cost per lead from $35 to $9. Their ad targeting is surgical — every lead is in our service area." },
+  { avatarUrl: avatarMaria, name: "Maria Gonzalez", role: "Director", location: "Las Vegas, NV", tag: "Beauty Studio", quote: "Went from relying on walk-ins to a fully booked calendar 3 weeks out. The creative they make is gorgeous." },
+  { avatarUrl: avatarTyler, name: "Tyler Brooks", role: "CEO", location: "Nashville, TN", tag: "Fencing Company", quote: "Other agencies burned our budget on trash leads. Frost gave us exclusive, high-intent leads from day one." },
+  { avatarUrl: avatarJason, name: "Jason Kim", role: "Owner", location: "San Diego, CA", tag: "E-commerce DTC", quote: "Scaled from $2K/month to $18K/month in revenue with a 4.1x ROAS. These guys actually know Meta inside out." },
+  { avatarUrl: avatarMike, name: "Mike Patterson", role: "Broker", location: "Chicago, IL", tag: "Insurance", quote: "The AI follow-up texts respond in under 5 seconds. My close rate went up 40% because of speed-to-lead alone." },
 ];
 
 const faqs = [
   { q: "How much should I budget for Facebook ads?", a: "We recommend starting with $1,000-$1,500/month in ad spend for local businesses. This gives us enough data to test audiences, optimize creative, and find your winning formula. E-commerce campaigns typically start at $2,000-$3,000/month." },
   { q: "How long before I see results?", a: "Most clients see their first leads within 48-72 hours of launch. Real optimization happens in weeks 2-4 as we gather data. By month 2, campaigns run at peak efficiency with a proven cost per lead." },
-  { q: "Do I own my ad account?", a: "Absolutely. Your ad account, pixel data, audiences — it's all yours. We never hold your data hostage. If you leave, you keep everything." },
   { q: "What industries do you work with?", a: "We've run successful campaigns across 20+ industries: home services, beauty & med spas, real estate, e-commerce, insurance, fitness, and local services." },
   { q: "How is this different from boosting posts?", a: "Boosting is Meta's simplest (and least effective) ad format. We build full-funnel campaigns with custom audiences, conversion tracking, retargeting, and A/B testing. Typically 5-10x better performance." },
   { q: "Can you help with e-commerce ads?", a: "Yes! We run product catalog ads, dynamic retargeting, lookalike audiences, and full-funnel e-commerce campaigns. We've helped DTC brands scale to six figures in monthly revenue." },
