@@ -89,13 +89,13 @@ const Work = () => {
       <Navigation />
 
       {/* Hero Statement */}
-      <section className="pt-32 pb-16 md:pt-44 md:pb-24 px-5 md:px-8 bg-background">
+      <section className="pt-32 pb-16 md:pt-44 md:pb-24 px-5 md:px-8 bg-[hsl(var(--alpine-dark))]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-heading text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-foreground"
+            className="font-heading text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-white"
           >
             We pride ourselves on top-tier design & development practices, where aesthetics and usability both play a key role
           </motion.h1>
@@ -117,7 +117,7 @@ const Work = () => {
                   {/* Decorative curves */}
                   <div className="absolute top-0 left-0 right-0 overflow-hidden leading-[0]">
                     <svg viewBox="0 0 1000 100" preserveAspectRatio="none" className="w-full h-10 md:h-16">
-                      <path d="M1000,4.3V0H0v4.3C0.9,23.1,126.7,99.2,500,100S1000,22.7,1000,4.3z" fill="hsl(0 0% 100%)" />
+                      <path d="M1000,4.3V0H0v4.3C0.9,23.1,126.7,99.2,500,100S1000,22.7,1000,4.3z" fill="hsl(220 20% 6%)" />
                     </svg>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0] rotate-180">
