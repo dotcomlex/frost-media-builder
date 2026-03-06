@@ -23,10 +23,10 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
+      <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            <img src={logoFrost} alt="Frost Media" className="h-7 md:h-8 w-auto" />
+            <img src={logoFrost} alt="Frost Media" className="h-10 md:h-12 w-auto" />
           </Link>
 
           {/* Desktop Menu */}
@@ -87,7 +87,7 @@ const Navigation = () => {
           >
             <div className="pt-20 px-8 flex flex-col flex-1 overflow-y-auto">
               <div className="mb-8">
-                <img src={logoFrost} alt="Frost Media" className="h-8 w-auto opacity-60" />
+                <img src={logoFrost} alt="Frost Media" className="h-10 w-auto opacity-60" />
               </div>
 
               <div className="flex flex-col gap-1">
