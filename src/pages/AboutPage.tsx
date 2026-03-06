@@ -1,52 +1,237 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useContactForm } from "@/components/ContactFormDialog";
+import { motion } from "framer-motion";
+import { PenTool, Zap, Layers } from "lucide-react";
+import aboutDenver from "@/assets/about-denver.jpg";
+import aboutTeam from "@/assets/about-team.jpg";
+import aboutWorkspace from "@/assets/about-workspace.jpg";
+import aboutWorking from "@/assets/about-working.jpg";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.5 },
+};
+
+const values = [
+  {
+    icon: PenTool,
+    title: "Design-First, Always",
+    desc: "We don't do cookie-cutter templates. Every website, every ad, every automation is crafted from scratch to match your brand and convert your audience.",
+  },
+  {
+    icon: Zap,
+    title: "Results Over Vanity",
+    desc: "We don't chase likes or impressions. We build systems that generate real leads, real calls, and real revenue for your business.",
+  },
+  {
+    icon: Layers,
+    title: "One Team, Zero Gaps",
+    desc: "Ads, AI, web, CRM — all under one roof. No juggling agencies, no miscommunication. Just a tight-knit crew that moves fast.",
+  },
+];
 
 const AboutPage = () => {
   const { openForm } = useContactForm();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
-      <section className="pt-32 pb-20 bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">About Frost Media</h1>
-          <p className="text-xl text-slate-300">
-            We build AI-powered marketing systems for home service contractors who are tired of paying for shared leads.
-          </p>
+      {/* Hero */}
+      <section className="relative h-[70vh] min-h-[480px] overflow-hidden">
+        <img
+          src={aboutDenver}
+          alt="Denver Colorado skyline"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-alpine-dark via-alpine-dark/60 to-alpine-dark/30" />
+        <div className="relative z-10 flex flex-col justify-end h-full px-6 pb-14 md:pb-20 max-w-5xl mx-auto">
+          <motion.div {...fadeUp}>
+            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-3">
+              About Us
+            </p>
+            <h1 className="font-heading text-4xl md:text-6xl font-bold text-text-on-dark tracking-tight mb-4">
+              Hey, we're Frost Media.
+            </h1>
+            <p className="text-text-on-dark/70 text-lg md:text-xl max-w-xl leading-relaxed">
+              A small team of designers, marketers, and engineers in Denver building growth systems for contractors who are done wasting money.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-800">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Our Story</h2>
-          <div className="text-lg text-slate-300 space-y-6 leading-relaxed">
-            <p>Frost Media started in Denver, Colorado with a simple mission: help contractors stop wasting money on shared leads from HomeAdvisor and Angi.</p>
-            <p>After working with dozens of HVAC, plumbing, and concrete businesses, we saw the same problem over and over: contractors were paying $50-$100 for leads that were being sold to 5 other companies at the same time.</p>
-            <p>The contractor who called first won the job. Everyone else wasted money.</p>
-            <p>So we built a better system. 100% exclusive leads generated through Meta advertising. AI-powered instant response so you're always first to follow up. Automatic lead qualification so you only talk to serious buyers.</p>
-            <p className="font-semibold text-white">Everything a contractor needs to grow without wasting money on tire-kickers.</p>
+      {/* Story */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center">
+            <motion.div {...fadeUp} className="order-2 lg:order-1">
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground tracking-tight mb-5">
+                We started because contractors kept getting ripped off.
+              </h2>
+              <div className="text-muted-foreground text-[15px] leading-relaxed space-y-4">
+                <p>
+                  HomeAdvisor, Angi, Thumbtack — they all do the same thing. Sell your lead to 5 other companies and let you fight over it. The fastest caller wins. Everyone else wastes money.
+                </p>
+                <p>
+                  We thought that was broken. So we built a better way: exclusive leads through Meta ads, AI that responds instantly, and CRM automation that keeps your pipeline full without you lifting a finger.
+                </p>
+                <p className="font-medium text-foreground">
+                  No shared leads. No wasted ad spend. Just a system that works while you're on the job site.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="order-1 lg:order-2"
+            >
+              <img
+                src={aboutTeam}
+                alt="Frost Media team collaborating"
+                className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-lg"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Why Denver</h2>
-          <p className="text-lg text-slate-300 leading-relaxed mb-4">
-            We're based in Commerce City, Colorado because we understand the Denver market. We know the competition. We know what works in Colorado's home services industry.
-          </p>
-          <p className="text-lg text-slate-300 leading-relaxed">And we're invested in helping local businesses grow.</p>
+      {/* Bento Image Grid */}
+      <section className="py-16 md:py-24 bg-alpine-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-frost-pattern opacity-30 pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <motion.div {...fadeUp} className="mb-10">
+            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">
+              Behind the Scenes
+            </p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark tracking-tight">
+              Where the work happens.
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.4, delay: 0 }}
+              className="col-span-2 row-span-2"
+            >
+              <img
+                src={aboutWorking}
+                alt="Working on client campaigns in our Denver office"
+                className="w-full h-full min-h-[240px] md:min-h-[360px] object-cover rounded-xl"
+              />
+            </motion.div>
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.4, delay: 0.08 }}
+              className="col-span-2 md:col-span-2"
+            >
+              <img
+                src={aboutWorkspace}
+                alt="Clean workspace with marketing analytics dashboard"
+                className="w-full h-40 md:h-44 object-cover rounded-xl"
+              />
+            </motion.div>
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.4, delay: 0.16 }}
+              className="col-span-1"
+            >
+              <img
+                src={aboutDenver}
+                alt="Denver Colorado"
+                className="w-full h-40 md:h-44 object-cover rounded-xl"
+              />
+            </motion.div>
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.4, delay: 0.24 }}
+              className="col-span-1"
+            >
+              <img
+                src={aboutTeam}
+                alt="Team collaboration"
+                className="w-full h-40 md:h-44 object-cover rounded-xl"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to work together?</h2>
-          <button onClick={openForm} className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-colors">
-            Book Free Strategy Call
-          </button>
+      {/* Values */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div {...fadeUp} className="text-center mb-12">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground tracking-tight mb-3">
+              How we think about growth.
+            </h2>
+            <p className="text-muted-foreground text-[15px] max-w-lg mx-auto">
+              We're not a big agency with 50 clients. We keep things small so every project gets real attention.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {values.map((v, i) => (
+              <motion.div
+                key={v.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="p-6 rounded-2xl border border-border bg-card"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <v.icon className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="font-heading text-base font-bold text-foreground mb-2">
+                  {v.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {v.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Denver */}
+      <section className="py-16 md:py-20 bg-muted">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div {...fadeUp} className="max-w-2xl">
+            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-2">
+              📍 Commerce City, Colorado
+            </p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground tracking-tight mb-4">
+              Denver born and raised.
+            </h2>
+            <p className="text-muted-foreground text-[15px] leading-relaxed">
+              We're based in Commerce City because we know the Denver market inside and out. The competition, the seasonality, what works for Colorado contractors. We're not a remote agency guessing from across the country — we're right here, invested in helping local businesses win.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 md:py-28 bg-alpine-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-frost-pattern opacity-20 pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <motion.div {...fadeUp}>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-on-dark tracking-tight mb-4">
+              Let's build something.
+            </h2>
+            <p className="text-text-on-dark/50 text-[15px] mb-8 max-w-md mx-auto">
+              Whether you need more leads, a better website, or a full growth system — let's talk about what's possible.
+            </p>
+            <button
+              onClick={openForm}
+              className="bg-secondary hover:bg-amber-gold text-secondary-foreground px-8 py-4 rounded-xl font-heading font-semibold text-sm shadow-lg transition-colors"
+            >
+              Book Free Strategy Call →
+            </button>
+          </motion.div>
         </div>
       </section>
 
