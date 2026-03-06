@@ -1,13 +1,10 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import TrustBar from "@/components/TrustBar";
-import ProblemSection from "@/components/ProblemSection";
+import LogoMarquee from "@/components/LogoMarquee";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
-import ComparisonTable from "@/components/ComparisonTable";
-import ResultsSection from "@/components/ResultsSection";
-import ProcessSection from "@/components/ProcessSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import IndustriesSection from "@/components/IndustriesSection";
+import SystemDiagramSection from "@/components/SystemDiagramSection";
+import SystemBreakdownSection from "@/components/SystemBreakdownSection";
+import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
@@ -16,14 +13,11 @@ const Index = () => (
   <div className="min-h-screen overflow-x-hidden">
     <Navigation />
     <HeroSection />
-    <TrustBar />
-    <ProblemSection />
+    <LogoMarquee />
     <CapabilitiesSection />
-    <ComparisonTable />
-    <ResultsSection />
-    <ProcessSection />
-    <TestimonialsSection />
-    <IndustriesSection />
+    <SystemDiagramSection />
+    <SystemBreakdownSection />
+    <AboutSection />
     <FAQSection />
     <FinalCTASection />
     <Footer />

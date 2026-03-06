@@ -1,91 +1,69 @@
 import { motion } from "framer-motion";
-import { Phone, Wrench, TrendingUp, ArrowRight } from "lucide-react";
-import { useContactForm } from "@/components/ContactFormDialog";
-import { Button } from "@/components/ui/button";
+import { Phone, Wrench, TrendingUp } from "lucide-react";
 
 const steps = [
   {
-    num: "1",
+    num: "01",
     icon: Phone,
-    title: "Free Strategy Session",
-    desc: "We analyze your market, competition, and growth potential. No sales pitch—just a real conversation about what's working and what's not.",
-    timeline: "30-60 minutes",
+    title: "Strategy Call",
+    desc: "We learn your business, your goals, and your market. No fluff — just a clear roadmap to results.",
   },
   {
-    num: "2",
+    num: "02",
     icon: Wrench,
-    title: "Custom System Build",
-    desc: "We build your ads, website, AI automation, and CRM—tailored specifically to your business. Everything custom, nothing template.",
-    timeline: "7-10 days",
+    title: "We Build Your System",
+    desc: "Custom ads, AI automation, and funnels — all integrated into one revenue-driving machine.",
   },
   {
-    num: "3",
+    num: "03",
     icon: TrendingUp,
-    title: "Leads Start Flowing",
-    desc: "Exclusive leads delivered to your phone with AI follow-up handling initial contact. You focus on estimates and closing deals.",
-    timeline: "Ongoing optimization",
+    title: "You Scale",
+    desc: "Leads flow in, your calendar fills up, revenue grows. We optimize every week so it only gets better.",
   },
 ];
 
-const ProcessSection = () => {
-  const { openForm } = useContactForm();
+const ProcessSection = () => (
+  <section className="py-16 md:py-24 bg-frost-light relative overflow-hidden">
+    <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-14"
+      >
+        <p className="font-mono-tech text-xs tracking-widest uppercase text-ice-blue mb-3">The Process</p>
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+          How It Works
+        </h2>
+        <p className="text-muted-foreground text-lg mt-4 max-w-xl mx-auto">
+          From first call to fully booked — here's exactly what happens.
+        </p>
+      </motion.div>
 
-  return (
-    <section className="bg-background py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
-        >
-          <p className="font-mono-tech text-xs tracking-widest uppercase text-primary mb-3">Our Process</p>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-            From First Call to First Lead in 14 Days
-          </h2>
-        </motion.div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div className="hidden md:block absolute top-16 left-[16.67%] right-[16.67%] h-px bg-ice-blue/30" />
 
-        <div className="flex flex-col md:flex-row gap-8 items-stretch">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.15 }}
-              className="relative bg-card border border-border rounded-2xl p-10 flex-1"
-            >
-              <span className="absolute -top-6 -left-4 text-8xl font-bold text-primary/10 select-none font-heading">{step.num}</span>
-              <div className="relative z-10">
-                <step.icon className="h-8 w-8 text-primary mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-3">{step.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed mb-4">{step.desc}</p>
-                <p className="text-sm text-primary font-medium font-mono-tech">{step.timeline}</p>
-              </div>
-              {i < steps.length - 1 && (
-                <ArrowRight className="hidden md:block absolute -right-5 top-1/2 -translate-y-1/2 h-6 w-6 text-primary/40 z-20" />
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-14"
-        >
-          <Button
-            onClick={openForm}
-            className="bg-secondary hover:bg-amber-gold text-secondary-foreground px-8 py-3 rounded-lg font-bold text-base shadow-lg hover:scale-105 transition-all"
+        {steps.map((step, i) => (
+          <motion.div
+            key={step.num}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: i * 0.15 }}
+            className="text-center relative"
           >
-            Book Your Free Strategy Session
-          </Button>
-        </motion.div>
+            <div className="w-14 h-14 rounded-full bg-ice-blue/10 border-2 border-ice-blue/30 flex items-center justify-center mx-auto mb-5 relative z-10">
+              <step.icon className="h-6 w-6 text-ice-blue" />
+            </div>
+            <span className="font-mono-tech text-xs text-ice-blue/50 tracking-widest">{step.num}</span>
+            <h3 className="font-heading text-xl font-bold text-foreground mt-2">{step.title}</h3>
+            <p className="text-muted-foreground text-sm mt-3 leading-relaxed max-w-xs mx-auto">{step.desc}</p>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default ProcessSection;
