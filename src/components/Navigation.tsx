@@ -9,22 +9,11 @@ const serviceLinks = [
   { label: "AI Automation", href: "/services/ai-automation" },
   { label: "Meta Ads", href: "/services/meta-ads" },
   { label: "Web Design", href: "/work" },
-  { label: "Lead Generation", href: "/services" },
-];
-
-const industryLinks = [
-  { label: "HVAC", href: "/industries/hvac" },
-  { label: "Plumbing", href: "/industries/plumbing" },
-  { label: "Concrete", href: "/industries/concrete" },
-  { label: "Electrical", href: "/industries/electrical" },
-  { label: "Roofing", href: "/industries/roofing" },
-  { label: "Painting", href: "/industries/painting" },
 ];
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
   const { openForm } = useContactForm();
 
   useEffect(() => {
@@ -60,33 +49,12 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Industries Dropdown */}
-            <div className="relative group">
-              <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1">
-                Industries <ChevronDown className="h-4 w-4" />
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-56 bg-slate-800 border border-slate-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-1">
-                {industryLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="block px-4 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors first:rounded-t-lg last:rounded-b-lg"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             <Link to="/case-studies" className="text-slate-300 hover:text-white font-medium transition-colors">
               Case Studies
             </Link>
             <Link to="/about" className="text-slate-300 hover:text-white font-medium transition-colors">
               About
             </Link>
-            <button onClick={openForm} className="text-slate-300 hover:text-white font-medium transition-colors">
-              Contact
-            </button>
           </div>
 
           {/* CTA Button */}
@@ -154,49 +122,12 @@ const Navigation = () => {
                   </AnimatePresence>
                 </div>
 
-                {/* Industries Expandable */}
-                <div>
-                  <button
-                    onClick={() => setIndustriesOpen(!industriesOpen)}
-                    className="flex items-center justify-between w-full text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50"
-                  >
-                    Industries <ChevronDown className={`h-5 w-5 transition-transform ${industriesOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  <AnimatePresence>
-                    {industriesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden pl-4"
-                      >
-                        {industryLinks.map((link) => (
-                          <Link
-                            key={link.href}
-                            to={link.href}
-                            onClick={() => setOpen(false)}
-                            className="block text-lg text-slate-300 hover:text-white py-3 border-b border-slate-800/50"
-                          >
-                            {link.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
                 <Link to="/case-studies" onClick={() => setOpen(false)} className="text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50">
                   Case Studies
                 </Link>
                 <Link to="/about" onClick={() => setOpen(false)} className="text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50">
                   About
                 </Link>
-                <button
-                  onClick={() => { setOpen(false); openForm(); }}
-                  className="text-2xl font-bold text-amber-500 hover:text-amber-400 py-4 text-left w-full"
-                >
-                  Contact
-                </button>
               </div>
 
               <div className="mt-auto pb-10 pt-8">

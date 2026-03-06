@@ -31,7 +31,7 @@ const Footer = () => {
               <li><Link to="/services/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
               <li><Link to="/services/meta-ads" className="hover:text-white transition-colors">Meta Ads</Link></li>
               <li><Link to="/work" className="hover:text-white transition-colors">Web Design</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">All Services</Link></li>
+              <li><Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
             </ul>
           </div>
 
@@ -40,7 +40,6 @@ const Footer = () => {
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li><Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link to="/industries/hvac" className="hover:text-white transition-colors">Industries</Link></li>
               <li><button onClick={openForm} className="hover:text-white transition-colors">Contact</button></li>
             </ul>
           </div>
