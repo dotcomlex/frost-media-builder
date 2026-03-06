@@ -97,7 +97,7 @@ const Work = () => {
             transition={{ duration: 0.6 }}
             className="font-heading text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-white"
           >
-            We pride ourselves on top-tier design & development practices, where aesthetics and usability both play a key role
+            High-Converting Websites & Digital Experiences That Drive Real Results
           </motion.h1>
         </div>
       </section>
