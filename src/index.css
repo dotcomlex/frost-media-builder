@@ -6,56 +6,56 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 213 45% 11%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 213 45% 11%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 213 45% 11%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 213 80% 50%;
-    --primary-foreground: 210 25% 97%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 30 78% 53%;
+    --secondary: 38 92% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 214 40% 96%;
-    --muted-foreground: 213 20% 42%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 213 80% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 213 80% 50%;
+    --border: 215 28% 27%;
+    --input: 215 28% 27%;
+    --ring: 199 89% 48%;
 
     --radius: 0.75rem;
 
-    /* Alpine Frost palette */
-    --alpine-dark: 220 20% 6%;
-    --alpine-navy: 213 55% 14%;
-    --alpine-black: 0 0% 4%;
-    --ice-blue: 213 80% 50%;
-    --deep-ice: 213 60% 35%;
-    --frost-light: 216 60% 95%;
-    --amber: 30 78% 53%;
+    /* Slate palette */
+    --alpine-dark: 222 47% 11%;
+    --alpine-navy: 217 33% 17%;
+    --alpine-black: 222 47% 11%;
+    --ice-blue: 199 89% 48%;
+    --deep-ice: 199 70% 35%;
+    --frost-light: 217 33% 17%;
+    --amber: 38 92% 50%;
     --warm-gold: 33 70% 58%;
-    --text-on-dark: 210 25% 97%;
+    --text-on-dark: 210 40% 98%;
     --success: 160 84% 39%;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 213 45% 11%;
-    --sidebar-primary: 213 80% 50%;
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 199 89% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 214 40% 96%;
-    --sidebar-accent-foreground: 213 45% 11%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 213 80% 50%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 28% 27%;
+    --sidebar-ring: 199 89% 48%;
   }
 }
 
@@ -106,7 +106,7 @@
   }
 
   .bg-frost-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30M0 0L60 60M60 0L0 60' stroke='%231E88E5' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30M0 0L60 60M60 0L0 60' stroke='%2338BDF8' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
     background-size: 60px 60px;
   }
 

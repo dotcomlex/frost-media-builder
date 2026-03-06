@@ -1,75 +1,76 @@
 import { motion } from "framer-motion";
+import { Bot, Target, Globe, ShoppingCart, Magnet } from "lucide-react";
 import { useContactForm } from "@/components/ContactFormDialog";
-
-import serviceSocialAds from "@/assets/service-social-ads.jpg";
-import serviceWebDesign from "@/assets/service-web-design.jpg";
-import serviceEcommerce from "@/assets/service-ecommerce.jpg";
-import serviceLeadGen from "@/assets/service-lead-gen.jpg";
-import serviceAi from "@/assets/service-ai.jpg";
-import serviceCrm from "@/assets/service-crm.jpg";
+import { Button } from "@/components/ui/button";
 
 const services = [
-  { title: "Social Media Advertising", desc: "Strategic Meta, Instagram & TikTok campaigns that fill your pipeline with qualified leads daily.", image: serviceSocialAds },
-  { title: "Website Design & Dev", desc: "Premium, conversion-optimized websites that make your brand unforgettable on every device.", image: serviceWebDesign },
-  { title: "E-Commerce & Shopify", desc: "Full store buildouts — from product pages to checkout flows — designed to maximize revenue.", image: serviceEcommerce },
-  { title: "Lead Generation", desc: "End-to-end pipeline management from first click to closed deal. Every lead tracked and nurtured.", image: serviceLeadGen },
-  { title: "Conversational AI", desc: "AI voice callers, SMS agents & chatbots that respond instantly — trained on your brand, 24/7.", image: serviceAi },
-  { title: "CRM & Automation", desc: "All-in-one pipeline management with automated follow-ups, lead routing & full visibility.", image: serviceCrm },
+  { num: "01", icon: Bot, title: "AI-Powered Lead Systems", desc: "Instant qualification, 24/7 follow-up, automated booking. Our AI responds in under 60 seconds and pre-qualifies leads before they reach you. Never miss another opportunity.", link: "/services/ai-automation" },
+  { num: "02", icon: Target, title: "Facebook & Instagram Ads", desc: "Custom Meta campaigns that generate exclusive leads. Expert A/B testing, audience targeting, and creative designed to convert—not just get clicks.", link: "/services/meta-ads" },
+  { num: "03", icon: Globe, title: "Professional Websites", desc: "High-converting landing pages and full websites. Mobile-first, SEO-optimized, custom-coded for speed. Built to turn visitors into customers.", link: "/services/web-design" },
+  { num: "04", icon: ShoppingCart, title: "Shopify Stores", desc: "Complete e-commerce solutions from store setup to product pages to checkout optimization. We build online stores that actually sell.", link: "/services/ecommerce" },
+  { num: "05", icon: Magnet, title: "Exclusive Lead Generation", desc: "100% exclusive leads delivered to your phone. No sharing with competitors. Real-time notifications. Complete CRM platform included.", link: "/services/lead-generation" },
 ];
 
 const CapabilitiesSection = () => {
   const { openForm } = useContactForm();
 
   return (
-    <section id="services" className="py-14 md:py-20 bg-muted">
-      <div className="max-w-5xl mx-auto px-5 md:px-8">
+    <section id="services" className="bg-card py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center mb-14"
         >
-          <p className="font-mono-tech text-[10px] tracking-widest uppercase text-muted-foreground mb-2">What We Do</p>
-          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
-            Full-Stack Growth Infrastructure
+          <p className="font-mono-tech text-xs tracking-widest uppercase text-primary mb-3">What We Build</p>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight max-w-4xl mx-auto">
+            Everything You Need to Dominate Your Market
           </h2>
-          <p className="text-muted-foreground text-sm mt-3 max-w-xl mx-auto">
-            Everything your business needs to dominate — from ads to AI to automation.
+          <p className="text-lg text-muted-foreground mt-5 max-w-3xl mx-auto">
+            We don't just run ads. We build complete revenue-generating systems—custom for your business, powered by AI, managed by experts who care about ROI.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <motion.div
-              key={s.title}
+              key={s.num}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              onClick={openForm}
-              className="group rounded-xl border border-border bg-card overflow-hidden cursor-pointer hover:shadow-lg hover:border-primary/40 hover:border-l-primary hover:border-l-2 transition-all duration-300"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="bg-background border border-border rounded-2xl p-8 hover:shadow-2xl hover:-translate-y-1 hover:border-primary/50 flex flex-col group transition-all duration-300"
             >
-              <div className="aspect-[4/3] overflow-hidden relative">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all">
+                <s.icon className="h-7 w-7" />
               </div>
-              <div className="p-5">
-                <h3 className="text-sm font-bold text-foreground font-heading mb-1.5">{s.title}</h3>
-                <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
-                <div className="mt-3 flex justify-end">
-                  <span className="text-muted-foreground/40 group-hover:text-primary transition-colors text-[10px] font-mono-tech tracking-wider uppercase">
-                    Learn more →
-                  </span>
-                </div>
-              </div>
+              <span className="font-mono-tech text-xs text-muted-foreground mb-2">{s.num}</span>
+              <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{s.title}</h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-grow">{s.desc}</p>
+              <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
+                Learn More <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-14"
+        >
+          <p className="text-lg text-foreground font-heading font-bold mb-4">Ready to Build Your System?</p>
+          <Button
+            onClick={openForm}
+            className="bg-secondary hover:bg-amber-gold text-secondary-foreground px-8 py-3 rounded-lg font-bold text-base shadow-lg hover:scale-105 transition-all"
+          >
+            Book Strategy Call
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
