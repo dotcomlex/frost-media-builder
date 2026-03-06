@@ -28,27 +28,27 @@ const LogoMarquee = () => {
   const doubled = [...logos, ...logos];
 
   return (
-    <div className="w-full py-14 bg-background overflow-hidden">
-      <div className="container mx-auto mb-10">
+    <div className="w-full py-10 md:py-14 bg-background overflow-hidden">
+      <div className="container mx-auto mb-8">
         <h2 className="text-xl md:text-2xl tracking-tight font-heading text-foreground">
-          Brands That Trust Us
+          Trusted by businesses across the U.S.
         </h2>
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-background to-transparent z-10" />
 
         <div className="flex animate-marquee w-max">
           {doubled.map((logo, i) => (
             <div
               key={i}
-              className="flex items-center justify-center px-8 min-w-[120px]"
+              className="flex items-center justify-center px-4 md:px-8 min-w-[100px] md:min-w-[120px]"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="h-14 md:h-16 w-auto max-w-[160px] object-contain"
+                className="h-10 md:h-14 w-auto max-w-[120px] md:max-w-[160px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               />
             </div>
           ))}
