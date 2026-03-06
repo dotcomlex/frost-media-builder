@@ -136,8 +136,8 @@ const MetaAds = () => {
           A. HERO — immersive, compact on mobile
       ═══════════════════════════════════════════ */}
       <section className="relative pt-24 pb-14 md:pt-36 md:pb-28 overflow-hidden bg-alpine-dark">
-        <img src={heroMountains} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-alpine-dark/40 via-alpine-dark/70 to-alpine-dark" />
+        <img src={heroMountains} alt="" className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-alpine-dark/30 via-alpine-dark/60 to-alpine-dark" />
         <div className="absolute inset-0 bg-frost-pattern opacity-30" />
 
         <div className="relative z-10 px-5 max-w-5xl mx-auto">
@@ -145,13 +145,13 @@ const MetaAds = () => {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-4 py-1.5 mb-6">
             <Sparkles className="h-3.5 w-3.5 text-ice-blue" />
-            <span className="font-mono-tech text-[10px] tracking-[0.2em] uppercase text-ice-blue">Social Media Advertising Experts</span>
+            <span className="font-mono-tech text-[10px] tracking-[0.2em] uppercase text-white/60">Social Media Advertising Experts</span>
           </motion.div>
 
           <motion.h1 variants={fadeUp} initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }}
             className="font-heading text-[2rem] leading-[1.15] md:text-6xl font-bold text-text-on-dark mb-4">
             Facebook & Instagram Ads That Generate{" "}
-            <span className="bg-gradient-to-r from-amber to-amber-gold bg-clip-text text-transparent">Real, Exclusive Leads</span>
+            <span className="text-ice-blue">Real, Exclusive Leads</span>
           </motion.h1>
 
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" custom={2} viewport={{ once: true }}
@@ -174,7 +174,7 @@ const MetaAds = () => {
               { val: 20, suffix: "+", label: "Industries" },
             ].map((s) => (
               <div key={s.label} className="bg-white/[0.05] border border-white/10 rounded-xl py-3 px-2 text-center">
-                <p className="font-heading text-2xl md:text-3xl font-bold text-ice-blue">
+                <p className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark">
                   <AnimatedCounter value={s.val} suffix={s.suffix} />
                 </p>
                 <p className="text-[11px] text-text-on-dark/45 mt-0.5 font-mono-tech tracking-wide">{s.label}</p>
@@ -189,7 +189,7 @@ const MetaAds = () => {
       ═══════════════════════════════════════════ */}
       <section className="py-8 bg-alpine-dark border-t border-b border-white/5">
         <div className="px-5 mb-5">
-          <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-text-on-dark/40 text-center">Platforms We Advertise On</p>
+          <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-white/40 text-center">Platforms We Advertise On</p>
         </div>
         <div className="relative overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-alpine-dark to-transparent z-10" />
@@ -248,7 +248,7 @@ const MetaAds = () => {
       <section className="py-16 md:py-24 bg-alpine-dark overflow-hidden">
         <div className="px-5 max-w-5xl mx-auto">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-8">
-            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-ice-blue mb-2">Proven Results</p>
+            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Proven Results</p>
             <h2 className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark leading-tight">
               Real Campaign Performance
             </h2>
@@ -279,15 +279,15 @@ const MetaAds = () => {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" custom={2} viewport={{ once: true }}
             className="grid grid-cols-3 gap-3 mt-8">
             <div className="bg-white/[0.04] border border-white/10 rounded-xl p-4 text-center">
-              <p className="font-heading text-2xl md:text-4xl font-bold text-success">+<AnimatedCounter value={32} suffix="%" /></p>
+              <p className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark">+<AnimatedCounter value={32} suffix="%" /></p>
               <p className="text-[10px] text-text-on-dark/40 font-mono-tech mt-1">Conv. Rate ↑</p>
             </div>
             <div className="bg-white/[0.04] border border-white/10 rounded-xl p-4 text-center">
-              <p className="font-heading text-2xl md:text-4xl font-bold text-ice-blue">-<AnimatedCounter value={40} suffix="%" /></p>
+              <p className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark">-<AnimatedCounter value={40} suffix="%" /></p>
               <p className="text-[10px] text-text-on-dark/40 font-mono-tech mt-1">Cost / Lead ↓</p>
             </div>
             <div className="bg-white/[0.04] border border-white/10 rounded-xl p-4 text-center">
-              <p className="font-heading text-2xl md:text-4xl font-bold text-amber"><AnimatedCounter value={3} suffix=".2x" /></p>
+              <p className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark"><AnimatedCounter value={3} suffix=".2x" /></p>
               <p className="text-[10px] text-text-on-dark/40 font-mono-tech mt-1">Avg ROAS</p>
             </div>
           </motion.div>
@@ -432,7 +432,7 @@ const MetaAds = () => {
       <section className="py-16 md:py-24 bg-alpine-dark overflow-hidden">
         <div className="px-5 mb-8">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-ice-blue mb-2">Client Results</p>
+            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Client Results</p>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark">What Our Clients Say</h2>
           </motion.div>
         </div>
@@ -478,7 +478,7 @@ const MetaAds = () => {
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="font-heading text-2xl md:text-5xl font-bold text-text-on-dark mb-5 leading-tight">
             Ready to Start Generating{" "}
-            <span className="bg-gradient-to-r from-amber to-amber-gold bg-clip-text text-transparent">Real Leads</span>?
+            <span className="text-ice-blue">Real Leads</span>?
           </motion.h2>
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }}
             className="text-base text-text-on-dark/50 mb-8">
