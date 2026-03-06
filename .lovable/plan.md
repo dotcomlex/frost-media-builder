@@ -1,59 +1,49 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Meta Ads Page Fixes + Frost Media Logo
 
-## Changes Summary
+## Problems Identified
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+1. **Blue-on-blue contrast**: `text-ice-blue` labels sit on `bg-alpine-dark` sections — barely visible. The hero badge, section labels, and stats all blend into the dark blue background.
+2. **Orange overuse**: The hero headline gradient, stats strip, ROAS counter, CTA buttons, and Final CTA headline all use amber/orange. Should be reserved for CTA buttons only per brand guidelines.
+3. **Testimonials overlap**: Meta Ads uses Sarah, Marcus, Jennifer, Carlos, Amanda, David — all appear on homepage too. Need 6 unique testimonials with different avatars (Priya, Brian, Maria, Tyler, Jason, Mike).
+4. **FAQ "Do I own my ad account?"**: Remove this question entirely.
+5. **Hero background**: Needs to be more visible/impactful — increase mountain opacity and reduce heavy dark overlay.
+6. **Frost Media logo**: Create an SVG logo component.
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+## Changes
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+### File: `src/pages/MetaAds.tsx`
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+**Color fixes:**
+- Hero headline: change amber gradient to `text-text-on-dark` with "Real, Exclusive Leads" in `text-ice-blue` (not orange gradient)
+- `font-mono-tech` labels above sections: change from `text-ice-blue` to `text-white/50` on dark sections, keep `text-ice-blue` on light sections only
+- Stats strip numbers: change from `text-ice-blue` to `text-text-on-dark` (white)
+- KPI counters: use `text-text-on-dark` for all three, not colored individually
+- Final CTA headline: "Real Leads" in `text-ice-blue` instead of amber gradient
+- Keep amber ONLY on CTA buttons
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+**Hero background:**
+- Increase mountain image opacity from `opacity-15` to `opacity-25`
+- Lighten the gradient overlay so mountains show through more
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+**Testimonials — swap to unused avatars:**
+- Use: avatarPriya, avatarBrian, avatarMaria, avatarTyler, avatarJason, avatarMike
+- All new names, roles, locations, quotes (ad-specific)
+- Remove old avatar imports (Sarah, Marcus, Jennifer, Carlos, Amanda, David)
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+**FAQ:**
+- Remove the "Do I own my ad account?" question and answer
+
+### File: `src/components/FrostLogo.tsx` (new)
+
+- Create an SVG logo component for Frost Media
+- Mountain/frost-inspired mark: a stylized mountain peak with a snowflake/frost accent
+- Clean geometric design in ice-blue
+- Text "FROST MEDIA" in Space Grotesk bold beside the mark
+- Export as reusable component with size props
 
 ### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+- `src/pages/MetaAds.tsx` — color fixes, hero bg, testimonial swap, FAQ removal
+- `src/components/FrostLogo.tsx` — new SVG logo component
 
