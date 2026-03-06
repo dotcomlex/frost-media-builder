@@ -142,9 +142,6 @@ const MetaAds = () => {
         <div className="absolute inset-0 bg-frost-pattern opacity-30" />
 
         <div className="relative z-10 px-5 max-w-5xl mx-auto">
-          {/* Frost Media Logo */}
-          <motion.img variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            src={frostmediaLogo} alt="Frost Media" className="h-44 md:h-64 w-auto mb-8" />
 
           {/* Meta partner badge */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
