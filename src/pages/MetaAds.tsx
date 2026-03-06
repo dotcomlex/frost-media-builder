@@ -19,12 +19,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { TestimonialCard } from "@/components/ui/testimonial-cards";
-import avatarSarah from "@/assets/avatar-sarah.jpg";
-import avatarMarcus from "@/assets/avatar-marcus.jpg";
-import avatarJennifer from "@/assets/avatar-jennifer.jpg";
-import avatarCarlos from "@/assets/avatar-carlos.jpg";
-import avatarAmanda from "@/assets/avatar-amanda.jpg";
-import avatarDavid from "@/assets/avatar-david.jpg";
+import avatarPriya from "@/assets/avatar-priya.jpg";
+import avatarBrian from "@/assets/avatar-brian.jpg";
+import avatarMaria from "@/assets/avatar-maria.jpg";
+import avatarTyler from "@/assets/avatar-tyler.jpg";
+import avatarJason from "@/assets/avatar-jason.jpg";
+import avatarMike from "@/assets/avatar-mike.jpg";
 
 /* ── Animated counter component ── */
 function AnimatedCounter({ value, suffix = "", prefix = "" }: { value: number; suffix?: string; prefix?: string }) {
@@ -100,18 +100,17 @@ const fadeUp = {
 };
 
 const testimonials = [
-  { avatarUrl: avatarSarah, name: "Sarah Mitchell", role: "Owner", location: "Denver, CO", tag: "Painting Contractor", quote: "We went from 5 leads a month to over 40. The quality is insane — these people are ready to buy." },
-  { avatarUrl: avatarMarcus, name: "Marcus Johnson", role: "Founder", location: "Austin, TX", tag: "Concrete & Masonry", quote: "Best ROI we've ever seen from any marketing. $12 per lead and they actually answer the phone." },
-  { avatarUrl: avatarJennifer, name: "Jennifer Park", role: "Marketing Dir.", location: "Miami, FL", tag: "Med Spa", quote: "Our booking rate tripled in 60 days. The ad creative they produce is on another level." },
-  { avatarUrl: avatarCarlos, name: "Carlos Rivera", role: "CEO", location: "Phoenix, AZ", tag: "Roofing Company", quote: "Finally an agency that actually knows what they're doing. Transparent, fast, and results-driven." },
-  { avatarUrl: avatarAmanda, name: "Amanda Chen", role: "Owner", location: "Portland, OR", tag: "E-commerce", quote: "3.2x ROAS on our first campaign. They scaled us from $50/day to $500/day profitably." },
-  { avatarUrl: avatarDavid, name: "David Thompson", role: "Agent", location: "Dallas, TX", tag: "Real Estate", quote: "The leads are exclusive and the AI follow-up closes deals while I sleep. Game changer." },
+  { avatarUrl: avatarPriya, name: "Priya Sharma", role: "Owner", location: "Charlotte, NC", tag: "HVAC Services", quote: "We booked 38 installs in our first month with Frost. The leads were pre-qualified and ready to schedule." },
+  { avatarUrl: avatarBrian, name: "Brian O'Neill", role: "Founder", location: "Tampa, FL", tag: "Pressure Washing", quote: "Cut our cost per lead from $35 to $9. Their ad targeting is surgical — every lead is in our service area." },
+  { avatarUrl: avatarMaria, name: "Maria Gonzalez", role: "Director", location: "Las Vegas, NV", tag: "Beauty Studio", quote: "Went from relying on walk-ins to a fully booked calendar 3 weeks out. The creative they make is gorgeous." },
+  { avatarUrl: avatarTyler, name: "Tyler Brooks", role: "CEO", location: "Nashville, TN", tag: "Fencing Company", quote: "Other agencies burned our budget on trash leads. Frost gave us exclusive, high-intent leads from day one." },
+  { avatarUrl: avatarJason, name: "Jason Kim", role: "Owner", location: "San Diego, CA", tag: "E-commerce DTC", quote: "Scaled from $2K/month to $18K/month in revenue with a 4.1x ROAS. These guys actually know Meta inside out." },
+  { avatarUrl: avatarMike, name: "Mike Patterson", role: "Broker", location: "Chicago, IL", tag: "Insurance", quote: "The AI follow-up texts respond in under 5 seconds. My close rate went up 40% because of speed-to-lead alone." },
 ];
 
 const faqs = [
   { q: "How much should I budget for Facebook ads?", a: "We recommend starting with $1,000-$1,500/month in ad spend for local businesses. This gives us enough data to test audiences, optimize creative, and find your winning formula. E-commerce campaigns typically start at $2,000-$3,000/month." },
   { q: "How long before I see results?", a: "Most clients see their first leads within 48-72 hours of launch. Real optimization happens in weeks 2-4 as we gather data. By month 2, campaigns run at peak efficiency with a proven cost per lead." },
-  { q: "Do I own my ad account?", a: "Absolutely. Your ad account, pixel data, audiences — it's all yours. We never hold your data hostage. If you leave, you keep everything." },
   { q: "What industries do you work with?", a: "We've run successful campaigns across 20+ industries: home services, beauty & med spas, real estate, e-commerce, insurance, fitness, and local services." },
   { q: "How is this different from boosting posts?", a: "Boosting is Meta's simplest (and least effective) ad format. We build full-funnel campaigns with custom audiences, conversion tracking, retargeting, and A/B testing. Typically 5-10x better performance." },
   { q: "Can you help with e-commerce ads?", a: "Yes! We run product catalog ads, dynamic retargeting, lookalike audiences, and full-funnel e-commerce campaigns. We've helped DTC brands scale to six figures in monthly revenue." },
@@ -137,8 +136,8 @@ const MetaAds = () => {
           A. HERO — immersive, compact on mobile
       ═══════════════════════════════════════════ */}
       <section className="relative pt-24 pb-14 md:pt-36 md:pb-28 overflow-hidden bg-alpine-dark">
-        <img src={heroMountains} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-alpine-dark/40 via-alpine-dark/70 to-alpine-dark" />
+        <img src={heroMountains} alt="" className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-alpine-dark/30 via-alpine-dark/60 to-alpine-dark" />
         <div className="absolute inset-0 bg-frost-pattern opacity-30" />
 
         <div className="relative z-10 px-5 max-w-5xl mx-auto">
@@ -146,13 +145,13 @@ const MetaAds = () => {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-4 py-1.5 mb-6">
             <Sparkles className="h-3.5 w-3.5 text-ice-blue" />
-            <span className="font-mono-tech text-[10px] tracking-[0.2em] uppercase text-ice-blue">Social Media Advertising Experts</span>
+            <span className="font-mono-tech text-[10px] tracking-[0.2em] uppercase text-white/60">Social Media Advertising Experts</span>
           </motion.div>
 
           <motion.h1 variants={fadeUp} initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }}
             className="font-heading text-[2rem] leading-[1.15] md:text-6xl font-bold text-text-on-dark mb-4">
             Facebook & Instagram Ads That Generate{" "}
-            <span className="bg-gradient-to-r from-amber to-amber-gold bg-clip-text text-transparent">Real, Exclusive Leads</span>
+            <span className="text-ice-blue">Real, Exclusive Leads</span>
           </motion.h1>
 
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" custom={2} viewport={{ once: true }}
@@ -175,7 +174,7 @@ const MetaAds = () => {
               { val: 20, suffix: "+", label: "Industries" },
             ].map((s) => (
               <div key={s.label} className="bg-white/[0.05] border border-white/10 rounded-xl py-3 px-2 text-center">
-                <p className="font-heading text-2xl md:text-3xl font-bold text-ice-blue">
+                <p className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark">
                   <AnimatedCounter value={s.val} suffix={s.suffix} />
                 </p>
                 <p className="text-[11px] text-text-on-dark/45 mt-0.5 font-mono-tech tracking-wide">{s.label}</p>
@@ -190,7 +189,7 @@ const MetaAds = () => {
       ═══════════════════════════════════════════ */}
       <section className="py-8 bg-alpine-dark border-t border-b border-white/5">
         <div className="px-5 mb-5">
-          <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-text-on-dark/40 text-center">Platforms We Advertise On</p>
+          <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-white/40 text-center">Platforms We Advertise On</p>
         </div>
         <div className="relative overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-alpine-dark to-transparent z-10" />
@@ -249,7 +248,7 @@ const MetaAds = () => {
       <section className="py-16 md:py-24 bg-alpine-dark overflow-hidden">
         <div className="px-5 max-w-5xl mx-auto">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-8">
-            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-ice-blue mb-2">Proven Results</p>
+            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Proven Results</p>
             <h2 className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark leading-tight">
               Real Campaign Performance
             </h2>
@@ -280,15 +279,15 @@ const MetaAds = () => {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" custom={2} viewport={{ once: true }}
             className="grid grid-cols-3 gap-3 mt-8">
             <div className="bg-white/[0.04] border border-white/10 rounded-xl p-4 text-center">
-              <p className="font-heading text-2xl md:text-4xl font-bold text-success">+<AnimatedCounter value={32} suffix="%" /></p>
+              <p className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark">+<AnimatedCounter value={32} suffix="%" /></p>
               <p className="text-[10px] text-text-on-dark/40 font-mono-tech mt-1">Conv. Rate ↑</p>
             </div>
             <div className="bg-white/[0.04] border border-white/10 rounded-xl p-4 text-center">
-              <p className="font-heading text-2xl md:text-4xl font-bold text-ice-blue">-<AnimatedCounter value={40} suffix="%" /></p>
+              <p className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark">-<AnimatedCounter value={40} suffix="%" /></p>
               <p className="text-[10px] text-text-on-dark/40 font-mono-tech mt-1">Cost / Lead ↓</p>
             </div>
             <div className="bg-white/[0.04] border border-white/10 rounded-xl p-4 text-center">
-              <p className="font-heading text-2xl md:text-4xl font-bold text-amber"><AnimatedCounter value={3} suffix=".2x" /></p>
+              <p className="font-heading text-2xl md:text-4xl font-bold text-text-on-dark"><AnimatedCounter value={3} suffix=".2x" /></p>
               <p className="text-[10px] text-text-on-dark/40 font-mono-tech mt-1">Avg ROAS</p>
             </div>
           </motion.div>
@@ -433,7 +432,7 @@ const MetaAds = () => {
       <section className="py-16 md:py-24 bg-alpine-dark overflow-hidden">
         <div className="px-5 mb-8">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-ice-blue mb-2">Client Results</p>
+            <p className="font-mono-tech text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Client Results</p>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-on-dark">What Our Clients Say</h2>
           </motion.div>
         </div>
@@ -479,7 +478,7 @@ const MetaAds = () => {
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="font-heading text-2xl md:text-5xl font-bold text-text-on-dark mb-5 leading-tight">
             Ready to Start Generating{" "}
-            <span className="bg-gradient-to-r from-amber to-amber-gold bg-clip-text text-transparent">Real Leads</span>?
+            <span className="text-ice-blue">Real Leads</span>?
           </motion.h2>
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }}
             className="text-base text-text-on-dark/50 mb-8">
