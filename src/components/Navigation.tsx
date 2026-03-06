@@ -1,19 +1,31 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useContactForm } from "@/components/ContactFormDialog";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoFrost from "@/assets/logo-frost.png";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Website Designs", href: "/work" },
+const serviceLinks = [
+  { label: "AI Automation", href: "/services/ai-automation" },
+  { label: "Meta Ads", href: "/services/meta-ads" },
+  { label: "Web Design", href: "/work" },
+  { label: "Lead Generation", href: "/services" },
+];
+
+const industryLinks = [
+  { label: "HVAC", href: "/industries/hvac" },
+  { label: "Plumbing", href: "/industries/plumbing" },
+  { label: "Concrete", href: "/industries/concrete" },
+  { label: "Electrical", href: "/industries/electrical" },
+  { label: "Roofing", href: "/industries/roofing" },
+  { label: "Painting", href: "/industries/painting" },
 ];
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
   const { openForm } = useContactForm();
-  const location = useLocation();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -22,34 +34,72 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+      <nav className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center">
             <img src={logoFrost} alt="Frost Media" className="h-7 md:h-8 w-auto" />
           </Link>
 
-          {/* Glassmorphic pill nav */}
-          <div className="hidden md:flex items-center gap-1 bg-white/[0.06] backdrop-blur-md border border-white/[0.1] rounded-full px-1.5 py-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className="text-sm font-medium text-text-on-dark/70 hover:text-text-on-dark hover:bg-white/[0.08] rounded-full px-4 py-1.5 transition-all"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <button
-              onClick={openForm}
-              className="text-sm font-semibold text-primary-foreground bg-primary hover:bg-ice-blue rounded-full px-4 py-1.5 transition-all ml-0.5"
-            >
-              Book a Call
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1">
+                Services <ChevronDown className="h-4 w-4" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-56 bg-slate-800 border border-slate-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-1">
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="block px-4 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors first:rounded-t-lg last:rounded-b-lg"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Industries Dropdown */}
+            <div className="relative group">
+              <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1">
+                Industries <ChevronDown className="h-4 w-4" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-56 bg-slate-800 border border-slate-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-1">
+                {industryLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="block px-4 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors first:rounded-t-lg last:rounded-b-lg"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link to="/case-studies" className="text-slate-300 hover:text-white font-medium transition-colors">
+              Case Studies
+            </Link>
+            <Link to="/about" className="text-slate-300 hover:text-white font-medium transition-colors">
+              About
+            </Link>
+            <button onClick={openForm} className="text-slate-300 hover:text-white font-medium transition-colors">
+              Contact
             </button>
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* CTA Button */}
           <button
-            className="md:hidden text-text-on-dark p-2 z-[60]"
+            onClick={openForm}
+            className="hidden md:block bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-lg"
+          >
+            Book a Call
+          </button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden text-white p-2 z-[60]"
             onClick={() => setOpen(!open)}
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -65,46 +115,98 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[55] bg-alpine-dark/98 backdrop-blur-2xl md:hidden flex flex-col"
+            className="fixed inset-0 z-[55] bg-slate-900/98 backdrop-blur-2xl md:hidden flex flex-col"
           >
-            <div className="pt-20 px-8 flex flex-col flex-1">
+            <div className="pt-20 px-8 flex flex-col flex-1 overflow-y-auto">
               <div className="mb-8">
                 <img src={logoFrost} alt="Frost Media" className="h-8 w-auto opacity-60" />
               </div>
 
               <div className="flex flex-col gap-1">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.08 }}
-                  >
-                    <Link
-                      to={link.href}
-                      onClick={() => setOpen(false)}
-                      className="block text-2xl font-heading font-bold text-text-on-dark/80 hover:text-text-on-dark py-4 border-b border-white/[0.06] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.26 }}
-                >
+                {/* Services Expandable */}
+                <div>
                   <button
-                    onClick={() => { setOpen(false); openForm(); }}
-                    className="block text-2xl font-heading font-bold text-secondary hover:text-amber-gold py-4 transition-colors text-left w-full"
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    className="flex items-center justify-between w-full text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50"
                   >
-                    Contact
+                    Services <ChevronDown className={`h-5 w-5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                   </button>
-                </motion.div>
+                  <AnimatePresence>
+                    {servicesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden pl-4"
+                      >
+                        {serviceLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            to={link.href}
+                            onClick={() => setOpen(false)}
+                            className="block text-lg text-slate-300 hover:text-white py-3 border-b border-slate-800/50"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Industries Expandable */}
+                <div>
+                  <button
+                    onClick={() => setIndustriesOpen(!industriesOpen)}
+                    className="flex items-center justify-between w-full text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50"
+                  >
+                    Industries <ChevronDown className={`h-5 w-5 transition-transform ${industriesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  <AnimatePresence>
+                    {industriesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden pl-4"
+                      >
+                        {industryLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            to={link.href}
+                            onClick={() => setOpen(false)}
+                            className="block text-lg text-slate-300 hover:text-white py-3 border-b border-slate-800/50"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <Link to="/case-studies" onClick={() => setOpen(false)} className="text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50">
+                  Case Studies
+                </Link>
+                <Link to="/about" onClick={() => setOpen(false)} className="text-2xl font-bold text-white/80 py-4 border-b border-slate-700/50">
+                  About
+                </Link>
+                <button
+                  onClick={() => { setOpen(false); openForm(); }}
+                  className="text-2xl font-bold text-amber-500 hover:text-amber-400 py-4 text-left w-full"
+                >
+                  Contact
+                </button>
               </div>
 
-              <div className="mt-auto pb-10">
-                <p className="text-xs text-text-on-dark/30 font-mono-tech tracking-widest uppercase">Denver, Colorado</p>
+              <div className="mt-auto pb-10 pt-8">
+                <button
+                  onClick={() => { setOpen(false); openForm(); }}
+                  className="w-full bg-amber-500 hover:bg-amber-600 text-white py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
+                  Book a Call
+                </button>
+                <p className="text-xs text-slate-500 mt-4 tracking-widest uppercase text-center">Denver, Colorado</p>
               </div>
             </div>
           </motion.div>
