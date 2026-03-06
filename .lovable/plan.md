@@ -1,59 +1,40 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Rework Work Page — Lightbox, Hero, Scroll Fix, Light Background
 
-## Changes Summary
+## Changes
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+### 1. Hero Section Rework
+- Add mountain background image with dark overlay (same as FinalCTASection) + frost-pattern
+- Shorten headline to just **"Our Work"** with a brief subtitle — currently it's way too long and wastes vertical space
+- Reduce padding so hero is compact and punchy
+- Keep `font-mono-tech` label above
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+### 2. Tabs + Grid on Light Background
+- Move the tab bar and grid section from `bg-alpine-dark` to `bg-muted` (light gray) — only the hero stays dark
+- Tab pills restyle: dark text on light bg, active tab uses `bg-primary text-white`
+- Card borders updated for light theme: `border-gray-200`, subtle shadow on hover
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+### 3. Fix Hover Scroll Speed
+- Remove the conflicting CSS class `group-hover:-translate-y-[calc(100%-100%*3/4)]` — it fights the JS inline transform
+- Keep the `onLoad` calculation of `--scroll-y` and `onMouseEnter`/`onMouseLeave` JS approach
+- Set `transition: transform Xs ease-in-out` dynamically based on scroll distance: `duration = Math.max(3, diff / 250)` seconds — longer pages scroll slower, matching natural feel
+- On `onMouseLeave`, use same duration for smooth return
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+### 4. Mobile: Tap-to-Scroll
+- Import `useIsMobile` hook
+- On mobile, replace hover with tap: clicking a card sets it as "active" (state), which triggers the scroll animation via inline styles
+- Tapping another card or tapping the same card again resets it
+- Add subtle "Tap to preview" text overlay on mobile cards
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+### 5. Lightbox Modal for Full Screenshot
+- Add state: `lightboxSrc: string | null`
+- Clicking any card opens a full-screen overlay (`fixed inset-0 z-50 bg-black/90`) displaying the full screenshot
+- Image rendered at full natural size inside a scrollable container (`overflow-y-auto`) so user can scroll through the entire page design
+- X close button (top-right, sticky) + click backdrop to close
+- `AnimatePresence` for fade in/out
+- Works on both mobile and desktop
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
-
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
-
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+### 6. File Modified
+`src/pages/Work.tsx` — rewrite with all the above changes
 
