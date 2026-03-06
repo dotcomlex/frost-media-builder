@@ -5,6 +5,7 @@ import { useContactForm } from "@/components/ContactFormDialog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
+import heroMountains from "@/assets/hero-mountains.png";
 import workRizeshift from "@/assets/work-rizeshift.png";
 import workHelixr from "@/assets/work-helixr.png";
 import workSkihaven from "@/assets/work-skihaven.png";
@@ -30,68 +31,115 @@ const Work = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navigation />
 
-      <section className="bg-slate-900 pt-32 pb-10 md:pt-40 md:pb-14 px-5 md:px-8 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto relative">
+      {/* Hero with mountain bg */}
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-5 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={heroMountains} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#070b14]/85" />
+          <div className="absolute inset-0 bg-frost-pattern" />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-sky-400 mb-3">Portfolio</p>
-            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight max-w-2xl mx-auto">
-              Recent Website Designs
+            <p className="font-mono-tech text-[10px] tracking-[0.3em] uppercase text-ice-blue mb-5">
+              Portfolio
+            </p>
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] max-w-3xl mx-auto">
+              <span className="bg-gradient-to-r from-white via-white to-ice-blue bg-clip-text text-transparent">
+                Recent Website Designs
+              </span>
             </h1>
-            <p className="text-slate-300 text-sm mt-3 max-w-lg mx-auto">
+            <p className="text-text-on-dark/60 text-sm md:text-base mt-5 max-w-lg mx-auto leading-relaxed">
               Premium websites built for businesses across every industry — designed to convert and built to last.
             </p>
+            {/* Accent line */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="h-[2px] w-20 mx-auto mt-7 bg-gradient-to-r from-transparent via-ice-blue to-transparent"
+            />
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-slate-800 py-8 md:py-12 px-5 md:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {projects.map((p, i) => (
-              <motion.div
-                key={p.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="group rounded-xl overflow-hidden bg-slate-900 border border-slate-700 hover:border-slate-600 transition-all duration-400"
-              >
-                <div className="aspect-square overflow-hidden bg-slate-800">
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600"
-                  />
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <h3 className="font-heading text-sm font-bold text-white">{p.name}</h3>
-                    <span className="text-[9px] font-mono-tech tracking-widest uppercase text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full">
-                      {p.tag}
-                    </span>
-                  </div>
-                  <p className="text-slate-400 text-xs leading-relaxed">{p.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Project Grid */}
+      <section className="relative py-12 md:py-20 px-5 md:px-8" style={{ background: 'linear-gradient(180deg, #0a0f1a 0%, #0d1829 50%, #0a0f1a 100%)' }}>
+        {/* Radial glow */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 30%, hsl(213 80% 50% / 0.04), transparent)' }} />
 
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+            {projects.map((p, i) => {
+              const isWide = i % 3 === 0;
+              const num = String(i + 1).padStart(2, "0");
+
+              return (
+                <motion.div
+                  key={p.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                  className={`group relative rounded-2xl overflow-hidden border border-white/10 backdrop-blur-xl bg-white/[0.03] ${isWide ? "md:col-span-2" : ""}`}
+                >
+                  <div className={`relative overflow-hidden ${isWide ? "aspect-[16/10] md:aspect-[2.4/1]" : "aspect-[16/10]"}`}>
+                    <img
+                      src={p.img}
+                      alt={p.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 md:p-7">
+                      <span className="font-mono-tech text-[10px] tracking-widest text-ice-blue/70 mb-1">{p.tag}</span>
+                      <h3 className="font-heading text-lg md:text-xl font-bold text-white mb-1">{p.name}</h3>
+                      <p className="text-white/60 text-xs md:text-sm leading-relaxed max-w-md">{p.description}</p>
+                    </div>
+                    {/* Always-visible bottom info bar for mobile */}
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:hidden">
+                      <h3 className="font-heading text-sm font-bold text-white">{p.name}</h3>
+                      <span className="font-mono-tech text-[9px] tracking-widest text-ice-blue/60">{p.tag}</span>
+                    </div>
+                  </div>
+                  {/* Project number */}
+                  <span className="absolute top-3 left-4 font-mono-tech text-[10px] text-white/20 tracking-widest">{num}</span>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={heroMountains} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#070b14]/80" />
+          <div className="absolute inset-0 bg-frost-pattern" />
+        </div>
+        <div className="relative z-10 max-w-2xl mx-auto px-5 text-center">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center mt-12"
+            transition={{ duration: 0.5 }}
           >
-            <p className="text-slate-400 text-xs mb-3">Want something like this for your business?</p>
+            <p className="font-mono-tech text-[10px] tracking-widest uppercase text-ice-blue mb-4">Your Brand, Next</p>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-on-dark tracking-tight leading-tight">
+              Want Something Like This?
+            </h2>
+            <p className="text-text-on-dark/50 text-sm mt-4 max-w-md mx-auto leading-relaxed">
+              Let's build a website that makes your competitors nervous.
+            </p>
             <Button
+              size="lg"
               onClick={openForm}
-              className="bg-secondary hover:bg-amber-gold text-secondary-foreground rounded-xl px-8 py-4 font-bold text-sm shadow-xl shadow-secondary/30"
+              className="bg-secondary hover:bg-amber-gold text-secondary-foreground rounded-xl px-10 py-5 text-base font-bold shadow-2xl shadow-secondary/40 hover:scale-105 transition-all mt-8"
             >
               Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
