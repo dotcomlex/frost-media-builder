@@ -1,59 +1,47 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Redesign Work Page to Match Quixta's Portfolio Style
 
-## Changes Summary
+## The Problem
+Current cards use landscape `aspect-[16/10]` and `aspect-[2.4/1]` ratios -- website mockup screenshots are barely visible and look like tiny horizontal strips. The hover-only info makes cards feel empty by default.
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+## Design Reference (Quixta)
+Quixta uses:
+- A **featured project carousel** at the top (blue gradient bg, split layout: text + description on left, large mockup on right, "View Project" button)
+- A **2-column grid** below with **portrait/tall cards** showing full website screenshots with project name and category always visible at the bottom
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+## Plan
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+### 1. Featured Projects Carousel (new section)
+Add a hero carousel using `embla-carousel-react` (already installed) with 3 featured projects. Each slide:
+- Blue-to-navy gradient background (matching Frost Media brand -- use ice-blue tones instead of Quixta's orange)
+- Split layout: left side has project name (large heading), description paragraph, and "View Project" link; right side has a large mockup image
+- Navigation arrows on sides
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+### 2. Project Grid -- Portrait Cards
+Replace the current landscape grid with a clean **2-column grid** of portrait cards:
+- Change aspect ratio from `aspect-[16/10]` to **`aspect-[3/4]`** (tall, portrait) so website screenshots are fully visible
+- Remove the alternating wide/narrow layout (no more `col-span-2`)
+- Project name and category tag **always visible** below the image (not hover-only)
+- Subtle hover scale effect on the image
+- Clean dark card with rounded corners, border
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+### 3. Use Quixta's Shared Project Images
+Since Quixta is the user's partner site, reference their CDN images for the shared projects where available:
+- Helixr: `https://quixta.com/wp-content/uploads/2025/06/Frame-1171275161.png`
+- Featured carousel mockups from their CDN
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+For projects not on Quixta, keep the existing local images.
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### 4. Simplify the Hero
+Keep the mountain bg hero but make it cleaner -- centered text, no frost-pattern clutter.
 
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+## Files Modified
+- `src/pages/Work.tsx` -- complete restructure
+
+## Technical Notes
+- Uses `embla-carousel-react` already in dependencies for the featured carousel
+- Portrait aspect ratio `aspect-[3/4]` with `object-cover object-top` to show the top of website screenshots
+- Mobile: single column grid, carousel stacks vertically
+- All project info always visible (no hover-dependent content for mobile accessibility)
 
