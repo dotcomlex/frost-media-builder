@@ -7,42 +7,21 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-  {
-    q: "What makes you different from other agencies?",
-    a: "We build complete systems, not just campaigns. Everything is custom — no templates, no recycled strategies. We combine social media advertising expertise with AI automation to create marketing infrastructure that runs 24/7.",
-  },
-  {
-    q: "How long does it take to see results?",
-    a: "Most clients start getting qualified leads within 1-2 weeks. By month 2-3, your pipeline should be consistently full. AI automation works immediately — 24/7 response in under 5 seconds.",
-  },
-  {
-    q: "What industries do you work with?",
-    a: "We work with home services (HVAC, roofing, painting, concrete), beauty studios, e-commerce brands, insurance, real estate, fitness, and more. If you're established and ready to scale, we can help.",
-  },
-  {
-    q: "What's included in your services?",
-    a: "Everything: social media advertising (Meta, IG, TikTok), lead generation, website design & development, e-commerce & Shopify store builds, conversational AI (voice callers, SMS, chatbots), CRM & pipeline management, copywriting, and branding.",
-  },
-  {
-    q: "Do you work with startups?",
-    a: "We're selective — we work with established businesses that have proven product-market fit and are ready to scale. We help good businesses become dominant.",
-  },
-  {
-    q: "How much do your services cost?",
-    a: "Our pricing is based on scope and scale. We don't do cookie-cutter packages — every engagement is custom-built around your goals. Book a strategy call and we'll give you a transparent breakdown.",
-  },
-  {
-    q: "What's your onboarding process like?",
-    a: "Simple: strategy call → custom game plan → we build everything in 1-2 weeks → launch. You'll have a dedicated point of contact and full visibility into every step.",
-  },
-  {
-    q: "Can you guarantee results?",
-    a: "We don't make empty promises. What we can guarantee is a battle-tested system, weekly optimization, and full transparency. Our track record speaks for itself.",
-  },
+  { q: "What makes you different from other agencies?", a: "We build complete systems, not just campaigns. Everything is custom — no templates, no recycled strategies. We combine social media advertising expertise with AI automation to create marketing infrastructure that runs 24/7." },
+  { q: "How long does it take to see results?", a: "Most clients start getting qualified leads within 1-2 weeks. By month 2-3, your pipeline should be consistently full. AI automation works immediately — 24/7 response in under 5 seconds." },
+  { q: "What industries do you work with?", a: "We work with home services (HVAC, roofing, painting, concrete), beauty studios, e-commerce brands, insurance, real estate, fitness, and more. If you're established and ready to scale, we can help." },
+  { q: "What's included in your services?", a: "Everything: social media advertising (Meta, IG, TikTok), lead generation, website design & development, e-commerce & Shopify store builds, conversational AI (voice callers, SMS, chatbots), CRM & pipeline management, copywriting, and branding." },
+  { q: "Do you work with startups?", a: "We're selective — we work with established businesses that have proven product-market fit and are ready to scale. We help good businesses become dominant." },
+  { q: "How much do your services cost?", a: "Our pricing is based on scope and scale. We don't do cookie-cutter packages — every engagement is custom-built around your goals. Book a strategy call and we'll give you a transparent breakdown." },
+  { q: "What's your onboarding process like?", a: "Simple: strategy call → custom game plan → we build everything in 1-2 weeks → launch. You'll have a dedicated point of contact and full visibility into every step." },
+  { q: "Can you guarantee results?", a: "We don't make empty promises. What we can guarantee is a battle-tested system, weekly optimization, and full transparency. Our track record speaks for itself." },
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-12 md:py-18 bg-background">
+  <section id="faq" className="py-12 md:py-18 bg-background relative">
+    {/* Ice-blue gradient divider at top */}
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
     <div className="max-w-2xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
@@ -62,9 +41,9 @@ const FAQSection = () => (
           <AccordionItem
             key={i}
             value={`item-${i}`}
-            className="border border-border rounded-lg px-5 bg-background data-[state=open]:border-ice-blue/30"
+            className="border border-border rounded-lg px-5 bg-background data-[state=open]:border-primary/30"
           >
-            <AccordionTrigger className="text-foreground hover:text-ice-blue hover:no-underline text-left py-4 text-sm font-semibold">
+            <AccordionTrigger className="text-foreground hover:text-primary hover:no-underline text-left py-4 text-sm font-semibold">
               {faq.q}
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">

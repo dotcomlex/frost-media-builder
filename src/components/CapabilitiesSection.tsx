@@ -9,36 +9,12 @@ import serviceAi from "@/assets/service-ai.jpg";
 import serviceCrm from "@/assets/service-crm.jpg";
 
 const services = [
-  {
-    title: "Social Media Advertising",
-    desc: "Strategic Meta, Instagram & TikTok campaigns that fill your pipeline with qualified leads daily.",
-    image: serviceSocialAds,
-  },
-  {
-    title: "Website Design & Dev",
-    desc: "Premium, conversion-optimized websites that make your brand unforgettable on every device.",
-    image: serviceWebDesign,
-  },
-  {
-    title: "E-Commerce & Shopify",
-    desc: "Full store buildouts — from product pages to checkout flows — designed to maximize revenue.",
-    image: serviceEcommerce,
-  },
-  {
-    title: "Lead Generation",
-    desc: "End-to-end pipeline management from first click to closed deal. Every lead tracked and nurtured.",
-    image: serviceLeadGen,
-  },
-  {
-    title: "Conversational AI",
-    desc: "AI voice callers, SMS agents & chatbots that respond instantly — trained on your brand, 24/7.",
-    image: serviceAi,
-  },
-  {
-    title: "CRM & Automation",
-    desc: "All-in-one pipeline management with automated follow-ups, lead routing & full visibility.",
-    image: serviceCrm,
-  },
+  { title: "Social Media Advertising", desc: "Strategic Meta, Instagram & TikTok campaigns that fill your pipeline with qualified leads daily.", image: serviceSocialAds },
+  { title: "Website Design & Dev", desc: "Premium, conversion-optimized websites that make your brand unforgettable on every device.", image: serviceWebDesign },
+  { title: "E-Commerce & Shopify", desc: "Full store buildouts — from product pages to checkout flows — designed to maximize revenue.", image: serviceEcommerce },
+  { title: "Lead Generation", desc: "End-to-end pipeline management from first click to closed deal. Every lead tracked and nurtured.", image: serviceLeadGen },
+  { title: "Conversational AI", desc: "AI voice callers, SMS agents & chatbots that respond instantly — trained on your brand, 24/7.", image: serviceAi },
+  { title: "CRM & Automation", desc: "All-in-one pipeline management with automated follow-ups, lead routing & full visibility.", image: serviceCrm },
 ];
 
 const CapabilitiesSection = () => {
@@ -72,20 +48,21 @@ const CapabilitiesSection = () => {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               onClick={openForm}
-              className="group rounded-xl border border-border bg-card overflow-hidden cursor-pointer hover:shadow-lg hover:border-ice-blue/30 transition-all duration-300"
+              className="group rounded-xl border border-border bg-card overflow-hidden cursor-pointer hover:shadow-lg hover:border-primary/40 hover:border-l-primary hover:border-l-2 transition-all duration-300"
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden relative">
                 <img
                   src={s.image}
                   alt={s.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="p-5">
                 <h3 className="text-sm font-bold text-foreground font-heading mb-1.5">{s.title}</h3>
                 <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
                 <div className="mt-3 flex justify-end">
-                  <span className="text-muted-foreground/40 group-hover:text-ice-blue transition-colors text-[10px] font-mono-tech tracking-wider uppercase">
+                  <span className="text-muted-foreground/40 group-hover:text-primary transition-colors text-[10px] font-mono-tech tracking-wider uppercase">
                     Learn more →
                   </span>
                 </div>

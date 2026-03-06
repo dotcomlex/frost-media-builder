@@ -17,8 +17,13 @@ const chatMessages = [
 
 const SystemBreakdownSection = () => {
   return (
-    <section className="bg-muted overflow-hidden">
-      <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+    <section className="bg-muted overflow-hidden relative">
+      {/* Decorative blurred circles */}
+      <div className="absolute top-20 -left-20 w-72 h-72 bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-56 h-56 bg-primary/[0.04] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/[0.03] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Copy */}
           <motion.div

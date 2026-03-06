@@ -1,11 +1,3 @@
-import { useEffect, useState } from "react";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-
 import logoDivas from "@/assets/logo-client-divas.png";
 import logoCertapro from "@/assets/logo-client-certapro.png";
 import logo360 from "@/assets/logo-client-360painting.png";
@@ -31,51 +23,36 @@ const logos = [
 ];
 
 const LogoMarquee = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-
-    const timer = setTimeout(() => {
-      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
-        setCurrent(0);
-        api.scrollTo(0);
-      } else {
-        api.scrollNext();
-        setCurrent(current + 1);
-      }
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, [api, current]);
+  const doubled = [...logos, ...logos];
 
   return (
-    <div className="w-full py-14 bg-background">
-      <div className="container mx-auto">
-        <div className="flex flex-col gap-10">
-          <h2 className="text-xl md:text-2xl tracking-tight font-heading text-foreground">
-            Trusted by businesses across the U.S.
-          </h2>
-          <Carousel setApi={setApi} opts={{ align: "start", loop: true }}>
-            <CarouselContent>
-              {logos.map((logo, i) => (
-                <CarouselItem
-                  key={i}
-                  className="basis-1/2 lg:basis-1/5"
-                >
-                  <div className="flex items-center justify-center p-4">
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="h-14 md:h-16 w-auto max-w-full object-contain"
-                      style={{ filter: 'brightness(0) opacity(0.6)' }}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+    <div className="w-full py-14 bg-background overflow-hidden">
+      <div className="container mx-auto mb-10">
+        <h2 className="text-xl md:text-2xl tracking-tight font-heading text-foreground">
+          Trusted by businesses across the U.S.
+        </h2>
+      </div>
+
+      <div className="relative">
+        {/* Left fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+        {/* Right fade */}
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+
+        <div className="flex animate-marquee w-max">
+          {doubled.map((logo, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center px-8 min-w-[120px]"
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="h-14 md:h-16 w-auto max-w-[160px] object-contain"
+                style={{ filter: 'grayscale(100%) contrast(0) brightness(0.4)' }}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

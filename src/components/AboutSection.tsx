@@ -9,8 +9,11 @@ const differentiators = [
 ];
 
 const AboutSection = () => (
-  <section id="about" className="py-14 md:py-20 bg-alpine-dark">
-    <div className="max-w-5xl mx-auto px-5 md:px-8">
+  <section id="about" className="py-14 md:py-20 bg-alpine-dark relative overflow-hidden">
+    {/* Dot grid pattern overlay */}
+    <div className="absolute inset-0 bg-frost-pattern opacity-40 pointer-events-none" />
+
+    <div className="max-w-5xl mx-auto px-5 md:px-8 relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
