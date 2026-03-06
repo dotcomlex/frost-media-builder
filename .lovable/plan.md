@@ -1,59 +1,84 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Rework AI Automation Page — Full Redesign
 
-## Changes Summary
+The current page is plain slate boxes with basic text. Here's the plan to make it a premium, engaging, on-brand page that matches the rest of the site's design language (ice-blue accents, `bg-muted` light sections, `alpine-dark` dark sections, framer-motion animations, `font-heading`/`font-mono-tech` typography).
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+## Page Structure (top to bottom)
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+### 1. Hero Section (dark, alpine-dark bg)
+- Mountain background with dark overlay + frost-pattern (same treatment as FinalCTASection/homepage hero)
+- Bold headline: "Your AI Employee That Never Clocks Out" or similar
+- Subtitle explaining the value prop: instant lead response, qualification, booking — all automated
+- `font-mono-tech` label: "Conversational AI"
+- CTA button (ice-blue primary)
+- Stats row: `< 30s Response` / `24/7 Available` / `3x More Bookings` in bordered cards (matching SystemBreakdownSection style)
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+### 2. Live Chat Demo Section (bg-muted, light)
+- Split layout: phone mockup on left showing a **contractor scenario** conversation (reuse the phone mock pattern from SystemBreakdownSection but with a longer, more detailed conversation)
+- Conversation: homeowner asks about roof repair → AI qualifies (asks about size, timeline, budget) → handles objection ("is this a real person?") → books appointment → sends confirmation
+- Right side: copy explaining how FrostBot is fully trained on the client's business, knows their services, pricing, FAQs, and handles objections naturally
+- Channel pills: SMS, Voice, Web Chat, Social DMs, Instagram, Facebook Messenger
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+### 3. How It Works — 3-Step Flow (bg-background, white)
+- Horizontal 3-step cards with numbered icons (ice-blue accent top border):
+  1. Lead reaches out (any channel)
+  2. AI qualifies & handles objections
+  3. Appointment booked, you get notified
+- Clean, minimal, matching the site's card style
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+### 4. Use Cases Grid (bg-muted, light)
+- Section title: "Built For Every Industry"
+- 2x3 grid of use case cards, each with an icon, industry name, and a short example:
+  - **Contractors** — "Qualifies roof repair leads, books estimates"
+  - **Beauty & Med Spas** — "Books appointments via Instagram DMs"
+  - **Real Estate** — "Follows up with buyer inquiries 24/7"
+  - **HVAC & Plumbing** — "Handles emergency service requests instantly"
+  - **Insurance** — "Qualifies policy inquiries, schedules consultations"
+  - **E-commerce** — "Answers product questions, recovers abandoned carts"
+- Glassmorphic cards with hover effects
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+### 5. What It Replaces Section (bg-background, white)
+- Two-column comparison: "Without FrostBot" vs "With FrostBot"
+- Left (red-tinted): missed calls, slow follow-up, lost leads, manual booking, repetitive tasks
+- Right (green/ice-blue-tinted): instant response, qualified leads, auto-booking, zero manual work
+- Visual contrast to make the value obvious
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### 6. Social Media DMs Section (alpine-dark, dark)
+- Focused section on Instagram/Facebook DM automation
+- Phone mockup showing an Instagram DM conversation with the AI
+- Copy: "Every DM answered. Every comment followed up. Every lead captured."
+- Highlight that it works across Instagram, Facebook Messenger, and Google Business
 
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+### 7. FAQ Section (bg-background, white)
+- AI-specific FAQs using the existing Accordion component:
+  - "How does FrostBot learn about my business?"
+  - "Will customers know they're talking to AI?"
+  - "What channels does it work on?"
+  - "How long does setup take?"
+  - "Can it handle objections?"
+  - "What if the AI can't answer a question?"
+  - "How much does it cost?"
+  - "Is my data secure?"
+
+### 8. Final CTA (mountain bg, dark)
+- Same mountain bg treatment as homepage FinalCTASection
+- "See FrostBot In Action" headline
+- CTA to book a demo
+
+## Technical Details
+
+**File modified:** `src/pages/AIAutomation.tsx` — complete rewrite
+
+**Dependencies used (all existing):**
+- `framer-motion` for scroll animations
+- `lucide-react` for icons
+- Radix Accordion for FAQ
+- Tailwind classes matching site design tokens (`bg-muted`, `bg-alpine-dark`, `text-ice-blue`, `font-heading`, `font-mono-tech`, `border-primary`)
+
+**Design consistency:**
+- Uses same color palette, typography, spacing, and animation patterns as homepage
+- Phone mockup component reused from SystemBreakdownSection pattern
+- FAQ section matches homepage FAQ style
+- CTA matches FinalCTASection style
 
