@@ -20,6 +20,9 @@ const Footer = () => {
             <p className="text-sm text-slate-400 mt-4 leading-relaxed">
               Growth systems for home service businesses. Ads, AI, and websites that actually convert.
             </p>
+            <p className="text-xs text-slate-500 mt-3">
+              11990 Grant St, Northglenn, CO 80233 · (720) 288-7101 · hello@frostmedia.io
+            </p>
           </div>
 
           {/* Nav columns */}
