@@ -47,6 +47,15 @@ const HeroSection = () => {
               Book a Free Strategy Call →
             </Button>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-text-on-dark/50 text-xs tracking-wide mt-6"
+          >
+            📍 Frost Media LLC · 11990 Grant St, Northglenn, CO 80233
+          </motion.p>
         </div>
       </div>
     </DotGlobeHero>
