@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 
 interface ContactFormContextType {
   openForm: () => void;
@@ -44,7 +46,7 @@ const ContactFormDialog = ({ open, onOpenChange }: { open: boolean; onOpenChange
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-alpine-dark border-white/10 text-text-on-dark">
+      <DialogContent className="sm:max-w-md bg-alpine-dark border-white/10 text-text-on-dark max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="font-heading text-2xl text-text-on-dark">Let's Talk Growth</DialogTitle>
           <p className="text-text-on-dark/50 text-sm">Tell us about your business and we'll reach out within 24 hours.</p>
@@ -81,6 +83,34 @@ const ContactFormDialog = ({ open, onOpenChange }: { open: boolean; onOpenChange
               className="bg-white/5 border-white/10 text-text-on-dark placeholder:text-text-on-dark/30 mt-1"
             />
           </div>
+
+          {/* SMS Consent Checkboxes */}
+          <div className="space-y-3">
+            <div className="flex items-start gap-2">
+              <Checkbox id="sms-marketing" className="mt-0.5 border-white/20 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary" />
+              <label htmlFor="sms-marketing" className="text-text-on-dark/60 text-xs leading-relaxed cursor-pointer">
+                I consent to receive marketing text messages about special offers, discounts, and service updates from Frost Media at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+              </label>
+            </div>
+            <div className="flex items-start gap-2">
+              <Checkbox id="sms-non-marketing" className="mt-0.5 border-white/20 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary" />
+              <label htmlFor="sms-non-marketing" className="text-text-on-dark/60 text-xs leading-relaxed cursor-pointer">
+                I consent to receive non-marketing text messages from Frost Media about appointment confirmations, reminders, and service updates. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+              </label>
+            </div>
+          </div>
+
+          <p className="text-text-on-dark/40 text-xs leading-relaxed">
+            By submitting this form you agree to our{" "}
+            <Link to="/privacy-policy" className="underline hover:text-text-on-dark/70" onClick={() => onOpenChange(false)}>
+              Privacy Policy
+            </Link>
+            {" "}and{" "}
+            <Link to="/terms-of-service" className="underline hover:text-text-on-dark/70" onClick={() => onOpenChange(false)}>
+              Terms of Service
+            </Link>.
+          </p>
+
           <div>
             <Label htmlFor="business" className="text-text-on-dark/70 text-xs">Business Type</Label>
             <Select>
