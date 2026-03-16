@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect, Component, ErrorInfo, ReactNode } from "react";
 import * as THREE from "three";
 import { cn } from "@/lib/utils";
 import heroMountains from "@/assets/hero-mountains.png";
@@ -10,6 +10,30 @@ interface DotGlobeHeroProps {
   globeRadius?: number;
   className?: string;
   children?: React.ReactNode;
+}
+
+// Class-based error boundary to catch WebGL crashes
+class WebGLErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(): { hasError: boolean } {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.warn("WebGL not available, rendering without globe:", error.message);
+  }
+
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
 }
 
 const Globe: React.FC<{
@@ -42,6 +66,18 @@ const Globe: React.FC<{
   );
 };
 
+function isWebGLAvailable(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+    );
+  } catch {
+    return false;
+  }
+}
+
 const DotGlobeHero = React.forwardRef<HTMLDivElement, DotGlobeHeroProps>(
   (
     {
@@ -53,6 +89,12 @@ const DotGlobeHero = React.forwardRef<HTMLDivElement, DotGlobeHeroProps>(
     },
     ref
   ) => {
+    const [showGlobe, setShowGlobe] = useState(false);
+
+    useEffect(() => {
+      setShowGlobe(isWebGLAvailable());
+    }, []);
+
     return (
       <div
         ref={ref}
@@ -72,18 +114,22 @@ const DotGlobeHero = React.forwardRef<HTMLDivElement, DotGlobeHeroProps>(
         {/* Dark overlay for contrast */}
         <div className="absolute inset-0 z-[2] bg-black/50" />
 
-        {/* Globe canvas */}
-        <div className="absolute inset-0 z-[3]">
-          <Canvas
-            gl={{ alpha: true, antialias: true }}
-            style={{ background: "transparent" }}
-          >
-            <PerspectiveCamera makeDefault position={[0, 0.5, 4.5]} fov={45} />
-            <ambientLight intensity={0.3} />
-            <pointLight position={[10, 10, 10]} intensity={0.5} />
-            <Globe rotationSpeed={rotationSpeed} radius={globeRadius} />
-          </Canvas>
-        </div>
+        {/* Globe canvas — only if WebGL available */}
+        {showGlobe && (
+          <div className="absolute inset-0 z-[3]">
+            <WebGLErrorBoundary>
+              <Canvas
+                gl={{ alpha: true, antialias: true }}
+                style={{ background: "transparent" }}
+              >
+                <PerspectiveCamera makeDefault position={[0, 0.5, 4.5]} fov={45} />
+                <ambientLight intensity={0.3} />
+                <pointLight position={[10, 10, 10]} intensity={0.5} />
+                <Globe rotationSpeed={rotationSpeed} radius={globeRadius} />
+              </Canvas>
+            </WebGLErrorBoundary>
+          </div>
+        )}
 
         {/* Subtle gradient overlays for text readability */}
         <div className="absolute inset-0 z-[4] bg-gradient-to-r from-black/60 via-transparent to-transparent" />
