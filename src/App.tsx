@@ -10,6 +10,8 @@ import AIAutomation from "./pages/AIAutomation";
 import MetaAds from "./pages/MetaAds";
 
 import AboutPage from "./pages/AboutPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
