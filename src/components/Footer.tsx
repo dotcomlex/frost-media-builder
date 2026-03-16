@@ -68,7 +68,7 @@ const Footer = () => {
             <Link to="/privacy-policy" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy Policy</Link>
             <Link to="/terms-of-service" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Terms of Service</Link>
           </div>
-          <p className="text-xs text-slate-600">📍 Denver, Colorado</p>
+          <p className="text-xs text-slate-600">📍 11990 Grant St, Northglenn, CO 80233</p>
         </div>
       </div>
     </footer>
