@@ -39,7 +39,7 @@ const Footer = () => {
               <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Company</h4>
               <ul className="space-y-2.5 text-sm text-slate-400">
                 <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><button onClick={openForm} className="hover:text-white transition-colors">Contact</button></li>
+                <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
           </div>

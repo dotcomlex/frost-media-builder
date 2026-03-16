@@ -31,6 +31,7 @@ const App = () => (
             <Route path="/services/meta-ads" element={<MetaAds />} />
             
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
