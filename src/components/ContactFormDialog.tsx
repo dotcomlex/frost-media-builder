@@ -95,7 +95,7 @@ const ContactFormDialog = ({ open, onOpenChange }: { open: boolean; onOpenChange
             <div className="flex items-start gap-2">
               <Checkbox id="sms-non-marketing" className="mt-0.5 border-white/20 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary" />
               <label htmlFor="sms-non-marketing" className="text-text-on-dark/60 text-xs leading-relaxed cursor-pointer">
-                I consent to receive non-marketing text messages from Frost Media about appointment confirmations, reminders, and service updates. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+                I consent to receive non-marketing text messages from Frost Media LLC about appointment confirmations, reminders, and service updates. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
               </label>
             </div>
           </div>
