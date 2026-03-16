@@ -1,59 +1,44 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# A2P 10DLC Compliance + WebGL Crash Fix
 
-## Changes Summary
+## Critical Bug Fix: WebGL Crash (blank screen)
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+The `DotGlobeHero` component uses Three.js/React Three Fiber which crashes when WebGL is unavailable (e.g., some mobile devices, iframes). This causes a **blank white screen** for the entire site.
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+**Fix in `src/components/ui/globe-hero.tsx`:**
+- Wrap the `<Canvas>` in an error boundary that catches WebGL failures
+- Add a `fallback` prop or simply render the hero without the globe when WebGL fails
+- The mountain background + gradient overlays still render, so the hero looks fine without the globe
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+## A2P Compliance Changes (5 changes, verbatim from request)
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+### Change 1: `src/App.tsx`
+- Add imports for `PrivacyPolicy` and `TermsOfService` pages
+- Add two routes: `/privacy-policy` and `/terms-of-service`
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+### Change 2: Create `src/pages/PrivacyPolicy.tsx`
+- New page with Navigation + Footer, white bg, max-w-3xl centered
+- All sections with verbatim text as specified (Information We Collect, How We Use, SMS/Text, Opt-Out, Data Security, Contact)
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+### Change 3: Create `src/pages/TermsOfService.tsx`
+- New page with Navigation + Footer, white bg, max-w-3xl centered
+- All sections with verbatim text as specified (Acceptance, Services, SMS Messaging Program, Payment, Liability, Contact)
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### Change 4: `src/components/ContactFormDialog.tsx`
+- Add two checkbox fields (marketing SMS consent + non-marketing SMS consent) between phone input and business type select
+- Add privacy/terms agreement text with links below checkboxes, above submit button
+- Import `Checkbox` from ui and `Link` from react-router-dom
 
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+### Change 5: `src/components/Footer.tsx`
+- Add Privacy Policy and Terms of Service links in the bottom bar
+- Add address/phone/email line under the brand description paragraph
+
+### Files touched
+- `src/components/ui/globe-hero.tsx` — error boundary for WebGL
+- `src/App.tsx` — two new routes
+- `src/pages/PrivacyPolicy.tsx` — new file
+- `src/pages/TermsOfService.tsx` — new file
+- `src/components/ContactFormDialog.tsx` — checkboxes + legal links
+- `src/components/Footer.tsx` — footer links + contact info
 
