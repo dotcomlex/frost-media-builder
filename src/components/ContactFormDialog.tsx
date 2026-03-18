@@ -102,13 +102,13 @@ const ContactFormDialog = ({ open, onOpenChange }: { open: boolean; onOpenChange
 
           <p className="text-text-on-dark/40 text-xs leading-relaxed">
             By submitting this form you agree to our{" "}
-            <Link to="/privacy-policy" className="underline hover:text-text-on-dark/70" onClick={() => onOpenChange(false)}>
+            <a href="/privacy-policy.html" className="underline hover:text-text-on-dark/70" target="_blank" rel="noopener noreferrer">
               Privacy Policy
-            </Link>
+            </a>
             {" "}and{" "}
-            <Link to="/terms-of-service" className="underline hover:text-text-on-dark/70" onClick={() => onOpenChange(false)}>
+            <a href="/terms-of-service.html" className="underline hover:text-text-on-dark/70" target="_blank" rel="noopener noreferrer">
               Terms of Service
-            </Link>.
+            </a>.
           </p>
 
           <div>
