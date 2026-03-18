@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Allow: /privacy-policy.html
+Allow: /terms-of-service.html
 Sitemap: https://frostmedia.io/sitemap.xml
