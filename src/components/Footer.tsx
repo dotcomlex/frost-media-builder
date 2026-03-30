@@ -1,31 +1,28 @@
 import { Link } from "react-router-dom";
 import { useContactForm } from "@/components/ContactFormDialog";
 import { Button } from "@/components/ui/button";
-import frostmediaLogo from "@/assets/frostmedia-logo.webp";
 
 const Footer = () => {
   const { openForm } = useContactForm();
 
   return (
     <footer className="relative bg-gradient-to-b from-slate-900 to-slate-950 border-t border-slate-800/60">
-      {/* Main content */}
       <div className="max-w-6xl mx-auto px-6 md:px-8 pt-16 pb-10">
-        {/* Top: Logo + Nav */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-          {/* Brand */}
           <div className="max-w-sm">
             <Link to="/">
-              <img src={frostmediaLogo} alt="Frost Media" className="h-14 w-auto" />
+              <span className="font-heading font-black text-2xl tracking-tight text-text-on-dark">
+                BrainBrite<sup className="text-[0.5em] align-super">®</sup>
+              </span>
             </Link>
             <p className="text-sm text-slate-400 mt-4 leading-relaxed">
               Growth systems for home service businesses. Ads, AI, and websites that actually convert.
             </p>
             <p className="text-xs text-slate-500 mt-3">
-              11990 Grant St, Northglenn, CO 80233 · (720) 288-7101 · hello@frostmedia.io
+              11821 Altura St, Commerce City, CO 80603 · (720) 452-9304 · brainbritellc@gmail.com
             </p>
           </div>
 
-          {/* Nav columns */}
           <div className="flex gap-16">
             <div>
               <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Services</h4>
@@ -45,7 +42,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* CTA Banner */}
         <div className="mt-14 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm px-8 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <h3 className="text-lg font-heading font-bold text-white">Ready to grow?</h3>
@@ -60,15 +56,14 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-slate-800/60">
         <div className="max-w-6xl mx-auto px-6 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-slate-600">© 2026 Frost Media. All rights reserved.</p>
+          <p className="text-xs text-slate-600">© 2026 BrainBrite LLC. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a href="/privacy-policy.html" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy Policy</a>
             <a href="/terms-of-service.html" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Terms of Service</a>
           </div>
-          <p className="text-xs text-slate-600">📍 11990 Grant St, Northglenn, CO 80233</p>
+          <p className="text-xs text-slate-600">📍 11821 Altura St, Commerce City, CO 80603</p>
         </div>
       </div>
     </footer>

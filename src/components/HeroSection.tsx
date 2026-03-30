@@ -54,7 +54,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-text-on-dark/50 text-xs tracking-wide mt-6"
           >
-            📍 Frost Media LLC · 11990 Grant St, Northglenn, CO 80233
+            📍 BrainBrite LLC · 11821 Altura St, Commerce City, CO 80603
           </motion.p>
         </div>
       </div>

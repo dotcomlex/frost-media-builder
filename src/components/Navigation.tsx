@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useContactForm } from "@/components/ContactFormDialog";
 import { Link } from "react-router-dom";
-import frostmediaLogo from "@/assets/frostmedia-logo.webp";
 import { motion, AnimatePresence } from "framer-motion";
 
 const serviceLinks = [
@@ -26,12 +25,13 @@ const Navigation = () => {
       <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            <img src={frostmediaLogo} alt="Frost Media" className="h-[120px] w-auto mt-4 -ml-4 md:ml-0" />
+            <span className="font-heading font-black text-2xl md:text-3xl tracking-tight text-text-on-dark mt-1">
+              BrainBrite<sup className="text-[0.5em] align-super">®</sup>
+            </span>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {/* Services Dropdown */}
             <div className="relative group">
               <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1">
                 Services <ChevronDown className="h-4 w-4" />
@@ -54,7 +54,6 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* CTA Button */}
           <button
             onClick={openForm}
             className="hidden md:block bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-lg"
@@ -62,7 +61,6 @@ const Navigation = () => {
             Book a Call
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-white p-2"
             onClick={() => setOpen(!open)}
@@ -73,7 +71,6 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Full-screen mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -83,9 +80,8 @@ const Navigation = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[60] bg-alpine-dark/98 backdrop-blur-2xl md:hidden flex flex-col"
           >
-            {/* Close button inside the overlay */}
             <div className="flex items-center justify-between px-4 h-20">
-              <img src={frostmediaLogo} alt="Frost Media" className="h-10 w-auto opacity-60" />
+              <span className="font-heading font-black text-xl text-text-on-dark/60">BrainBrite®</span>
               <button
                 className="text-white p-2"
                 onClick={() => setOpen(false)}
@@ -101,7 +97,6 @@ const Navigation = () => {
                   Home
                 </Link>
 
-                {/* Services Expandable */}
                 <div>
                   <button
                     onClick={() => setServicesOpen(!servicesOpen)}
@@ -144,7 +139,7 @@ const Navigation = () => {
                 >
                   Book a Call
                 </button>
-                <p className="text-xs text-slate-500 mt-4 tracking-widest uppercase text-center">Denver, Colorado</p>
+                <p className="text-xs text-slate-500 mt-4 tracking-widest uppercase text-center">Commerce City, Colorado</p>
               </div>
             </div>
           </motion.div>

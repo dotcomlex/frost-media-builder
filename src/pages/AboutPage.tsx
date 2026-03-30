@@ -90,7 +90,7 @@ const AboutPage = () => {
             >
               <img
                 src={aboutTeam}
-                alt="Frost Media team collaborating"
+                alt="BrainBrite team collaborating"
                 className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-lg"
               />
             </motion.div>
