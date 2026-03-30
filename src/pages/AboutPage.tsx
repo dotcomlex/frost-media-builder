@@ -54,7 +54,7 @@ const AboutPage = () => {
               About Us
             </p>
             <h1 className="font-heading text-4xl md:text-6xl font-bold text-text-on-dark tracking-tight mb-4">
-              Hey, we're Frost Media.
+              Hey, we're BrainBrite.
             </h1>
             <p className="text-text-on-dark/70 text-lg md:text-xl max-w-xl leading-relaxed">
               A small team of designers and marketers building growth systems for home service businesses who are done wasting money.

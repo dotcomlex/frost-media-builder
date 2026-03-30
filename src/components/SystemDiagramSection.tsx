@@ -18,18 +18,18 @@ import avatarMaria from "@/assets/avatar-maria.jpg";
 import avatarTyler from "@/assets/avatar-tyler.jpg";
 
 const reviews = [
-  { name: "Marcus T.", role: "HVAC Owner", location: "Phoenix, AZ", tag: "HVAC", quote: "Frost Media built us an AI lead system that completely filled our summer schedule. We had to hire two new techs just to keep up. Best investment we've ever made.", avatar: avatarMarcus },
+  { name: "Marcus T.", role: "HVAC Owner", location: "Phoenix, AZ", tag: "HVAC", quote: "BrainBrite built us an AI lead system that completely filled our summer schedule. We had to hire two new techs just to keep up. Best investment we've ever made.", avatar: avatarMarcus },
   { name: "Sarah L.", role: "Beauty Studio Owner", location: "Denver, CO", tag: "Beauty", quote: "I went from empty afternoons to a full waitlist in three weeks. Their ad campaigns and AI booking assistant changed everything for my studio.", avatar: avatarSarah },
   { name: "David R.", role: "Concrete Contractor", location: "Dallas, TX", tag: "Concrete", quote: "We closed more jobs in Q1 than the entire previous year. The lead gen system they built is a machine — quality leads, every single day.", avatar: avatarDavid },
   { name: "Jennifer K.", role: "E-Commerce Brand Owner", location: "Los Angeles, CA", tag: "E-Commerce", quote: "Our ROAS tripled after they restructured our ad accounts. The creative testing framework alone was worth 10x what we paid.", avatar: avatarJennifer },
   { name: "Mike P.", role: "Painting Company Owner", location: "Denver, CO", tag: "Painting", quote: "Every estimate I go on now actually closes. Their AI chatbot pre-qualifies every lead before I even show up. No more wasted drives.", avatar: avatarMike },
   { name: "Carlos M.", role: "Roofing Company Owner", location: "Tampa, FL", tag: "Roofing", quote: "We went from competing on price to being the go-to roofer in our zip codes. Booked out months in advance now.", avatar: avatarCarlos },
   { name: "Amanda W.", role: "Insurance Agent", location: "Austin, TX", tag: "Insurance", quote: "Their AI chatbot handles all my inbound leads instantly. I used to lose prospects because I couldn't respond fast enough. Not anymore.", avatar: avatarAmanda },
-  { name: "Jason B.", role: "Real Estate Team Lead", location: "Miami, FL", tag: "Real Estate", quote: "Our lead gen pipeline runs completely on autopilot. Frost Media set it up, and now we just focus on closing deals.", avatar: avatarJason },
+  { name: "Jason B.", role: "Real Estate Team Lead", location: "Miami, FL", tag: "Real Estate", quote: "Our lead gen pipeline runs completely on autopilot. BrainBrite set it up, and now we just focus on closing deals.", avatar: avatarJason },
   { name: "Priya S.", role: "Med Spa Owner", location: "Scottsdale, AZ", tag: "Med Spa", quote: "They built our entire funnel from scratch — ads, landing page, AI follow-up. We went from 5 bookings a week to 30+. Unreal.", avatar: avatarPriya },
   { name: "Brian H.", role: "Plumbing Company Owner", location: "Charlotte, NC", tag: "Plumbing", quote: "I was skeptical about AI automation, but their system books appointments while I sleep. Revenue is up 40% in three months.", avatar: avatarBrian },
   { name: "Maria G.", role: "Fitness Studio Owner", location: "San Diego, CA", tag: "Fitness", quote: "Their copywriting and ad creative completely changed our brand presence. We're now the most recognized studio in our area.", avatar: avatarMaria },
-  { name: "Tyler J.", role: "Landscaping Owner", location: "Denver, CO", tag: "Landscaping", quote: "Frost Media doesn't just run ads — they built a system that feeds us qualified leads on repeat. Game changer for our business.", avatar: avatarTyler },
+  { name: "Tyler J.", role: "Landscaping Owner", location: "Denver, CO", tag: "Landscaping", quote: "BrainBrite doesn't just run ads — they built a system that feeds us qualified leads on repeat. Game changer for our business.", avatar: avatarTyler },
 ];
 
 const SystemDiagramSection = () => {

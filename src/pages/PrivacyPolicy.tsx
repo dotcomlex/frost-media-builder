@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
         <section className="mb-10">
           <h2 className="font-heading text-xl font-semibold mb-3">SMS / Text Message Communications</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Frost Media provides SMS notifications including appointment confirmations, appointment reminders, missed call follow-ups, review requests, and promotional offers to customers who have opted in to receive text messages. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties, excluding aggregators and providers of the Text Message services.
+            BrainBrite provides SMS notifications including appointment confirmations, appointment reminders, missed call follow-ups, review requests, and promotional offers to customers who have opted in to receive text messages. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties, excluding aggregators and providers of the Text Message services.
           </p>
         </section>
 
@@ -49,10 +49,10 @@ const PrivacyPolicy = () => {
         <section className="mb-10">
           <h2 className="font-heading text-xl font-semibold mb-3">Contact Us</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Frost Media<br />
-            11990 Grant St, Northglenn, Colorado 80233<br />
-            Email: hello@frostmedia.io<br />
-            Phone: (720) 288-7101
+            BrainBrite<br />
+            11821 Altura St, Commerce City, Colorado 80603<br />
+            Email: brainbritellc@gmail.com<br />
+            Phone: (720) 452-9304
           </p>
         </section>
       </div>
