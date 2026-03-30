@@ -101,7 +101,7 @@ const fadeUp = {
 };
 
 const testimonials = [
-  { avatarUrl: avatarPriya, name: "Priya Sharma", role: "Owner", location: "Charlotte, NC", tag: "HVAC Services", quote: "We booked 38 installs in our first month with Frost. The leads were pre-qualified and ready to schedule." },
+  { avatarUrl: avatarPriya, name: "Priya Sharma", role: "Owner", location: "Charlotte, NC", tag: "HVAC Services", quote: "We booked 38 installs in our first month with BrainBrite. The leads were pre-qualified and ready to schedule." },
   { avatarUrl: avatarBrian, name: "Brian O'Neill", role: "Founder", location: "Tampa, FL", tag: "Pressure Washing", quote: "Cut our cost per lead from $35 to $9. Their ad targeting is surgical — every lead is in our service area." },
   { avatarUrl: avatarMaria, name: "Maria Gonzalez", role: "Director", location: "Las Vegas, NV", tag: "Beauty Studio", quote: "Went from relying on walk-ins to a fully booked calendar 3 weeks out. The creative they make is gorgeous." },
   { avatarUrl: avatarTyler, name: "Tyler Brooks", role: "CEO", location: "Nashville, TN", tag: "Fencing Company", quote: "Other agencies burned our budget on trash leads. Frost gave us exclusive, high-intent leads from day one." },
