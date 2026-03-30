@@ -89,7 +89,7 @@ const ContactFormDialog = ({ open, onOpenChange }: { open: boolean; onOpenChange
             <div className="flex items-start gap-2">
               <Checkbox id="sms-marketing" className="mt-0.5 border-white/20 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary" />
               <label htmlFor="sms-marketing" className="text-text-on-dark/60 text-xs leading-relaxed cursor-pointer">
-                I consent to receive marketing text messages about special offers, discounts, and service updates from Frost Media LLC at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+                I consent to receive marketing text messages about special offers, discounts, and service updates from BrainBrite LLC at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
               </label>
             </div>
             <div className="flex items-start gap-2">
