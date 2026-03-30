@@ -24,7 +24,7 @@ const AboutSection = () => (
         >
           <img
             src={aboutDenver}
-            alt="Frost Media team working in our Denver office"
+            alt="BrainBrite team working in our Colorado office"
             className="w-full h-64 md:h-80 object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-alpine-dark/60 via-transparent to-transparent" />

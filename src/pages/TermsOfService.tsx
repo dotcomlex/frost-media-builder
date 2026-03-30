@@ -14,14 +14,14 @@ const TermsOfService = () => {
         <section className="mb-10">
           <h2 className="font-heading text-xl font-semibold mb-3">Acceptance of Terms</h2>
           <p className="text-muted-foreground leading-relaxed">
-            By accessing or using Frost Media's services, you agree to be bound by these Terms of Service.
+            By accessing or using BrainBrite's services, you agree to be bound by these Terms of Service.
           </p>
         </section>
 
         <section className="mb-10">
           <h2 className="font-heading text-xl font-semibold mb-3">Services</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Frost Media provides digital marketing services including social media advertising, website design, AI automation, and CRM solutions for businesses.
+            BrainBrite provides digital marketing services including social media advertising, website design, AI automation, and CRM solutions for businesses.
           </p>
         </section>
 
@@ -29,13 +29,13 @@ const TermsOfService = () => {
           <h2 className="font-heading text-xl font-semibold mb-3">SMS Messaging Program</h2>
           <div className="text-muted-foreground leading-relaxed space-y-4">
             <p>
-              Frost Media provides SMS notifications including appointment confirmations, appointment reminders, missed call follow-ups, review requests, and promotional offers related to home services to customers who have opted in to receive text messages.
+              BrainBrite provides SMS notifications including appointment confirmations, appointment reminders, missed call follow-ups, review requests, and promotional offers related to home services to customers who have opted in to receive text messages.
             </p>
             <p>
               You can cancel the SMS service at any time. Just text STOP to the phone number from which you received messages. After you send the SMS message STOP to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.
             </p>
             <p>
-              If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at hello@frostmedia.io.
+              If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at brainbritellc@gmail.com.
             </p>
             <p>
               Carriers are not liable for delayed or undelivered messages.
@@ -46,7 +46,7 @@ const TermsOfService = () => {
             <p>
               If you have any questions regarding privacy, please read our privacy policy at{" "}
               <a href="/privacy-policy" className="text-primary underline hover:text-primary/80">
-                https://frostmedia.io/privacy-policy
+                https://brainbrite.io/privacy-policy
               </a>.
             </p>
           </div>
@@ -62,17 +62,17 @@ const TermsOfService = () => {
         <section className="mb-10">
           <h2 className="font-heading text-xl font-semibold mb-3">Limitation of Liability</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Frost Media is not liable for indirect, incidental, or consequential damages arising from use of our services.
+            BrainBrite is not liable for indirect, incidental, or consequential damages arising from use of our services.
           </p>
         </section>
 
         <section className="mb-10">
           <h2 className="font-heading text-xl font-semibold mb-3">Contact</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Frost Media<br />
-            11990 Grant St, Northglenn, Colorado 80233<br />
-            Email: hello@frostmedia.io<br />
-            Phone: (720) 288-7101
+            BrainBrite<br />
+            11821 Altura St, Commerce City, Colorado 80603<br />
+            Email: brainbritellc@gmail.com<br />
+            Phone: (720) 452-9304
           </p>
         </section>
       </div>

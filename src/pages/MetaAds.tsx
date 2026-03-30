@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useContactForm } from "@/components/ContactFormDialog";
 import heroMountains from "@/assets/hero-mountains.png";
-import frostmediaLogo from "@/assets/frostmedia-logo.webp";
+
 import dashboardMeta1 from "@/assets/dashboard-meta-1.jpg";
 import dashboardMeta2 from "@/assets/dashboard-meta-2.jpg";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
@@ -101,10 +101,10 @@ const fadeUp = {
 };
 
 const testimonials = [
-  { avatarUrl: avatarPriya, name: "Priya Sharma", role: "Owner", location: "Charlotte, NC", tag: "HVAC Services", quote: "We booked 38 installs in our first month with Frost. The leads were pre-qualified and ready to schedule." },
+  { avatarUrl: avatarPriya, name: "Priya Sharma", role: "Owner", location: "Charlotte, NC", tag: "HVAC Services", quote: "We booked 38 installs in our first month with BrainBrite. The leads were pre-qualified and ready to schedule." },
   { avatarUrl: avatarBrian, name: "Brian O'Neill", role: "Founder", location: "Tampa, FL", tag: "Pressure Washing", quote: "Cut our cost per lead from $35 to $9. Their ad targeting is surgical — every lead is in our service area." },
   { avatarUrl: avatarMaria, name: "Maria Gonzalez", role: "Director", location: "Las Vegas, NV", tag: "Beauty Studio", quote: "Went from relying on walk-ins to a fully booked calendar 3 weeks out. The creative they make is gorgeous." },
-  { avatarUrl: avatarTyler, name: "Tyler Brooks", role: "CEO", location: "Nashville, TN", tag: "Fencing Company", quote: "Other agencies burned our budget on trash leads. Frost gave us exclusive, high-intent leads from day one." },
+  { avatarUrl: avatarTyler, name: "Tyler Brooks", role: "CEO", location: "Nashville, TN", tag: "Fencing Company", quote: "Other agencies burned our budget on trash leads. BrainBrite gave us exclusive, high-intent leads from day one." },
   { avatarUrl: avatarJason, name: "Jason Kim", role: "Owner", location: "San Diego, CA", tag: "E-commerce DTC", quote: "Scaled from $2K/month to $18K/month in revenue with a 4.1x ROAS. These guys actually know Meta inside out." },
   { avatarUrl: avatarMike, name: "Mike Patterson", role: "Broker", location: "Chicago, IL", tag: "Insurance", quote: "The AI follow-up texts respond in under 5 seconds. My close rate went up 40% because of speed-to-lead alone." },
 ];
@@ -399,12 +399,12 @@ const MetaAds = () => {
               </div>
             </motion.div>
 
-            {/* Frost — green themed */}
+            {/* BrainBrite — green themed */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }}
               className="bg-background rounded-2xl border-2 border-success/30 p-5 ring-1 ring-success/10">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 className="h-5 w-5 text-success" />
-                <h3 className="font-heading text-lg font-bold text-foreground">Frost Media</h3>
+                <h3 className="font-heading text-lg font-bold text-foreground">BrainBrite</h3>
               </div>
               <div className="space-y-3">
                 {[
@@ -412,7 +412,7 @@ const MetaAds = () => {
                   "You own your ad account — leave anytime, keep everything",
                   "Full transparency — real-time access to your dashboard",
                   "Direct communication, weekly optimization reports",
-                  "100% exclusive leads + AI-powered follow-up with FrostBot",
+                  "100% exclusive leads + AI-powered follow-up",
                 ].map((text, i) => (
                   <div key={i} className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0 mt-0.5" />

@@ -37,7 +37,7 @@ const FinalCTASection = () => {
             Book a Free Strategy Call →
           </Button>
           <p className="text-xs text-text-on-dark/30 mt-5 font-mono-tech tracking-wide">
-            📍 Denver, Colorado
+            📍 Commerce City, Colorado
           </p>
         </motion.div>
       </div>
