@@ -1,59 +1,85 @@
 
 
-# Site Overhaul — Navigation, Services, AI Solutions, Work Page & Mobile Polish
+# Rebrand: Frost Media → BrainBrite®
 
-## Changes Summary
+Replace every mention of "Frost Media" with "BrainBrite®" (or "BrainBrite LLC" in legal contexts), update all contact info, and swap the logo image for a text-based logo.
 
-### 1. Navigation Overhaul
-**`Navigation.tsx`**
-- Remove "About" link (it just scrolls to homepage section)
-- Remove "Let's Talk" CTA button on desktop — keep only "Contact" which opens the form
-- Rename "Work" to "Our Work" or "Website Designs"
-- On mobile slide menu: remove the "Let's Talk" button, keep only "Contact" link that opens the form
-- Enhance mobile menu design — add logo at top, better spacing, subtle dividers, fade-in animations
+## New Business Info
+- **Legal name**: BrainBrite LLC
+- **Display name**: BrainBrite®
+- **Address**: 11821 Altura St, Commerce City, Colorado 80603
+- **Phone**: (720) 452-9304
+- **Email**: brainbritellc@gmail.com
+- **Domain**: brainbrite.io
 
-### 2. Remove ProcessSection from Homepage
-**`Index.tsx`**
-- Remove `<ProcessSection />` from the homepage entirely
+---
 
-### 3. Services Section Redesign (Homepage)
-**`CapabilitiesSection.tsx`**
-- Replace stacked single-column cards with a **2-column split layout on desktop** (2x2 grid) so it doesn't take up so much vertical space
-- On mobile: full-width stacked cards remain
-- Each card gets a larger visual treatment — gradient icon area at top of card, title, short description
-- Rename "AI Automation" to "Conversational AI" to avoid repetition with the AI Solutions section
+## Files to Edit (16 files)
 
-### 4. AI Solutions Section — Rewrite as "Conversational AI"
-**`SystemBreakdownSection.tsx`**
-- Consolidate the 4 repetitive items (AI SMS, AI Chatbots, DM Automation are basically the same) into a more engaging section
-- Rename to "Conversational AI" inspired by the NineTwoThree reference
-- Structure: hero-style intro on the left explaining the concept (speaks your brand, trained on your industry, responds instantly across all channels), with key benefits on the right
-- Mention channels (voice, text, chat, DMs) as a unified system, not separate cards
-- Keep it concise — one section, not 4 nearly-identical cards
+### 1. `src/components/FrostLogo.tsx` → rename to text logo
+- Remove the webp import
+- Render a styled `<span>` with "BrainBrite®" instead of an `<img>`
+- Keep the same prop interface (size, className)
 
-### 5. Services Page Redesign
-**`Services.tsx`**
-- Complete redesign — move away from dark stacked cards
-- Use a **light/bright design** inspired by 3SidedCube reference: alternating white/light sections, each service gets its own full-width section with icon, headline, description, and a subtle visual element
-- Not just dark square cards — varied layouts, breathing room, premium feel
+### 2. `src/components/Navigation.tsx`
+- Remove `frostmediaLogo` import
+- Replace both `<img>` tags (desktop + mobile) with text "BrainBrite®" styled as a logo
+- Update alt text references
 
-### 6. Work Page Enhancements
-**`Work.tsx`**
-- Rename page title to "Website Design Portfolio" or "Recent Website Designs"
-- Change image aspect ratio from 16:10 to **1:1 (square)** so full site screenshots are visible
-- Add a subtle background treatment instead of plain black — could be a gradient or mountain imagery with dark overlay
-- Ensure images display well on mobile at full width
+### 3. `src/components/Footer.tsx`
+- Remove `frostmediaLogo` import
+- Replace `<img>` with text "BrainBrite®"
+- Update address, phone, email to new values
+- "© 2026 Frost Media" → "© 2026 BrainBrite LLC"
+- Update description text
 
-### 7. Footer Updates
-**`Footer.tsx`**
-- Remove "About" link, update "Our Work" label to match nav
+### 4. `src/components/HeroSection.tsx`
+- Line 57: "Frost Media LLC" → "BrainBrite LLC", update address
 
-### Files Modified
-- `src/components/Navigation.tsx` — streamlined nav, enhanced mobile menu
-- `src/pages/Index.tsx` — remove ProcessSection
-- `src/components/CapabilitiesSection.tsx` — 2-col grid on desktop, rename AI Automation → Conversational AI
-- `src/components/SystemBreakdownSection.tsx` — consolidate into unified Conversational AI section
-- `src/pages/Services.tsx` — bright, varied layout redesign
-- `src/pages/Work.tsx` — square images, better background, renamed title
-- `src/components/Footer.tsx` — updated links
+### 5. `src/components/ContactFormDialog.tsx`
+- Lines 92, 98: "Frost Media LLC" → "BrainBrite LLC"
+
+### 6. `src/components/FinalCTASection.tsx`
+- Line 40: Update location text
+
+### 7. `src/components/SystemDiagramSection.tsx`
+- Lines 21, 28: "Frost Media" → "BrainBrite" in testimonial quotes
+
+### 8. `src/components/AboutSection.tsx`
+- Update alt text "Frost Media team" → "BrainBrite team"
+
+### 9. `src/pages/Contact.tsx`
+- "Contact Frost Media LLC" → "Contact BrainBrite LLC"
+- Update email, phone, address throughout
+
+### 10. `src/pages/TermsOfService.tsx`
+- All "Frost Media" → "BrainBrite LLC" or "BrainBrite"
+- Update email, domain references
+
+### 11. `src/pages/PrivacyPolicy.tsx`
+- Same treatment as TermsOfService
+
+### 12. `src/pages/MetaAds.tsx`
+- Remove `frostmediaLogo` import and any usage
+
+### 13. `src/pages/AboutPage.tsx`
+- Update any "Frost Media" text references
+
+### 14. `index.html`
+- Update `<title>`, all meta tags, JSON-LD schema
+- Replace "Frost Media" with "BrainBrite®", domain with brainbrite.io, email/phone/address
+
+### 15. `public/privacy-policy.html`
+- Global replace: "Frost Media LLC" → "BrainBrite LLC"
+- Update all email, phone, address, domain references
+- "Back to Frost Media" → "Back to BrainBrite"
+
+### 16. `public/terms-of-service.html`
+- Same global replace as privacy policy
+
+### 17. `public/sitemap.xml`
+- Replace frostmedia.io → brainbrite.io
+
+### 18. `public/robots.txt`
+- Replace frostmedia.io → brainbrite.io
 
