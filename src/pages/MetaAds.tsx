@@ -399,12 +399,12 @@ const MetaAds = () => {
               </div>
             </motion.div>
 
-            {/* Frost — green themed */}
+            {/* BrainBrite — green themed */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }}
               className="bg-background rounded-2xl border-2 border-success/30 p-5 ring-1 ring-success/10">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 className="h-5 w-5 text-success" />
-                <h3 className="font-heading text-lg font-bold text-foreground">Frost Media</h3>
+                <h3 className="font-heading text-lg font-bold text-foreground">BrainBrite</h3>
               </div>
               <div className="space-y-3">
                 {[
@@ -412,7 +412,7 @@ const MetaAds = () => {
                   "You own your ad account — leave anytime, keep everything",
                   "Full transparency — real-time access to your dashboard",
                   "Direct communication, weekly optimization reports",
-                  "100% exclusive leads + AI-powered follow-up with FrostBot",
+                  "100% exclusive leads + AI-powered follow-up",
                 ].map((text, i) => (
                   <div key={i} className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0 mt-0.5" />
