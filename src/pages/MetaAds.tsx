@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useContactForm } from "@/components/ContactFormDialog";
 import heroMountains from "@/assets/hero-mountains.png";
-import frostmediaLogo from "@/assets/frostmedia-logo.webp";
+
 import dashboardMeta1 from "@/assets/dashboard-meta-1.jpg";
 import dashboardMeta2 from "@/assets/dashboard-meta-2.jpg";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
